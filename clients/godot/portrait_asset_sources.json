@@ -1,0 +1,17 @@
+{
+  "schema": "game-assets.sources/v1",
+  "packs": [
+    {
+      "id": "dominion-pixel",
+      "version": "1.0.1",
+      "sha256": "0d9d5f84b0dbb914353d861ecb1a2996538f31dfecc088578fffb1d4bb4cbdb0",
+      "catalog": "res://game_data/characters/portrait_modular_foundation_v1.json"
+    },
+    {
+      "id": "everyday-illustrated",
+      "version": "1.0.1",
+      "sha256": "abb1d08a670c7b0da2ec2ad75dfd0f86c112f219fcb632bb3b3ca3bf5729ca80",
+      "catalog": "res://game_data/characters/portrait_everyday_illustrated_v1.json"
+    }
+  ]
+}

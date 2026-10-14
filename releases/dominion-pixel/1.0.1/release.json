@@ -1,0 +1,140 @@
+{
+  "schema": "game-assets.release/v1",
+  "id": "dominion-pixel",
+  "version": "1.0.1",
+  "kind": "portraits",
+  "files": {
+    "cadences/cadence_01_atmosphere.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_01_background.png": {
+      "size": 1111988,
+      "sha256": "a2acf3aa7a8aa13077a4bb93aad159e724b57049f12fed0456e5abca17f39fed"
+    },
+    "cadences/cadence_01_foreground.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_01_key_light.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_02_atmosphere.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_02_background.png": {
+      "size": 1112227,
+      "sha256": "72859af51024d21b97ce57798a29a38d76e9bed29dc94dea3264a462c507de08"
+    },
+    "cadences/cadence_02_foreground.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_02_key_light.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_03_atmosphere.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_03_background.png": {
+      "size": 1089804,
+      "sha256": "25b73388e5ab6839aa1d76f41dd8507728001cabea7fe5c20297dda349de6e32"
+    },
+    "cadences/cadence_03_foreground.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_03_key_light.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_04_atmosphere.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_04_background.png": {
+      "size": 1121087,
+      "sha256": "3caf3161f67fe8520fa14dffdb574db255bc94ecdc1a58681289988dcacf895b"
+    },
+    "cadences/cadence_04_foreground.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_04_key_light.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_05_atmosphere.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_05_background.png": {
+      "size": 1092289,
+      "sha256": "9810cba343ee44d36af54a3d4542c16ec20be13136a4f5251cc030611856b5fd"
+    },
+    "cadences/cadence_05_foreground.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "cadences/cadence_05_key_light.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "foundation/transparent.png": {
+      "size": 4144,
+      "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+    },
+    "godot-catalog.json": {
+      "size": 22451,
+      "sha256": "4d5848205d79da3ff80462c6ec834fcfd2b1f7de6125a3ed5a5b0e48561eba77"
+    },
+    "goggles.png": {
+      "size": 183878,
+      "sha256": "62cab9312e7c56b1f262af869de955321911ca8d89a0cdd62a391a825b773ebe"
+    },
+    "hair_crop.png": {
+      "size": 503092,
+      "sha256": "7fef6a741847e7e7cc9dfc5c6e7fbd1bb08d0e99584c06f876fd359c91006371"
+    },
+    "hair_sweep.png": {
+      "size": 602423,
+      "sha256": "b6daa05625e04b8e7a2209729a6a2401b8d1bcda5682668202b2e2e1517b32b3"
+    },
+    "head.png": {
+      "size": 616515,
+      "sha256": "0c52c73c4e5384997d992f4bdb91e5e455d85584e6e657588c195889d41b2c4d"
+    },
+    "head_02.png": {
+      "size": 661170,
+      "sha256": "4a3b498a66d699038085c182ff293e7f5d23ea233567c80b87d20a1d6b631889"
+    },
+    "head_03.png": {
+      "size": 619916,
+      "sha256": "536c7ab2d800c29040523b11f84c54ac4612cf619ca62945208e743236368e8d"
+    },
+    "head_04.png": {
+      "size": 669421,
+      "sha256": "5ec0ab45779abb8c985b8084bb35a4554d14dc9af582b720837bf17fd57da312"
+    },
+    "implant.png": {
+      "size": 97385,
+      "sha256": "a3027f7fb75d2126b8a833cf5315aca1c98b88d684c10172119e1328aab35dcb"
+    },
+    "jacket.png": {
+      "size": 779974,
+      "sha256": "630ce143e2dc330c502d761b053f4cf3eec63ff94a5d9390f7cf1ee6119d20d9"
+    },
+    "pack.json": {
+      "size": 7597,
+      "sha256": "6ddf2785ca6e15acdec65dc02ce72f8cad9ae73d372d435945d98d0065e95603"
+    },
+    "respirator.png": {
+      "size": 307185,
+      "sha256": "f61f22ef726c2817f55e235e0354d36d8fe4dd8bdb469c72f993082f7a751709"
+    }
+  }
+}

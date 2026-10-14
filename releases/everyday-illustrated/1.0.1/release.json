@@ -1,0 +1,48 @@
+{
+  "schema": "game-assets.release/v1",
+  "id": "everyday-illustrated",
+  "version": "1.0.1",
+  "kind": "portraits",
+  "files": {
+    "everyday_glasses_v2.png": {
+      "size": 122952,
+      "sha256": "7916bc2502c96d6ad1834b04d1fddae25b9ad5a637d3001097e352d30e9b6cd4"
+    },
+    "everyday_hair_curly.png": {
+      "size": 646138,
+      "sha256": "21f6f72e61e1cbb0270f5fe74022bfb0b4e33889f3f44ed86faa2dbb0893c6f8"
+    },
+    "everyday_hair_swept.png": {
+      "size": 519465,
+      "sha256": "af0bc999a3deef223e4f497b823ee913e414b1874fcbe528c0b44d6fd5bf181b"
+    },
+    "everyday_head_01.png": {
+      "size": 733583,
+      "sha256": "7f374b9a8c3a7fdf033a2be2431b7127c4362c8eaa3501204314293a9348960d"
+    },
+    "everyday_head_02.png": {
+      "size": 775115,
+      "sha256": "ebde56395ab2445f6fc1219d30a5d812ef2f6e2b10fd14835558668eb048bfa1"
+    },
+    "everyday_head_03.png": {
+      "size": 804090,
+      "sha256": "5191d99f3936fe5211d64bd53916794545efd7318bb8739623f8971836062247"
+    },
+    "everyday_shirt_collar.png": {
+      "size": 698902,
+      "sha256": "b18a797c5b109d161b2a444155b4dd98cb12ef95a37ff113d0bffa309960ddc0"
+    },
+    "everyday_shirt_crew.png": {
+      "size": 578419,
+      "sha256": "6ac4b24d366389d893b97158a71babc933dfd2cd09b749ed6de35bc66775d323"
+    },
+    "godot-catalog.json": {
+      "size": 19400,
+      "sha256": "41b5500dace5eef2e79bf51331af4931b466a339e72cebcb87ac7d158f6d040a"
+    },
+    "pack.json": {
+      "size": 7362,
+      "sha256": "6c2262d2c31cb9a02a81b2ce10a41b9fe8d547cde3cf910d279245f1d1fa086b"
+    }
+  }
+}

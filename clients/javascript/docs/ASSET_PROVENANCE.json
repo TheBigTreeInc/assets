@@ -1,0 +1,95 @@
+{
+  "schema": "modular-portraits.provenance/v1",
+  "assets": [
+    {
+      "path": "packs/dominion-pixel/goggles.png",
+      "sha256": "62cab9312e7c56b1f262af869de955321911ca8d89a0cdd62a391a825b773ebe",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/dominion-pixel/hair_crop.png",
+      "sha256": "7fef6a741847e7e7cc9dfc5c6e7fbd1bb08d0e99584c06f876fd359c91006371",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/dominion-pixel/hair_sweep.png",
+      "sha256": "b6daa05625e04b8e7a2209729a6a2401b8d1bcda5682668202b2e2e1517b32b3",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/dominion-pixel/head.png",
+      "sha256": "0c52c73c4e5384997d992f4bdb91e5e455d85584e6e657588c195889d41b2c4d",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/dominion-pixel/head_02.png",
+      "sha256": "4a3b498a66d699038085c182ff293e7f5d23ea233567c80b87d20a1d6b631889",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/dominion-pixel/head_03.png",
+      "sha256": "536c7ab2d800c29040523b11f84c54ac4612cf619ca62945208e743236368e8d",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/dominion-pixel/head_04.png",
+      "sha256": "5ec0ab45779abb8c985b8084bb35a4554d14dc9af582b720837bf17fd57da312",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/dominion-pixel/implant.png",
+      "sha256": "a3027f7fb75d2126b8a833cf5315aca1c98b88d684c10172119e1328aab35dcb",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/dominion-pixel/jacket.png",
+      "sha256": "630ce143e2dc330c502d761b053f4cf3eec63ff94a5d9390f7cf1ee6119d20d9",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/dominion-pixel/respirator.png",
+      "sha256": "f61f22ef726c2817f55e235e0354d36d8fe4dd8bdb469c72f993082f7a751709",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/everyday-illustrated/everyday_hair_curly.png",
+      "sha256": "21f6f72e61e1cbb0270f5fe74022bfb0b4e33889f3f44ed86faa2dbb0893c6f8",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/everyday-illustrated/everyday_hair_swept.png",
+      "sha256": "af0bc999a3deef223e4f497b823ee913e414b1874fcbe528c0b44d6fd5bf181b",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/everyday-illustrated/everyday_head_01.png",
+      "sha256": "7f374b9a8c3a7fdf033a2be2431b7127c4362c8eaa3501204314293a9348960d",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/everyday-illustrated/everyday_head_02.png",
+      "sha256": "ebde56395ab2445f6fc1219d30a5d812ef2f6e2b10fd14835558668eb048bfa1",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/everyday-illustrated/everyday_head_03.png",
+      "sha256": "5191d99f3936fe5211d64bd53916794545efd7318bb8739623f8971836062247",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/everyday-illustrated/everyday_shirt_collar.png",
+      "sha256": "b18a797c5b109d161b2a444155b4dd98cb12ef95a37ff113d0bffa309960ddc0",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/everyday-illustrated/everyday_shirt_crew.png",
+      "sha256": "6ac4b24d366389d893b97158a71babc933dfd2cd09b749ed6de35bc66775d323",
+      "method": "independently generated with built-in ImageGen; intact source PNG"
+    },
+    {
+      "path": "packs/everyday-illustrated/everyday_glasses_v2.png",
+      "sha256": "7916bc2502c96d6ad1834b04d1fddae25b9ad5a637d3001097e352d30e9b6cd4",
+      "method": "built-in ImageGen; independent corrected front frame, intact PNG"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254">
+<rect width="1254" height="1254" fill="#e7ecdf"/>
+<image href="../packs/everyday-illustrated/everyday_head_01.png" width="1254" height="1254" opacity=".65"/>
+<g fill="none" stroke="#169b85" stroke-width="2" stroke-dasharray="10 8"><path d="M627 0V1254"/><path d="M0 263.34H1254M0 639.54H1254M0 1028.28H1254M0 1040.82H1254M0 1203.84H1254"/></g>
+<g fill="#124c42" font-family="Segoe UI,Arial,sans-serif" font-size="22"><text x="30" y="250">Scalp top: y=.21</text><text x="30" y="625">Eye line: y=.51</text><text x="30" y="1008">Chin: y=.82</text><text x="30" y="1070">Front garment overlap: y=.83</text><text x="30" y="1190">Neck extends to y=.96</text><text x="30" y="40">FRONT PORTRAIT V1 · shared reference canvas · 1254 × 1254</text></g>
+<g fill="none" stroke="#b05680" stroke-width="3"><circle cx="501.6" cy="639.54" r="18"/><circle cx="752.4" cy="639.54" r="18"/></g>
+</svg>
