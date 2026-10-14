@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Numeric portrait appearance v1",
+  "type": "object",
+  "required": [
+    "format",
+    "catalog",
+    "pack",
+    "parts",
+    "colors"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": 1
+    },
+    "catalog": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "pack": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "parts": {
+      "type": "object",
+      "required": [
+        "face",
+        "eyes",
+        "nose",
+        "mouth",
+        "hair",
+        "outfit",
+        "glasses",
+        "mask",
+        "implant"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "face": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "eyes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "nose": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "mouth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "hair": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "outfit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "glasses": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "mask": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "implant": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "colors": {
+      "type": "object",
+      "required": [
+        "skin",
+        "hair",
+        "hairAccent",
+        "outfit",
+        "accessory",
+        "iris"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "skin": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16777215
+        },
+        "hair": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16777215
+        },
+        "hairAccent": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16777215
+        },
+        "outfit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16777215
+        },
+        "accessory": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16777215
+        },
+        "iris": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16777215
+        }
+      }
+    }
+  }
+}

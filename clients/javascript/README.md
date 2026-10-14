@@ -1,4 +1,4 @@
-# Modular Portrait Kit 1.1.0
+# Modular Portrait Kit 1.2.0
 
 A working JavaScript portrait generator with independent eyes, nose and mouth,
 plus faces, hair, clothing, glasses, masks and implants. No external image service
@@ -94,3 +94,7 @@ every accessory/color is not exhaustively rendered.
 Built-in ImageGen was used for the new bitmap art. Exact prompts and SHA-256
 provenance are in docs/ASSET_PROMPTS.json and docs/ASSET_PROVENANCE.json.
 See docs/ARTIST_BRIEF.md for the delivery contract for replacement artist assets.
+
+## Numeric saves and guided creator (1.2.0)
+
+See [NUMERIC_PORTRAIT_SPEC.md](docs/NUMERIC_PORTRAIT_SPEC.md), the bundled numeric catalog and JSON schema. Open examples/game-profile.html for numeric choices and game-owned job backgrounds.

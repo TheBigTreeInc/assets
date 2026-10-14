@@ -99,3 +99,10 @@ Run `python tools/validate_library.py` before committing pack changes. Release 1
 checks and 648 facial browser checks, including 448 explicit face/eye/nose/mouth
 combinations and the original 132 component combinations. Native profile/HUD
 persistence and the full neon-control engine regression suite also passed.
+
+## Portable numeric appearances (client 1.2.0)
+
+Read [the numeric appearance specification](docs/NUMERIC_PORTRAIT_SPEC.md).
+The [immutable catalog 1](numeric-catalogs/1/catalog.json) defines stable part IDs
+and pins artwork 1.1.0. JavaScript includes guided tabs, nearby colour controls,
+exact RGB and job background examples. Godot codecs and schemas are included.

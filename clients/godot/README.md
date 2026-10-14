@@ -24,3 +24,12 @@ Release 1.1.0 adds all-options, independent facial components and iris colors.
 Use the native 0.7.86 renderer and identity writers when consuming the new facial
 metadata; the downloader alone does not provide a portrait editor. Appearance
 and native identity schemas are included under schemas/.
+
+## Numeric interoperability — neon-control 0.7.87
+
+The included numeric_portrait_codec.gd and portrait_rgb.gd support portable
+format 1. Bundle numeric-catalogs/1/catalog.json. Decode returns an appearance
+with portrait_rgb overrides; encode reverses it without losing arbitrary RGB.
+See ../../docs/NUMERIC_PORTRAIT_SPEC.md for validation and integration requirements.
+The full renderer/profile/preset integration is in neon-control 0.7.87; copying
+the codec alone does not add RGB rendering or job backdrops to another game.

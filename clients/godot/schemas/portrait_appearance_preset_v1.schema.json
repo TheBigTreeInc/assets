@@ -72,6 +72,42 @@
         },
         "iris_color_id": {
           "$ref": "#/$defs/palette_id"
+        },
+        "portrait_rgb": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "skin": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 16777215
+            },
+            "hair": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 16777215
+            },
+            "hairAccent": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 16777215
+            },
+            "outfit": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 16777215
+            },
+            "accessory": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 16777215
+            },
+            "iris": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 16777215
+            }
+          }
         }
       },
       "additionalProperties": false
