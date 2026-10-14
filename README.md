@@ -22,6 +22,12 @@ Games can provide their own clothing menus using the optional editor filter.
 No game saves are stored here. Published 1.0.1 releases remain available unchanged;
 the catalog lists current 1.1.0 releases, which require the updated 1.1.0 clients.
 
+## Add eyes, noses or mouths
+
+Read the [portrait component integration specification](docs/PORTRAIT_COMPONENT_SPEC.md)
+for artwork delivery, registration, iris colours, pack fields, Godot mappings and
+immutable release rules.
+
 ## Download location
 
 Base URL for games:
