@@ -57,16 +57,32 @@ shading / 512px for Everyday. This is visual approximation of the Godot palette
 shader; Canvas/browser color handling and pixel boundaries can differ. It is not
 claimed to be a bit-identical GPU shader port.
 
-Current compatible slots include whole face, front hair, outfit, glasses, mask
-and implant. Add a new slot and layers to an art pack for another independent
-component. The generic editor uses manifest labels/options. Linked multi-part
-selection and independent facial anatomy are not yet implemented.
+Current compatible slots include whole face, eyes (with brows), nose, mouth,
+front hair, outfit, glasses, mask and implant. Add a new slot and layers to an art pack for another independent
+component. The generic editor uses manifest labels/options. Facial foundations and fallback features are declared on each head option.
+Linked multi-part long-hair selection is not yet implemented.
 
 ## DOMINION bridge
 
 Load integrations/dominion-bridge.js after the core. `fromDominion(pack, identity)`
 accepts a modular Godot identity or dominion-appearance-v1 preset. `toDominionPreset`
-returns a Godot appearance-only preset for either the DOMINION or Everyday pack. No game identities
+returns a Godot appearance-only preset for the DOMINION, Everyday or all-options pack. No game identities
 or inventory are copied. Godot currently has 24 indexed palette choices, so custom
-web colors outside those swatches fail export visibly. Everyday portraits are installed in the companion neon-control 0.7.85 source
+web colors outside those swatches fail export visibly. Everyday portraits are installed in the companion neon-control 0.7.86 source
 delivery. The standalone JavaScript ZIP does not modify a Godot installation.
+
+
+## Facial foundations and mixing
+
+Each face option keeps its original `asset` and adds `modularAsset` and
+`featureDefaults`. With all three facial selections set to `original`, the old
+full head renders unchanged. Any explicit eyes/nose/mouth choice activates the
+blank foundation; unspecified parts use that head's newly authored defaults.
+Layers marked `feature:true` render only in this mode. Eyes use `chromaColor:iris`
+to tint their blue/cyan iris pixels independently from grayscale skin and brows.
+
+The `all-options` pack registers all assets under origin-prefixed paths and IDs.
+Each option's `render` settings retain its source logicalSize, shadeSteps and
+pixelated flag. Components from both origins may be chosen independently.
+The shared API has no game clothing policy. Optional editor `allowedOptions`
+controls a game's picker without changing the source pack or renderer.

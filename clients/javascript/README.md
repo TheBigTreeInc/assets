@@ -1,88 +1,96 @@
-# Modular Portrait Kit 1.0.1
+# Modular Portrait Kit 1.1.0
 
-A reusable, dependency-free JavaScript portrait generator. It uses transparent
-component images and JSON art packs, with no Godot or server-side rendering needed.
+A working JavaScript portrait generator with independent eyes, nose and mouth,
+plus faces, hair, clothing, glasses, masks and implants. No external image service
+is required at runtime. Run **Start Portrait Workshop.cmd** or
+`python tools/serve.py --open`, then open http://127.0.0.1:8927/.
 
-## Open it
+## Collections
 
-On Windows, run **Start Portrait Workshop.cmd** (Python 3 is required only for the
-local preview server). Or run `python tools/serve.py --open`. Open
-`http://127.0.0.1:8927/`. Keep that terminal open while using the preview.
-Opening index.html directly as a file cannot load JSON packs reliably; use HTTP.
+- **Mix everything:** all seven head shapes; four eye, four nose and four mouth
+  variants across both styles; every hairstyle, garment and accessory.
+- **Everyday illustrated:** the approved casual collection, extended with facial parts.
+- **DOMINION pixel:** the approved cyberpunk collection, extended with facial parts.
 
-Copy the kit into an existing JavaScript game's static assets to use its normal
-web server instead. Once the kit files are local, rendering needs no external API,
-account or image-generation service. The browser creates portraits on demand.
+There are no genre, gender or game restrictions in the mixed collection. Each game
+can provide its own clothing menu. Components retain their source shading style,
+so mixing pixel art and illustration intentionally produces a hybrid portrait.
 
-## Included art
+Two new eye pairs, two noses and two mouths are authored per style. Eyebrows travel
+with the eyes. Iris color is independent for custom facial components. Face shape
+still changes through the head selector. Brows, ears, jaw, expressions and facial
+hair are not separate controls in this release.
 
-- Everyday illustrated: three faces, side-part and curly hair plus bald, T-shirt
-  and collared shirt, optional round glasses. 36 combinations before colors.
-- DOMINION pixel: four faces, two hairstyles plus bald, tactical jacket, goggles,
-  respirator and temple implant. 96 combinations before colors.
-- Five independently selectable colors: skin, hair, hair highlights, clothing and
-  accessories. Style switching remembers each style's choices in the workshop.
+The original 18 component PNGs are unchanged. Seven matching blank foundations and
+12 separately generated facial components were added. Original saved appearances
+default all facial choices to **Face default** and render the approved full heads.
+Selecting any facial component activates the matching blank foundation and the
+registered feature defaults for the other facial slots. The mixed collection
+starts with custom features active. A fallback feature is newly authored; it is
+not a cropped portion of the old face. No reference portrait was segmented.
 
-The eight new everyday assets were independently generated with built-in ImageGen.
-The ten existing DOMINION assets are retained intact. See docs/ASSET_PROMPTS.json
-and docs/ASSET_PROVENANCE.json. Full facial anatomy is fixed within each head.
-
-## Use from JavaScript
+## JavaScript example
 
 ```html
-<script src="portrait-kit/src/portrait-kit.js"></script>
-<canvas id="person" width="256" height="256"></canvas>
+<script src="src/portrait-kit.js"></script>
+<canvas id="person"></canvas>
 <script>
 (async () => {
-  const renderer = await ModularPortraits.Renderer.load(
-    'portrait-kit/packs/everyday-illustrated/pack.json'
-  );
+  const renderer = await ModularPortraits.Renderer.load('packs/all-options/pack.json');
   const appearance = ModularPortraits.normalizeIdentity(renderer.pack);
-  appearance.choices.hair = 'curly';
-  appearance.colors.hair = '#67442f';
-  renderer.render(appearance, {
-    canvas: document.getElementById('person'), size: 256
+  Object.assign(appearance.choices, {
+    eyes: 'cyberpunk-narrow', nose: 'everyday-broad', mouth: 'everyday-full',
+    hair: 'cyberpunk-swept', outfit: 'everyday-collar'
   });
-  // Store only the appearance in a character's presentation record.
-  const saved = ModularPortraits.serialize(renderer.pack, appearance);
-  const restored = ModularPortraits.deserialize(renderer.pack, saved);
+  appearance.colors.iris = '#64835c';
+  renderer.render(appearance, {canvas: document.getElementById('person'), size: 256});
+  const json = ModularPortraits.serialize(renderer.pack, appearance);
+  // Save json inside your game's character record.
 })();
 </script>
 ```
 
-ES modules can import the same API from src/portrait-kit.mjs. React, Vue and other
-frameworks can call Renderer from their canvas/ref lifecycle; the core has no
-framework dependency. The optional DOM controls are src/portrait-editor.js and
-src/portrait-editor.css. Call Renderer.dispose() when a game releases an art pack.
+The game retains names, age, jobs, statistics, inventory and save authority.
+This renderer stores appearance only. `examples/game-profile.html` demonstrates
+a complete selectable profile and save/load flow. `examples/gallery.html` shows
+the approved collections; `examples/mixed-faces.html` shows the new facial controls.
 
-## Cross-game integration
+## Optional game clothing menus
 
-The save contract contains only schema, pack ID, pack revision, component choices
-and colors. The game retains names, IDs, age, jobs, statistics, inventory and its
-save authority. Art packs retain their own alignment, draw order, palettes and
-logical resolution. Different styles are selected as complete packs; components
-are not silently mixed across art families.
+Pass `allowedOptions` to `ModularPortraitEditor.mount` when a game wants a smaller
+picker. The renderer and source pack retain all options:
 
-See docs/INTEGRATION.md for APIs, DOMINION preset conversion, compatibility and
-constraints. See docs/ARTIST_BRIEF.md for reusable art delivery requirements.
+```js
+const editor = ModularPortraitEditor.mount(container, renderer, appearance, {
+  allowedOptions: {outfit: ['everyday-crew', 'everyday-collar']},
+  onChange: value => renderer.render(value, {canvas})
+});
+```
 
-## Working game example
+Filtering is optional; the workshop never filters the mixed collection. This is
+a picker setting; games enforce their own saved-appearance rules. To add another
+garment, author a registered transparent full-canvas component and add an outfit
+option to a new pack version. Do not rewrite a published release.
 
-Open examples/game-profile.html through the local server. Its accompanying
-examples/game-profile.js shows loading a pack, rendering an img, changing
-components, and saving/loading appearance JSON. It is independent of any game.
+## Shared library and Godot
 
-## Verification
+The shared repository is https://github.com/TheBigTreeInc/assets. Use
+`https://raw.githubusercontent.com/TheBigTreeInc/assets/main` as the download base.
+See docs/SHARED_LIBRARY.md for pinned downloads, browser caching and bundled fallback.
+The Godot bridge supports all three packs using each manifest's explicit mapping;
+Godot export requires one of the 24 palette swatches. Custom web colors render
+normally but are rejected by indexed Godot export when no exact swatch exists.
+The companion neon-control 0.7.86 ZIP includes the native controls and mixed library.
+No Life site changes are included.
 
-Run `node --test --test-isolation=none tests/core.test.cjs tests/library.test.cjs`. Open tests/browser.html
-for real canvas, PNG export, editor and browser save checks. Evidence
-ships under evidence/. The browser gate covers all 132 combinations. User art
-acceptance remains separate from automated rendering checks.
+## Verification and source art
 
-This kit does not yet provide independent eye/nose/mouth selection, expressions,
-body animation, automatic tactical-model matching or untested multiplayer-server
-support for a new appearance field.
+Run `npm test` (or the test command in package.json). Open tests/browser.html for
+the 132 legacy component combinations and tests/facial-browser.html for the
+448 explicit face/eye/nose/mouth combinations, unrestricted clothing combinations,
+iris color, menu filtering and save round trips. The full Cartesian product of
+every accessory/color is not exhaustively rendered.
 
-1.0.1 corrects everyday glasses, uniform hair proportions and clothing front overlap.
-Both packs now convert to Godot presets. See docs/SHARED_LIBRARY.md for optional
-Git-hosted downloads, trusted version pins, browser caching and bundled fallback.
+Built-in ImageGen was used for the new bitmap art. Exact prompts and SHA-256
+provenance are in docs/ASSET_PROMPTS.json and docs/ASSET_PROVENANCE.json.
+See docs/ARTIST_BRIEF.md for the delivery contract for replacement artist assets.

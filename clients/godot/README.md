@@ -1,6 +1,6 @@
 # Godot portrait download client
 
-This is the client integrated and tested in neon-control 0.7.85 (Godot 4.7).
+This is the client integrated and tested in neon-control 0.7.86 (Godot 4.7).
 Copy portrait_asset_library.gd to scripts/ui/portraits/ in a game, register it
 as the PortraitAssetLibrary autoload, and copy portrait_asset_sources.json to
 game_data/characters/. Keep bundled portrait art and catalogs as fallback.
@@ -19,3 +19,8 @@ used and bundled portraits remain available. Never distribute credentials.
 The native renderer and creator UI remain in neon-control; this folder contains
 the reusable downloader, trusted release bindings and configuration example.
 The portable web renderer and editor are in ../javascript/.
+
+Release 1.1.0 adds all-options, independent facial components and iris colors.
+Use the native 0.7.86 renderer and identity writers when consuming the new facial
+metadata; the downloader alone does not provide a portrait editor. Appearance
+and native identity schemas are included under schemas/.

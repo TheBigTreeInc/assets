@@ -1,0 +1,84 @@
+{
+  "schema": "game-assets.release/v1",
+  "id": "everyday-illustrated",
+  "version": "1.1.0",
+  "kind": "portraits",
+  "files": {
+    "everyday_glasses_v2.png": {
+      "size": 122952,
+      "sha256": "7916bc2502c96d6ad1834b04d1fddae25b9ad5a637d3001097e352d30e9b6cd4"
+    },
+    "everyday_hair_curly.png": {
+      "size": 646138,
+      "sha256": "21f6f72e61e1cbb0270f5fe74022bfb0b4e33889f3f44ed86faa2dbb0893c6f8"
+    },
+    "everyday_hair_swept.png": {
+      "size": 519465,
+      "sha256": "af0bc999a3deef223e4f497b823ee913e414b1874fcbe528c0b44d6fd5bf181b"
+    },
+    "everyday_head_01.png": {
+      "size": 733583,
+      "sha256": "7f374b9a8c3a7fdf033a2be2431b7127c4362c8eaa3501204314293a9348960d"
+    },
+    "everyday_head_01_blank.png": {
+      "size": 673952,
+      "sha256": "52154f468c2c1eebf00a85b7d699b4ff6111e733314387b68dbf9627f265a8a5"
+    },
+    "everyday_head_02.png": {
+      "size": 775115,
+      "sha256": "ebde56395ab2445f6fc1219d30a5d812ef2f6e2b10fd14835558668eb048bfa1"
+    },
+    "everyday_head_02_blank.png": {
+      "size": 693763,
+      "sha256": "75d241a9ba8d232dd87b9a20172e41afd62c4bb118df73b284de7262e44f81ba"
+    },
+    "everyday_head_03.png": {
+      "size": 804090,
+      "sha256": "5191d99f3936fe5211d64bd53916794545efd7318bb8739623f8971836062247"
+    },
+    "everyday_head_03_blank.png": {
+      "size": 888632,
+      "sha256": "d9bea92158212413d0fcf43be73cb5b5be98e5e0b7ce8aa9b3c73a5b9ef0073a"
+    },
+    "everyday_shirt_collar.png": {
+      "size": 698902,
+      "sha256": "b18a797c5b109d161b2a444155b4dd98cb12ef95a37ff113d0bffa309960ddc0"
+    },
+    "everyday_shirt_crew.png": {
+      "size": 578419,
+      "sha256": "6ac4b24d366389d893b97158a71babc933dfd2cd09b749ed6de35bc66775d323"
+    },
+    "features_eyes_almond.png": {
+      "size": 443867,
+      "sha256": "2c94a2d649259bf227358991b210bb56231ab09a71fda3a67ca93d6b5a37f18e"
+    },
+    "features_eyes_narrow.png": {
+      "size": 430156,
+      "sha256": "0ef49aad20cd880ddaa0f485caf435a55de7736003ab5162bc9424e98756d9a7"
+    },
+    "features_mouth_full.png": {
+      "size": 173144,
+      "sha256": "9b6dba45fd7541a3c2feda5c250e7073345cf6553955c1be85ccf53a2995015e"
+    },
+    "features_mouth_neutral.png": {
+      "size": 165622,
+      "sha256": "266dddf5fdbe692d041a7d3b2fd038f0d0fba4ca7db8d19d9a591094d8be7848"
+    },
+    "features_nose_broad.png": {
+      "size": 216677,
+      "sha256": "0b255977054ead55d7544570ca0e26fadd374f6fd3cf1d36e145c1880c2a50ee"
+    },
+    "features_nose_straight.png": {
+      "size": 185193,
+      "sha256": "d4e473e617c214216f7bafb17450b2d7f40566b5d3f838d4e74d9b911acf342f"
+    },
+    "godot-catalog.json": {
+      "size": 22016,
+      "sha256": "a4c12d4f1aa4bea0edc5ddc93e5f465586bf8a6afbb45ffb2a774fb22c516986"
+    },
+    "pack.json": {
+      "size": 12713,
+      "sha256": "84519b3473fed73b7fd0b0c9e9f34fe795d03028fadd02cb4dcf768504a3ad82"
+    }
+  }
+}

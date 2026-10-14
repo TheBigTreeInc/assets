@@ -11,6 +11,7 @@
   const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
   const object = x => x && typeof x === 'object' && !Array.isArray(x);
   const clone = x => JSON.parse(JSON.stringify(x));
+  const safeAsset = value => typeof value==='string'&&/^[a-zA-Z0-9_./-]+\.(png|webp)$/.test(value)&&!value.startsWith('/')&&!value.split('/').some(p=>['','..','.'].includes(p));
   function validatePack(pack) {
     if (!object(pack) || pack.schema !== PACK_SCHEMA || !/^[a-z0-9-]+$/.test(pack.id)) throw Error('Unsupported art pack.');
     if (!Number.isInteger(pack.revision) || pack.revision < 1) throw Error('Invalid pack revision.');
@@ -31,6 +32,15 @@
         for (const prop of ['scale','offset']) {
           if (option[prop] && (!Array.isArray(option[prop]) || option[prop].length !== 2 || option[prop].some(v => !Number.isFinite(v)))) throw Error('Invalid component registration.');
         }
+        if (option.modularAsset) {
+          if (!safeAsset(option.modularAsset)) throw Error('Invalid modular head path.');
+          files.add(option.modularAsset);
+        }
+        if(option.render){
+          if(!object(option.render))throw Error('Invalid component render settings.');
+          if(option.render.logicalSize!==undefined&&(!Number.isInteger(option.render.logicalSize)||option.render.logicalSize<32||option.render.logicalSize>1024))throw Error('Invalid component resolution.');
+          if(option.render.shadeSteps!==undefined&&(!Number.isInteger(option.render.shadeSteps)||option.render.shadeSteps<0||option.render.shadeSteps>32))throw Error('Invalid component shading.');
+        }
         if (option.scale?.some(v => v <= 0 || v > 2)) throw Error('Invalid component scale.');
         if (option.frontFromY !== undefined && (!Number.isFinite(option.frontFromY) || option.frontFromY < 0 || option.frontFromY > 1)) throw Error('Invalid collar overlap.');
       }
@@ -45,6 +55,7 @@
       if (!object(layer) || !own(pack.slots, layer.slot)) throw Error('Layer refers to an unknown slot.');
       if (layer.color && !own(pack.colors, layer.color)) throw Error('Layer refers to an unknown color.');
       if (layer.accent && !own(pack.colors, layer.accent)) throw Error('Layer refers to an unknown accent.');
+      if (layer.chromaColor && !own(pack.colors, layer.chromaColor)) throw Error('Layer refers to an unknown iris color.');
     }
     return [...files];
   }
@@ -130,15 +141,18 @@
       this.ready=true;return this;
     }
     canvas(size) {const canvas=this.document.createElement('canvas');canvas.width=size;canvas.height=size;return canvas;}
-    tint(file,primary,accent,layer) {
-      const key=JSON.stringify([file,primary,accent,layer.preserveChroma,layer.whiteThreshold]);
+    tint(file,primary,accent,layer,chromaColor=null) {
+      const key=JSON.stringify([file,primary,accent,layer.preserveChroma,layer.whiteThreshold,layer.logicalSize,layer.shadeSteps,layer.pixelated,chromaColor]);
       if(this.tints.has(key)) {const value=this.tints.get(key);this.tints.delete(key);this.tints.set(key,value);return value;}
-      const canvas=this.canvas(this.pack.logicalSize), ctx=canvas.getContext('2d',{willReadFrequently:true});
-      ctx.imageSmoothingEnabled=!this.pack.pixelated;
+      const canvas=this.canvas(layer.logicalSize??this.pack.logicalSize), ctx=canvas.getContext('2d',{willReadFrequently:true});
+      ctx.imageSmoothingEnabled=!(layer.pixelated??this.pack.pixelated);
       ctx.drawImage(this.images.get(file),0,0,canvas.width,canvas.height);
       if(primary) {
         const pixels=ctx.getImageData(0,0,canvas.width,canvas.height);
-        recolor(pixels.data,primary,accent||primary,{steps:this.pack.shadeSteps??8,preserveChroma:!!layer.preserveChroma,whiteThreshold:layer.whiteThreshold??.94});
+        const chromaMask=chromaColor?new Uint8Array(pixels.data.length/4):null;
+        if(chromaMask)for(let i=0;i<pixels.data.length;i+=4)chromaMask[i/4]=pixels.data[i+2]>pixels.data[i]*1.05&&(Math.max(...pixels.data.slice(i,i+3))-Math.min(...pixels.data.slice(i,i+3)))>6?1:0;
+        recolor(pixels.data,primary,accent||primary,{steps:layer.shadeSteps??this.pack.shadeSteps??8,preserveChroma:!!layer.preserveChroma,whiteThreshold:layer.whiteThreshold??.94});
+        if(chromaMask){const tone=rgb(chromaColor);for(let i=0;i<pixels.data.length;i+=4)if(chromaMask[i/4]){const light=Math.max(...pixels.data.slice(i,i+3))/255;for(let c=0;c<3;c++)pixels.data[i+c]=Math.round(255*tone[c]*light);}}
         ctx.putImageData(pixels,0,0);
       }
       this.tints.set(key,canvas);
@@ -151,14 +165,22 @@
       const identity=normalizeIdentity(this.pack,input,{strict:true}), work=this.canvas(this.pack.logicalSize),ctx=work.getContext('2d');
       const n=work.width;ctx.imageSmoothingEnabled=!this.pack.pixelated;
       if(background) {if(!HEX.test(background))throw Error('Background must be a six-digit hex color or null.');ctx.fillStyle=background;ctx.fillRect(0,0,n,n);}
+      const face=this.pack.slots.face.options.find(o=>o.id===identity.choices.face);
+      const featuresActive=['eyes','nose','mouth'].some(slot=>this.pack.slots[slot]?.options.find(o=>o.id===identity.choices[slot])?.asset);
       for(const layer of this.pack.layers) {
         if(base&&layer.accessory)continue;
-        const option=this.pack.slots[layer.slot].options.find(o=>o.id===identity.choices[layer.slot]);
+        if(layer.feature&&!featuresActive)continue;
+        let option=this.pack.slots[layer.slot].options.find(o=>o.id===identity.choices[layer.slot]);
+        if(layer.feature&&!option.asset)option=this.pack.slots[layer.slot].options.find(o=>o.id===(face.featureDefaults?.[layer.slot]??this.pack.featureDefaults?.[layer.slot]));
+        if(layer.slot==='face'&&featuresActive&&face.modularAsset)option={...option,asset:face.modularAsset};
+        if(!option)throw Error('Missing facial foundation default.');
         if(!option.asset)continue;
-        const texture=this.tint(option.asset,layer.color?identity.colors[layer.color]:null,layer.accent?identity.colors[layer.accent]:null,layer);
+        const drawLayer={...layer,...option.render};
+        const texture=this.tint(option.asset,layer.color?identity.colors[layer.color]:null,layer.accent?identity.colors[layer.accent]:null,drawLayer,layer.chromaColor?identity.colors[layer.chromaColor]:null);
         const scale=option.scale||[1,1],offset=option.offset||[0,0];
         ctx.save();
         if(layer.frontOnly){const y=option.frontFromY??.83,slope=option.frontSlope??0;ctx.beginPath();ctx.moveTo(0,(y-slope*.5)*n);ctx.lineTo(n*.5,y*n);ctx.lineTo(n,(y-slope*.5)*n);ctx.lineTo(n,n);ctx.lineTo(0,n);ctx.closePath();ctx.clip();}
+        ctx.imageSmoothingEnabled=!(drawLayer.pixelated??this.pack.pixelated);
         ctx.drawImage(texture,offset[0]*n,offset[1]*n,scale[0]*n,scale[1]*n);
         ctx.restore();
       }

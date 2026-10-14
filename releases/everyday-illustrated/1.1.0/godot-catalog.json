@@ -1,0 +1,1228 @@
+{
+  "version": "0.7.86",
+  "portrait_schema": 10,
+  "library_revision": 1,
+  "style_family": "everyday-illustrated-v1",
+  "asset_root": ".",
+  "render_mode": "modular_foundation",
+  "supports_live_recolor": true,
+  "canvas": {
+    "width": 1254,
+    "height": 1254,
+    "logical_pixels": 512
+  },
+  "archetypes": [
+    {
+      "id": "everyday_face_1",
+      "label": "Soft features",
+      "base": "everyday_head_01.png",
+      "allowed_person_kinds": [
+        "human",
+        "synth"
+      ],
+      "preset": {
+        "hair": "everyday_swept",
+        "torso": "everyday_crew",
+        "skin_color_id": 9,
+        "hair_primary_color_id": 3,
+        "hair_accent_color_id": 3
+      },
+      "modular_base": "everyday_head_01_blank.png",
+      "feature_defaults": {
+        "eye_package": "day_eyes_almond",
+        "nose_package": "day_nose_straight",
+        "mouth_package": "day_mouth_neutral"
+      }
+    },
+    {
+      "id": "everyday_face_2",
+      "label": "Square jaw",
+      "base": "everyday_head_02.png",
+      "allowed_person_kinds": [
+        "human",
+        "synth"
+      ],
+      "preset": {
+        "hair": "everyday_swept",
+        "torso": "everyday_crew",
+        "skin_color_id": 9,
+        "hair_primary_color_id": 3,
+        "hair_accent_color_id": 3
+      },
+      "modular_base": "everyday_head_02_blank.png",
+      "feature_defaults": {
+        "eye_package": "day_eyes_almond",
+        "nose_package": "day_nose_straight",
+        "mouth_package": "day_mouth_neutral"
+      }
+    },
+    {
+      "id": "everyday_face_3",
+      "label": "Mature",
+      "base": "everyday_head_03.png",
+      "allowed_person_kinds": [
+        "human",
+        "synth"
+      ],
+      "preset": {
+        "hair": "everyday_swept",
+        "torso": "everyday_crew",
+        "skin_color_id": 9,
+        "hair_primary_color_id": 3,
+        "hair_accent_color_id": 3
+      },
+      "modular_base": "everyday_head_03_blank.png",
+      "feature_defaults": {
+        "eye_package": "day_eyes_almond",
+        "nose_package": "day_nose_straight",
+        "mouth_package": "day_mouth_neutral"
+      }
+    }
+  ],
+  "hair_styles": [
+    {
+      "id": "everyday_bald",
+      "label": "Bald",
+      "front": ""
+    },
+    {
+      "id": "everyday_swept",
+      "label": "Side part",
+      "front": "everyday_hair_swept.png",
+      "scale": [
+        0.78,
+        0.78
+      ],
+      "offset": [
+        0.11,
+        -0.02
+      ]
+    },
+    {
+      "id": "everyday_curly",
+      "label": "Curly crop",
+      "front": "everyday_hair_curly.png",
+      "scale": [
+        0.78,
+        0.78
+      ],
+      "offset": [
+        0.11,
+        -0.02
+      ]
+    }
+  ],
+  "torsos": [
+    {
+      "id": "everyday_crew",
+      "label": "Casual T-shirt",
+      "asset": "everyday_shirt_crew.png",
+      "scale": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0.09
+      ],
+      "front_from_y": 0.83,
+      "front_slope": 0.4
+    },
+    {
+      "id": "everyday_collar",
+      "label": "Collared shirt",
+      "asset": "everyday_shirt_collar.png",
+      "scale": [
+        0.9,
+        0.9
+      ],
+      "offset": [
+        0.05,
+        0.14
+      ],
+      "front_from_y": 0.83,
+      "front_slope": 0.4
+    }
+  ],
+  "eye_packages": [
+    {
+      "id": "eyes_foundation",
+      "label": "Baked Foundation Eyes",
+      "base": "",
+      "iris": "",
+      "glow": "",
+      "allowed_person_kinds": [
+        "human",
+        "synth"
+      ]
+    },
+    {
+      "asset": "features_eyes_almond.png",
+      "scale": [
+        0.6,
+        0.6
+      ],
+      "offset": [
+        0.197,
+        0.171
+      ],
+      "id": "day_eyes_almond",
+      "label": "Almond"
+    },
+    {
+      "asset": "features_eyes_narrow.png",
+      "scale": [
+        0.64,
+        0.64
+      ],
+      "offset": [
+        0.18,
+        0.159
+      ],
+      "id": "day_eyes_narrow",
+      "label": "Narrow"
+    }
+  ],
+  "brow_packages": [
+    {
+      "id": "brow_none",
+      "label": "Baked Foundation Brows",
+      "asset": "",
+      "allowed_person_kinds": [
+        "human",
+        "synth"
+      ]
+    }
+  ],
+  "mouth_packages": [
+    {
+      "id": "mouth_foundation",
+      "label": "Baked Foundation Mouth",
+      "base": "",
+      "lip": "",
+      "allowed_person_kinds": [
+        "human",
+        "synth"
+      ]
+    },
+    {
+      "asset": "features_mouth_neutral.png",
+      "scale": [
+        0.6,
+        0.6
+      ],
+      "offset": [
+        0.20023923444976077,
+        0.3021291866028708
+      ],
+      "id": "day_mouth_neutral",
+      "label": "Neutral"
+    },
+    {
+      "asset": "features_mouth_full.png",
+      "scale": [
+        0.6,
+        0.6
+      ],
+      "offset": [
+        0.2007177033492823,
+        0.313133971291866
+      ],
+      "id": "day_mouth_full",
+      "label": "Full"
+    }
+  ],
+  "lower_face_packages": [
+    {
+      "id": "lower_exposed",
+      "label": "None",
+      "base": "",
+      "primary_mask": "foundation/transparent.png",
+      "accent_mask": "foundation/transparent.png",
+      "allowed_person_kinds": [
+        "human",
+        "synth"
+      ],
+      "asset": ""
+    }
+  ],
+  "goggle_packages": [
+    {
+      "id": "everyday_none",
+      "label": "None",
+      "asset": ""
+    },
+    {
+      "id": "everyday_glasses",
+      "label": "Round glasses",
+      "asset": "everyday_glasses_v2.png",
+      "scale": [
+        0.8,
+        0.8
+      ],
+      "offset": [
+        0.1,
+        0.11
+      ]
+    }
+  ],
+  "detail_packages": [
+    {
+      "id": "detail_none",
+      "label": "None",
+      "asset": "",
+      "glow": "",
+      "allowed_person_kinds": [
+        "human",
+        "synth"
+      ]
+    }
+  ],
+  "cadence_scenes": [
+    {
+      "id": "dry_professional",
+      "label": "Dry Professional",
+      "background": "",
+      "atmosphere": "",
+      "key_light": "",
+      "foreground": "",
+      "rim_color": "#68DCEB"
+    }
+  ],
+  "tactical_presentations": [
+    {
+      "id": "portrait_only",
+      "label": "Portrait Only",
+      "asset": "",
+      "primary_mask": "foundation/transparent.png",
+      "accent_mask": "foundation/transparent.png",
+      "glow": ""
+    }
+  ],
+  "palettes": {
+    "skin_tones_24": [
+      {
+        "id": 0,
+        "hex": "#3a201b"
+      },
+      {
+        "id": 1,
+        "hex": "#4a2920"
+      },
+      {
+        "id": 2,
+        "hex": "#5a3023"
+      },
+      {
+        "id": 3,
+        "hex": "#6a3828"
+      },
+      {
+        "id": 4,
+        "hex": "#7a432f"
+      },
+      {
+        "id": 5,
+        "hex": "#8a4d36"
+      },
+      {
+        "id": 6,
+        "hex": "#995a40"
+      },
+      {
+        "id": 7,
+        "hex": "#a86a4c"
+      },
+      {
+        "id": 8,
+        "hex": "#b57958"
+      },
+      {
+        "id": 9,
+        "hex": "#c38867"
+      },
+      {
+        "id": 10,
+        "hex": "#d19a7b"
+      },
+      {
+        "id": 11,
+        "hex": "#dda98a"
+      },
+      {
+        "id": 12,
+        "hex": "#e8b99d"
+      },
+      {
+        "id": 13,
+        "hex": "#f0c7ad"
+      },
+      {
+        "id": 14,
+        "hex": "#f4d2bc"
+      },
+      {
+        "id": 15,
+        "hex": "#f7ddca"
+      },
+      {
+        "id": 16,
+        "hex": "#8b5a48"
+      },
+      {
+        "id": 17,
+        "hex": "#a76b55"
+      },
+      {
+        "id": 18,
+        "hex": "#c48068"
+      },
+      {
+        "id": 19,
+        "hex": "#d69a83"
+      },
+      {
+        "id": 20,
+        "hex": "#70503f"
+      },
+      {
+        "id": 21,
+        "hex": "#936b55"
+      },
+      {
+        "id": 22,
+        "hex": "#b98970"
+      },
+      {
+        "id": 23,
+        "hex": "#d4aa91"
+      }
+    ],
+    "iris_colors_24": [
+      {
+        "id": 0,
+        "hex": "#2c2018"
+      },
+      {
+        "id": 1,
+        "hex": "#443125"
+      },
+      {
+        "id": 2,
+        "hex": "#634b32"
+      },
+      {
+        "id": 3,
+        "hex": "#886b42"
+      },
+      {
+        "id": 4,
+        "hex": "#a28b50"
+      },
+      {
+        "id": 5,
+        "hex": "#c2a366"
+      },
+      {
+        "id": 6,
+        "hex": "#254638"
+      },
+      {
+        "id": 7,
+        "hex": "#3d6650"
+      },
+      {
+        "id": 8,
+        "hex": "#64835c"
+      },
+      {
+        "id": 9,
+        "hex": "#8a9a70"
+      },
+      {
+        "id": 10,
+        "hex": "#203640"
+      },
+      {
+        "id": 11,
+        "hex": "#385565"
+      },
+      {
+        "id": 12,
+        "hex": "#508a94"
+      },
+      {
+        "id": 13,
+        "hex": "#6ba1ab"
+      },
+      {
+        "id": 14,
+        "hex": "#93c4cb"
+      },
+      {
+        "id": 15,
+        "hex": "#9caeb9"
+      },
+      {
+        "id": 16,
+        "hex": "#292a32"
+      },
+      {
+        "id": 17,
+        "hex": "#45414c"
+      },
+      {
+        "id": 18,
+        "hex": "#64516e"
+      },
+      {
+        "id": 19,
+        "hex": "#92728d"
+      },
+      {
+        "id": 20,
+        "hex": "#306e9c"
+      },
+      {
+        "id": 21,
+        "hex": "#4b8ac1"
+      },
+      {
+        "id": 22,
+        "hex": "#9a4644"
+      },
+      {
+        "id": 23,
+        "hex": "#ca7370"
+      }
+    ],
+    "eyebrow_colors_24": [
+      {
+        "id": 0,
+        "hex": "#14161a"
+      },
+      {
+        "id": 1,
+        "hex": "#20242b"
+      },
+      {
+        "id": 2,
+        "hex": "#302a26"
+      },
+      {
+        "id": 3,
+        "hex": "#4b3328"
+      },
+      {
+        "id": 4,
+        "hex": "#65402c"
+      },
+      {
+        "id": 5,
+        "hex": "#7b4b31"
+      },
+      {
+        "id": 6,
+        "hex": "#8c5b3b"
+      },
+      {
+        "id": 7,
+        "hex": "#a66a44"
+      },
+      {
+        "id": 8,
+        "hex": "#c18a62"
+      },
+      {
+        "id": 9,
+        "hex": "#d8b58d"
+      },
+      {
+        "id": 10,
+        "hex": "#c8c4b8"
+      },
+      {
+        "id": 11,
+        "hex": "#e1ded3"
+      },
+      {
+        "id": 12,
+        "hex": "#4c5664"
+      },
+      {
+        "id": 13,
+        "hex": "#667789"
+      },
+      {
+        "id": 14,
+        "hex": "#245d68"
+      },
+      {
+        "id": 15,
+        "hex": "#2f8c90"
+      },
+      {
+        "id": 16,
+        "hex": "#5b316b"
+      },
+      {
+        "id": 17,
+        "hex": "#8f3b75"
+      },
+      {
+        "id": 18,
+        "hex": "#8e372a"
+      },
+      {
+        "id": 19,
+        "hex": "#b65334"
+      },
+      {
+        "id": 20,
+        "hex": "#8d7a37"
+      },
+      {
+        "id": 21,
+        "hex": "#3d6d3c"
+      },
+      {
+        "id": 22,
+        "hex": "#7885a0"
+      },
+      {
+        "id": 23,
+        "hex": "#a7b0c4"
+      }
+    ],
+    "lip_colors_24": [
+      {
+        "id": 0,
+        "hex": "#4A2528"
+      },
+      {
+        "id": 1,
+        "hex": "#5B2C30"
+      },
+      {
+        "id": 2,
+        "hex": "#6A3337"
+      },
+      {
+        "id": 3,
+        "hex": "#7B3D42"
+      },
+      {
+        "id": 4,
+        "hex": "#8B4950"
+      },
+      {
+        "id": 5,
+        "hex": "#9C5660"
+      },
+      {
+        "id": 6,
+        "hex": "#AC6671"
+      },
+      {
+        "id": 7,
+        "hex": "#BD7885"
+      },
+      {
+        "id": 8,
+        "hex": "#78443D"
+      },
+      {
+        "id": 9,
+        "hex": "#8B5549"
+      },
+      {
+        "id": 10,
+        "hex": "#A46D5D"
+      },
+      {
+        "id": 11,
+        "hex": "#BC8573"
+      },
+      {
+        "id": 12,
+        "hex": "#554145"
+      },
+      {
+        "id": 13,
+        "hex": "#6D4E54"
+      },
+      {
+        "id": 14,
+        "hex": "#875D67"
+      },
+      {
+        "id": 15,
+        "hex": "#A06E7B"
+      },
+      {
+        "id": 16,
+        "hex": "#684A39"
+      },
+      {
+        "id": 17,
+        "hex": "#80604A"
+      },
+      {
+        "id": 18,
+        "hex": "#98735A"
+      },
+      {
+        "id": 19,
+        "hex": "#B18A70"
+      },
+      {
+        "id": 20,
+        "hex": "#6D2A2A"
+      },
+      {
+        "id": 21,
+        "hex": "#8D3434"
+      },
+      {
+        "id": 22,
+        "hex": "#AD4545"
+      },
+      {
+        "id": 23,
+        "hex": "#D15D5D"
+      }
+    ],
+    "hair_colors_24": [
+      {
+        "id": 0,
+        "hex": "#14161a"
+      },
+      {
+        "id": 1,
+        "hex": "#20242b"
+      },
+      {
+        "id": 2,
+        "hex": "#302a26"
+      },
+      {
+        "id": 3,
+        "hex": "#4b3328"
+      },
+      {
+        "id": 4,
+        "hex": "#65402c"
+      },
+      {
+        "id": 5,
+        "hex": "#7b4b31"
+      },
+      {
+        "id": 6,
+        "hex": "#8c5b3b"
+      },
+      {
+        "id": 7,
+        "hex": "#a66a44"
+      },
+      {
+        "id": 8,
+        "hex": "#c18a62"
+      },
+      {
+        "id": 9,
+        "hex": "#d8b58d"
+      },
+      {
+        "id": 10,
+        "hex": "#c8c4b8"
+      },
+      {
+        "id": 11,
+        "hex": "#e1ded3"
+      },
+      {
+        "id": 12,
+        "hex": "#4c5664"
+      },
+      {
+        "id": 13,
+        "hex": "#667789"
+      },
+      {
+        "id": 14,
+        "hex": "#245d68"
+      },
+      {
+        "id": 15,
+        "hex": "#2f8c90"
+      },
+      {
+        "id": 16,
+        "hex": "#5b316b"
+      },
+      {
+        "id": 17,
+        "hex": "#8f3b75"
+      },
+      {
+        "id": 18,
+        "hex": "#8e372a"
+      },
+      {
+        "id": 19,
+        "hex": "#b65334"
+      },
+      {
+        "id": 20,
+        "hex": "#8d7a37"
+      },
+      {
+        "id": 21,
+        "hex": "#3d6d3c"
+      },
+      {
+        "id": 22,
+        "hex": "#7885a0"
+      },
+      {
+        "id": 23,
+        "hex": "#a7b0c4"
+      }
+    ],
+    "hair_accent_colors_24": [
+      {
+        "id": 0,
+        "hex": "#131920"
+      },
+      {
+        "id": 1,
+        "hex": "#2b3640"
+      },
+      {
+        "id": 2,
+        "hex": "#315a68"
+      },
+      {
+        "id": 3,
+        "hex": "#3e7f8c"
+      },
+      {
+        "id": 4,
+        "hex": "#557d47"
+      },
+      {
+        "id": 5,
+        "hex": "#6e9b55"
+      },
+      {
+        "id": 6,
+        "hex": "#7b653d"
+      },
+      {
+        "id": 7,
+        "hex": "#9a7c45"
+      },
+      {
+        "id": 8,
+        "hex": "#76516f"
+      },
+      {
+        "id": 9,
+        "hex": "#9b5b83"
+      },
+      {
+        "id": 10,
+        "hex": "#a03f3f"
+      },
+      {
+        "id": 11,
+        "hex": "#c45a47"
+      },
+      {
+        "id": 12,
+        "hex": "#877d65"
+      },
+      {
+        "id": 13,
+        "hex": "#b6aa82"
+      },
+      {
+        "id": 14,
+        "hex": "#57b7c6"
+      },
+      {
+        "id": 15,
+        "hex": "#7be2e8"
+      },
+      {
+        "id": 16,
+        "hex": "#c14bda"
+      },
+      {
+        "id": 17,
+        "hex": "#e56ef2"
+      },
+      {
+        "id": 18,
+        "hex": "#e0a83a"
+      },
+      {
+        "id": 19,
+        "hex": "#f4d85c"
+      },
+      {
+        "id": 20,
+        "hex": "#c9d4dd"
+      },
+      {
+        "id": 21,
+        "hex": "#f0f4f5"
+      },
+      {
+        "id": 22,
+        "hex": "#78dfa2"
+      },
+      {
+        "id": 23,
+        "hex": "#d86b6b"
+      }
+    ],
+    "outfit_colors_24": [
+      {
+        "id": 0,
+        "hex": "#111820"
+      },
+      {
+        "id": 1,
+        "hex": "#18242c"
+      },
+      {
+        "id": 2,
+        "hex": "#20313a"
+      },
+      {
+        "id": 3,
+        "hex": "#293f47"
+      },
+      {
+        "id": 4,
+        "hex": "#343943"
+      },
+      {
+        "id": 5,
+        "hex": "#414852"
+      },
+      {
+        "id": 6,
+        "hex": "#4e5661"
+      },
+      {
+        "id": 7,
+        "hex": "#5d6671"
+      },
+      {
+        "id": 8,
+        "hex": "#34302e"
+      },
+      {
+        "id": 9,
+        "hex": "#4b3b34"
+      },
+      {
+        "id": 10,
+        "hex": "#624b3d"
+      },
+      {
+        "id": 11,
+        "hex": "#79604e"
+      },
+      {
+        "id": 12,
+        "hex": "#2b3e36"
+      },
+      {
+        "id": 13,
+        "hex": "#395547"
+      },
+      {
+        "id": 14,
+        "hex": "#4b6b58"
+      },
+      {
+        "id": 15,
+        "hex": "#65806c"
+      },
+      {
+        "id": 16,
+        "hex": "#31304a"
+      },
+      {
+        "id": 17,
+        "hex": "#474362"
+      },
+      {
+        "id": 18,
+        "hex": "#5d567a"
+      },
+      {
+        "id": 19,
+        "hex": "#756c94"
+      },
+      {
+        "id": 20,
+        "hex": "#4b2f34"
+      },
+      {
+        "id": 21,
+        "hex": "#653b42"
+      },
+      {
+        "id": 22,
+        "hex": "#824b54"
+      },
+      {
+        "id": 23,
+        "hex": "#9d606a"
+      }
+    ],
+    "outfit_accent_colors_24": [
+      {
+        "id": 0,
+        "hex": "#1b6770"
+      },
+      {
+        "id": 1,
+        "hex": "#228895"
+      },
+      {
+        "id": 2,
+        "hex": "#2ca7b5"
+      },
+      {
+        "id": 3,
+        "hex": "#52c9d4"
+      },
+      {
+        "id": 4,
+        "hex": "#725326"
+      },
+      {
+        "id": 5,
+        "hex": "#9a7130"
+      },
+      {
+        "id": 6,
+        "hex": "#c18d3d"
+      },
+      {
+        "id": 7,
+        "hex": "#e0b15d"
+      },
+      {
+        "id": 8,
+        "hex": "#61294f"
+      },
+      {
+        "id": 9,
+        "hex": "#843567"
+      },
+      {
+        "id": 10,
+        "hex": "#a94384"
+      },
+      {
+        "id": 11,
+        "hex": "#d05ca7"
+      },
+      {
+        "id": 12,
+        "hex": "#344d72"
+      },
+      {
+        "id": 13,
+        "hex": "#46699a"
+      },
+      {
+        "id": 14,
+        "hex": "#5c87c0"
+      },
+      {
+        "id": 15,
+        "hex": "#78a8da"
+      },
+      {
+        "id": 16,
+        "hex": "#5c6b35"
+      },
+      {
+        "id": 17,
+        "hex": "#778b42"
+      },
+      {
+        "id": 18,
+        "hex": "#98ad55"
+      },
+      {
+        "id": 19,
+        "hex": "#b8cb6f"
+      },
+      {
+        "id": 20,
+        "hex": "#783337"
+      },
+      {
+        "id": 21,
+        "hex": "#9b4146"
+      },
+      {
+        "id": 22,
+        "hex": "#c15459"
+      },
+      {
+        "id": 23,
+        "hex": "#e17578"
+      }
+    ]
+  },
+  "compatibility": {
+    "required_identity_keys": [
+      "portrait_schema",
+      "library_revision",
+      "style_family",
+      "person_kind",
+      "portrait_archetype",
+      "eye_package",
+      "brow_package",
+      "mouth_package",
+      "lower_face_package",
+      "goggle_package",
+      "detail_package",
+      "hair",
+      "torso",
+      "cadence",
+      "tactical_presentation",
+      "skin_color_id",
+      "iris_color_id",
+      "eyebrow_color_id",
+      "lip_color_id",
+      "hair_primary_color_id",
+      "hair_accent_color_id",
+      "outfit_primary_color_id",
+      "outfit_accent_color_id"
+    ],
+    "legacy_fields_rejected": [
+      "face_variant",
+      "eyes",
+      "eye_shape",
+      "ear_shape",
+      "ears",
+      "iris_pattern",
+      "pupil_shape",
+      "eyebrows",
+      "mouth",
+      "facial_hair",
+      "accessory",
+      "background",
+      "face",
+      "iris",
+      "pupil",
+      "brows",
+      "nose",
+      "portrait_schema_version",
+      "eye_package_v3",
+      "lower_face_package_v3"
+    ],
+    "rules": [
+      "Three complete faces on a shared rig; natural hair, two shirts and independently selectable glasses."
+    ]
+  },
+  "supports_equipment": false,
+  "rig": {
+    "center": [
+      0.5,
+      0.5
+    ],
+    "eyes_y": 0.51,
+    "chin_y": 0.82,
+    "scalp_top_y": 0.21,
+    "lighting": "upper-left neutral",
+    "component_contract": "separately authored full-canvas alpha components; no source-portrait segmentation"
+  },
+  "structure_categories": [
+    {
+      "label": "FACE",
+      "category": "archetypes",
+      "key": "portrait_archetype"
+    },
+    {
+      "label": "EYES",
+      "category": "eye_packages",
+      "key": "eye_package"
+    },
+    {
+      "label": "NOSE",
+      "category": "nose_packages",
+      "key": "nose_package"
+    },
+    {
+      "label": "MOUTH",
+      "category": "mouth_packages",
+      "key": "mouth_package"
+    },
+    {
+      "label": "HAIR",
+      "category": "hair_styles",
+      "key": "hair"
+    },
+    {
+      "label": "CLOTHING",
+      "category": "torsos",
+      "key": "torso"
+    },
+    {
+      "label": "GLASSES",
+      "category": "goggle_packages",
+      "key": "goggle_package"
+    }
+  ],
+  "background_color": "#e7ecdf",
+  "render_parameters": {
+    "logical_pixels": 512,
+    "shade_steps": 0,
+    "white_threshold": 0.995
+  },
+  "nose_packages": [
+    {
+      "id": "nose_original",
+      "label": "Face default",
+      "asset": ""
+    },
+    {
+      "asset": "features_nose_straight.png",
+      "scale": [
+        0.6,
+        0.6
+      ],
+      "offset": [
+        0.20023923444976077,
+        0.23921052631578948
+      ],
+      "id": "day_nose_straight",
+      "label": "Straight"
+    },
+    {
+      "asset": "features_nose_broad.png",
+      "scale": [
+        0.6,
+        0.6
+      ],
+      "offset": [
+        0.19976076555023925,
+        0.21528708133971297
+      ],
+      "id": "day_nose_broad",
+      "label": "Broad"
+    }
+  ]
+}

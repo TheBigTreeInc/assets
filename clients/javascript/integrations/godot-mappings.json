@@ -1,0 +1,156 @@
+{
+  "dominion-pixel": {
+    "family": "dominion-modular-foundation-v1",
+    "slots": {
+      "face": {
+        "face-1": "modular_head_01",
+        "face-2": "modular_head_02",
+        "face-3": "modular_head_03",
+        "face-4": "modular_head_04"
+      },
+      "hair": {
+        "bald": "modular_bald",
+        "swept": "modular_sweep",
+        "short": "modular_crop"
+      },
+      "outfit": {
+        "jacket": "modular_jacket"
+      },
+      "glasses": {
+        "none": "goggle_none",
+        "glasses": "modular_goggles"
+      },
+      "mask": {
+        "none": "lower_exposed",
+        "mask": "modular_respirator"
+      },
+      "implant": {
+        "none": "detail_none",
+        "implant": "modular_implant"
+      },
+      "eyes": {
+        "original": "eyes_foundation",
+        "almond": "pixel_eyes_almond",
+        "narrow": "pixel_eyes_narrow"
+      },
+      "nose": {
+        "original": "nose_original",
+        "straight": "pixel_nose_straight",
+        "broad": "pixel_nose_broad"
+      },
+      "mouth": {
+        "original": "mouth_foundation",
+        "neutral": "pixel_mouth_neutral",
+        "full": "pixel_mouth_full"
+      }
+    }
+  },
+  "everyday-illustrated": {
+    "family": "everyday-illustrated-v1",
+    "slots": {
+      "face": {
+        "face-1": "everyday_face_1",
+        "face-2": "everyday_face_2",
+        "face-3": "everyday_face_3"
+      },
+      "hair": {
+        "bald": "everyday_bald",
+        "swept": "everyday_swept",
+        "curly": "everyday_curly"
+      },
+      "outfit": {
+        "crew": "everyday_crew",
+        "collar": "everyday_collar"
+      },
+      "glasses": {
+        "none": "everyday_none",
+        "glasses": "everyday_glasses"
+      },
+      "mask": {
+        "none": "lower_exposed"
+      },
+      "implant": {
+        "none": "detail_none"
+      },
+      "eyes": {
+        "original": "eyes_foundation",
+        "almond": "day_eyes_almond",
+        "narrow": "day_eyes_narrow"
+      },
+      "nose": {
+        "original": "nose_original",
+        "straight": "day_nose_straight",
+        "broad": "day_nose_broad"
+      },
+      "mouth": {
+        "original": "mouth_foundation",
+        "neutral": "day_mouth_neutral",
+        "full": "day_mouth_full"
+      }
+    }
+  },
+  "all-options": {
+    "family": "dominion-all-options-v1",
+    "slots": {
+      "face": {
+        "everyday-face-1": "mix_everyday_face_1",
+        "everyday-face-2": "mix_everyday_face_2",
+        "everyday-face-3": "mix_everyday_face_3",
+        "cyberpunk-face-1": "mix_cyberpunk_face_1",
+        "cyberpunk-face-2": "mix_cyberpunk_face_2",
+        "cyberpunk-face-3": "mix_cyberpunk_face_3",
+        "cyberpunk-face-4": "mix_cyberpunk_face_4"
+      },
+      "hair": {
+        "everyday-bald": "mix_everyday_bald",
+        "everyday-swept": "mix_everyday_swept",
+        "everyday-curly": "mix_everyday_curly",
+        "cyberpunk-bald": "mix_cyberpunk_bald",
+        "cyberpunk-swept": "mix_cyberpunk_swept",
+        "cyberpunk-short": "mix_cyberpunk_short"
+      },
+      "outfit": {
+        "everyday-crew": "mix_everyday_crew",
+        "everyday-collar": "mix_everyday_collar",
+        "cyberpunk-jacket": "mix_cyberpunk_jacket"
+      },
+      "glasses": {
+        "everyday-none": "mix_everyday_none",
+        "everyday-glasses": "mix_everyday_glasses",
+        "cyberpunk-none": "mix_cyberpunk_none",
+        "cyberpunk-glasses": "mix_cyberpunk_glasses"
+      },
+      "mask": {
+        "everyday-none": "mix_everyday_none",
+        "cyberpunk-none": "mix_cyberpunk_none",
+        "cyberpunk-mask": "mix_cyberpunk_mask"
+      },
+      "implant": {
+        "everyday-none": "mix_everyday_none",
+        "cyberpunk-none": "mix_cyberpunk_none",
+        "cyberpunk-implant": "mix_cyberpunk_implant"
+      },
+      "eyes": {
+        "original": "eyes_foundation",
+        "everyday-almond": "mix_everyday_almond",
+        "everyday-narrow": "mix_everyday_narrow",
+        "cyberpunk-almond": "mix_cyberpunk_almond",
+        "cyberpunk-narrow": "mix_cyberpunk_narrow"
+      },
+      "nose": {
+        "original": "nose_original",
+        "everyday-straight": "mix_everyday_straight",
+        "everyday-broad": "mix_everyday_broad",
+        "cyberpunk-straight": "mix_cyberpunk_straight",
+        "cyberpunk-broad": "mix_cyberpunk_broad"
+      },
+      "mouth": {
+        "original": "mouth_foundation",
+        "everyday-neutral": "mix_everyday_neutral",
+        "everyday-full": "mix_everyday_full",
+        "cyberpunk-neutral": "mix_cyberpunk_neutral",
+        "cyberpunk-full": "mix_cyberpunk_full"
+      }
+    }
+  }
+}

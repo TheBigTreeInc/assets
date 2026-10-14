@@ -8,7 +8,7 @@ async function run(){
   const renderer=await api.Renderer.load('../packs/'+id+'/pack.json');
   const identity=api.normalizeIdentity(renderer.pack);
   let variants=[identity];
-  for(const [key,slot] of Object.entries(renderer.pack.slots))variants=variants.flatMap(value=>slot.options.map(o=>({...value,choices:{...value.choices,[key]:o.id}})));
+  for(const [key,slot] of Object.entries(renderer.pack.slots).filter(([key])=>!['eyes','nose','mouth'].includes(key)))variants=variants.flatMap(value=>slot.options.map(o=>({...value,choices:{...value.choices,[key]:o.id}})));
   for(const value of variants){const canvas=renderer.render(value,{size:64});check(canvas.width===64,'Rendered '+id+' combination '+(++combinations));}
   const first=hash(renderer.render(identity));const colored=structuredClone(identity);colored.colors.hair='#f02020';check(hash(renderer.render(colored))!==first,'Hair color changes rendered pixels: '+id);
   const other=structuredClone(identity);other.choices.face=renderer.pack.slots.face.options[1].id;check(hash(renderer.render(other))!==first,'Face choice changes rendered pixels: '+id);

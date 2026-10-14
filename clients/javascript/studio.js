@@ -1,6 +1,6 @@
 'use strict';
 const api=ModularPortraits, $=id=>document.getElementById(id), renderers=new Map(), appearances=new Map();
-const registry={'everyday-illustrated':'packs/everyday-illustrated/pack.json','dominion-pixel':'packs/dominion-pixel/pack.json'};
+const registry={'all-options':'packs/all-options/pack.json','everyday-illustrated':'packs/everyday-illustrated/pack.json','dominion-pixel':'packs/dominion-pixel/pack.json'};
 let renderer=null,editor=null,identity=null,ticket=0;
 function status(text,error=false){$('status').textContent=text;$('status').classList.toggle('error',error);}
 function loading(active){document.querySelectorAll('#controls select,#controls input,.actions button,.exports button,.exports input').forEach(control=>control.disabled=active);}

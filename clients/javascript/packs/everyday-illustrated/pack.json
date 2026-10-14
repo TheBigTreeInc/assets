@@ -161,6 +161,36 @@
         "#c15459",
         "#e17578"
       ]
+    },
+    "iris": {
+      "label": "Eyes",
+      "default": "#508a94",
+      "swatches": [
+        "#2c2018",
+        "#443125",
+        "#634b32",
+        "#886b42",
+        "#a28b50",
+        "#c2a366",
+        "#254638",
+        "#3d6650",
+        "#64835c",
+        "#8a9a70",
+        "#203640",
+        "#385565",
+        "#508a94",
+        "#6ba1ab",
+        "#93c4cb",
+        "#9caeb9",
+        "#292a32",
+        "#45414c",
+        "#64516e",
+        "#92728d",
+        "#306e9c",
+        "#4b8ac1",
+        "#9a4644",
+        "#ca7370"
+      ]
     }
   },
   "layers": [
@@ -173,6 +203,28 @@
       "color": "skin",
       "preserveChroma": true,
       "whiteThreshold": 0.995
+    },
+    {
+      "slot": "eyes",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true,
+      "chromaColor": "iris"
+    },
+    {
+      "slot": "nose",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true
+    },
+    {
+      "slot": "mouth",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true
     },
     {
       "slot": "outfit",
@@ -208,7 +260,7 @@
   ],
   "id": "everyday-illustrated",
   "label": "Everyday \u00b7 illustrated",
-  "description": "Three everyday faces, natural side-part and curly hair, casual and collared shirts, and round glasses. A softer illustrated style for life and story games.",
+  "description": "Three everyday faces, natural side-part and curly hair, casual and collared shirts, and round glasses. A softer illustrated style for life and story games. Independent eyes, nose and mouth are available on matching facial foundations.",
   "logicalSize": 512,
   "shadeSteps": 0,
   "pixelated": false,
@@ -221,17 +273,146 @@
         {
           "id": "face-1",
           "label": "Soft features",
-          "asset": "everyday_head_01.png"
+          "asset": "everyday_head_01.png",
+          "modularAsset": "everyday_head_01_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
         },
         {
           "id": "face-2",
           "label": "Square jaw",
-          "asset": "everyday_head_02.png"
+          "asset": "everyday_head_02.png",
+          "modularAsset": "everyday_head_02_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
         },
         {
           "id": "face-3",
           "label": "Mature",
-          "asset": "everyday_head_03.png"
+          "asset": "everyday_head_03.png",
+          "modularAsset": "everyday_head_03_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
+        }
+      ]
+    },
+    "eyes": {
+      "label": "Eyes",
+      "default": "original",
+      "options": [
+        {
+          "id": "original",
+          "label": "Face default",
+          "asset": ""
+        },
+        {
+          "id": "almond",
+          "label": "Almond",
+          "asset": "features_eyes_almond.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.197,
+            0.171
+          ]
+        },
+        {
+          "id": "narrow",
+          "label": "Narrow",
+          "asset": "features_eyes_narrow.png",
+          "scale": [
+            0.64,
+            0.64
+          ],
+          "offset": [
+            0.18,
+            0.159
+          ]
+        }
+      ]
+    },
+    "nose": {
+      "label": "Nose",
+      "default": "original",
+      "options": [
+        {
+          "id": "original",
+          "label": "Face default",
+          "asset": ""
+        },
+        {
+          "id": "straight",
+          "label": "Straight",
+          "asset": "features_nose_straight.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.20023923444976077,
+            0.23921052631578948
+          ]
+        },
+        {
+          "id": "broad",
+          "label": "Broad",
+          "asset": "features_nose_broad.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.19976076555023925,
+            0.21528708133971297
+          ]
+        }
+      ]
+    },
+    "mouth": {
+      "label": "Mouth",
+      "default": "original",
+      "options": [
+        {
+          "id": "original",
+          "label": "Face default",
+          "asset": ""
+        },
+        {
+          "id": "neutral",
+          "label": "Neutral",
+          "asset": "features_mouth_neutral.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.20023923444976077,
+            0.3021291866028708
+          ]
+        },
+        {
+          "id": "full",
+          "label": "Full",
+          "asset": "features_mouth_full.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.2007177033492823,
+            0.313133971291866
+          ]
         }
       ]
     },
@@ -355,5 +536,54 @@
       ]
     }
   },
-  "assetVersion": "1.0.1"
+  "assetVersion": "1.1.0",
+  "featureDefaults": {
+    "eyes": "almond",
+    "nose": "straight",
+    "mouth": "neutral"
+  },
+  "godot": {
+    "family": "everyday-illustrated-v1",
+    "slots": {
+      "face": {
+        "face-1": "everyday_face_1",
+        "face-2": "everyday_face_2",
+        "face-3": "everyday_face_3"
+      },
+      "hair": {
+        "bald": "everyday_bald",
+        "swept": "everyday_swept",
+        "curly": "everyday_curly"
+      },
+      "outfit": {
+        "crew": "everyday_crew",
+        "collar": "everyday_collar"
+      },
+      "glasses": {
+        "none": "everyday_none",
+        "glasses": "everyday_glasses"
+      },
+      "mask": {
+        "none": "lower_exposed"
+      },
+      "implant": {
+        "none": "detail_none"
+      },
+      "eyes": {
+        "original": "eyes_foundation",
+        "almond": "day_eyes_almond",
+        "narrow": "day_eyes_narrow"
+      },
+      "nose": {
+        "original": "nose_original",
+        "straight": "day_nose_straight",
+        "broad": "day_nose_broad"
+      },
+      "mouth": {
+        "original": "mouth_foundation",
+        "neutral": "day_mouth_neutral",
+        "full": "day_mouth_full"
+      }
+    }
+  }
 }

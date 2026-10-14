@@ -161,6 +161,36 @@
         "#c15459",
         "#e17578"
       ]
+    },
+    "iris": {
+      "label": "Eyes",
+      "default": "#508a94",
+      "swatches": [
+        "#2c2018",
+        "#443125",
+        "#634b32",
+        "#886b42",
+        "#a28b50",
+        "#c2a366",
+        "#254638",
+        "#3d6650",
+        "#64835c",
+        "#8a9a70",
+        "#203640",
+        "#385565",
+        "#508a94",
+        "#6ba1ab",
+        "#93c4cb",
+        "#9caeb9",
+        "#292a32",
+        "#45414c",
+        "#64516e",
+        "#92728d",
+        "#306e9c",
+        "#4b8ac1",
+        "#9a4644",
+        "#ca7370"
+      ]
     }
   },
   "layers": [
@@ -172,6 +202,28 @@
       "slot": "face",
       "color": "skin",
       "preserveChroma": true
+    },
+    {
+      "slot": "eyes",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true,
+      "chromaColor": "iris"
+    },
+    {
+      "slot": "nose",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true
+    },
+    {
+      "slot": "mouth",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true
     },
     {
       "slot": "outfit",
@@ -204,7 +256,7 @@
   ],
   "id": "dominion-pixel",
   "label": "DOMINION \u00b7 pixel cyberpunk",
-  "description": "Four modular faces, two hairstyles, a jacket and separate cyberpunk accessories. The existing DOMINION artwork, rendered in JavaScript.",
+  "description": "Four modular faces, two hairstyles, a jacket and separate cyberpunk accessories. The existing DOMINION artwork, rendered in JavaScript. Independent eyes, nose and mouth are available on matching facial foundations.",
   "logicalSize": 256,
   "shadeSteps": 8,
   "pixelated": true,
@@ -217,22 +269,157 @@
         {
           "id": "face-1",
           "label": "Base Face",
-          "asset": "head.png"
+          "asset": "head.png",
+          "modularAsset": "head_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
         },
         {
           "id": "face-2",
           "label": "Square Jaw",
-          "asset": "head_02.png"
+          "asset": "head_02.png",
+          "modularAsset": "head_02_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
         },
         {
           "id": "face-3",
           "label": "Soft Features",
-          "asset": "head_03.png"
+          "asset": "head_03.png",
+          "modularAsset": "head_03_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
         },
         {
           "id": "face-4",
           "label": "Weathered",
-          "asset": "head_04.png"
+          "asset": "head_04.png",
+          "modularAsset": "head_04_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
+        }
+      ]
+    },
+    "eyes": {
+      "label": "Eyes",
+      "default": "original",
+      "options": [
+        {
+          "id": "original",
+          "label": "Face default",
+          "asset": ""
+        },
+        {
+          "id": "almond",
+          "label": "Almond",
+          "asset": "features_eyes_almond.png",
+          "scale": [
+            0.73,
+            0.73
+          ],
+          "offset": [
+            0.135,
+            0.117
+          ]
+        },
+        {
+          "id": "narrow",
+          "label": "Narrow",
+          "asset": "features_eyes_narrow.png",
+          "scale": [
+            0.71,
+            0.71
+          ],
+          "offset": [
+            0.145,
+            0.124
+          ]
+        }
+      ]
+    },
+    "nose": {
+      "label": "Nose",
+      "default": "original",
+      "options": [
+        {
+          "id": "original",
+          "label": "Face default",
+          "asset": ""
+        },
+        {
+          "id": "straight",
+          "label": "Straight",
+          "asset": "features_nose_straight.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.2007177033492823,
+            0.22581339712918663
+          ]
+        },
+        {
+          "id": "broad",
+          "label": "Broad",
+          "asset": "features_nose_broad.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.2,
+            0.22772727272727272
+          ]
+        }
+      ]
+    },
+    "mouth": {
+      "label": "Mouth",
+      "default": "original",
+      "options": [
+        {
+          "id": "original",
+          "label": "Face default",
+          "asset": ""
+        },
+        {
+          "id": "neutral",
+          "label": "Neutral",
+          "asset": "features_mouth_neutral.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.19976076555023925,
+            0.2585885167464115
+          ]
+        },
+        {
+          "id": "full",
+          "label": "Full",
+          "asset": "features_mouth_full.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.2,
+            0.3066746411483253
+          ]
         }
       ]
     },
@@ -374,5 +561,56 @@
       ]
     }
   },
-  "assetVersion": "1.0.1"
+  "assetVersion": "1.1.0",
+  "featureDefaults": {
+    "eyes": "almond",
+    "nose": "straight",
+    "mouth": "neutral"
+  },
+  "godot": {
+    "family": "dominion-modular-foundation-v1",
+    "slots": {
+      "face": {
+        "face-1": "modular_head_01",
+        "face-2": "modular_head_02",
+        "face-3": "modular_head_03",
+        "face-4": "modular_head_04"
+      },
+      "hair": {
+        "bald": "modular_bald",
+        "swept": "modular_sweep",
+        "short": "modular_crop"
+      },
+      "outfit": {
+        "jacket": "modular_jacket"
+      },
+      "glasses": {
+        "none": "goggle_none",
+        "glasses": "modular_goggles"
+      },
+      "mask": {
+        "none": "lower_exposed",
+        "mask": "modular_respirator"
+      },
+      "implant": {
+        "none": "detail_none",
+        "implant": "modular_implant"
+      },
+      "eyes": {
+        "original": "eyes_foundation",
+        "almond": "pixel_eyes_almond",
+        "narrow": "pixel_eyes_narrow"
+      },
+      "nose": {
+        "original": "nose_original",
+        "straight": "pixel_nose_straight",
+        "broad": "pixel_nose_broad"
+      },
+      "mouth": {
+        "original": "mouth_foundation",
+        "neutral": "pixel_mouth_neutral",
+        "full": "pixel_mouth_full"
+      }
+    }
+  }
 }

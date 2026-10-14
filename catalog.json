@@ -3,15 +3,21 @@
   "packs": [
     {
       "id": "dominion-pixel",
-      "version": "1.0.1",
-      "release": "releases/dominion-pixel/1.0.1/release.json",
-      "sha256": "0d9d5f84b0dbb914353d861ecb1a2996538f31dfecc088578fffb1d4bb4cbdb0"
+      "version": "1.1.0",
+      "release": "releases/dominion-pixel/1.1.0/release.json",
+      "sha256": "3e44df0646e27007e5c505fab4b4539d321caad633431c9f9e939775363dfa1a"
     },
     {
       "id": "everyday-illustrated",
-      "version": "1.0.1",
-      "release": "releases/everyday-illustrated/1.0.1/release.json",
-      "sha256": "abb1d08a670c7b0da2ec2ad75dfd0f86c112f219fcb632bb3b3ca3bf5729ca80"
+      "version": "1.1.0",
+      "release": "releases/everyday-illustrated/1.1.0/release.json",
+      "sha256": "31159a814ec300397b5fe2c63168180821de6353aef20fac3dbdce212956024e"
+    },
+    {
+      "id": "all-options",
+      "version": "1.1.0",
+      "release": "releases/all-options/1.1.0/release.json",
+      "sha256": "8c20dc250fd3c2a3542411047be96c68159b0df2e3a0c740dc8ef82ff42b3630"
     }
   ]
 }

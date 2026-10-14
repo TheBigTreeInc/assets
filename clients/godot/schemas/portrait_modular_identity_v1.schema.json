@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "dominion-modular-foundation-v1 portrait identity",
+  "type": "object",
+  "required": [
+    "style_family",
+    "portrait_schema",
+    "library_revision",
+    "portrait_archetype",
+    "hair",
+    "skin_color_id",
+    "hair_primary_color_id",
+    "hair_accent_color_id",
+    "outfit_primary_color_id"
+  ],
+  "properties": {
+    "style_family": {
+      "const": "dominion-modular-foundation-v1"
+    },
+    "portrait_schema": {
+      "const": 10
+    },
+    "library_revision": {
+      "const": 1
+    },
+    "portrait_archetype": {
+      "enum": [
+        "modular_head_01",
+        "modular_head_02",
+        "modular_head_03",
+        "modular_head_04"
+      ]
+    },
+    "hair": {
+      "enum": [
+        "modular_bald",
+        "modular_sweep",
+        "modular_crop"
+      ]
+    },
+    "skin_color_id": {
+      "$ref": "#/$defs/palette_id"
+    },
+    "hair_primary_color_id": {
+      "$ref": "#/$defs/palette_id"
+    },
+    "hair_accent_color_id": {
+      "$ref": "#/$defs/palette_id"
+    },
+    "outfit_primary_color_id": {
+      "$ref": "#/$defs/palette_id"
+    },
+    "goggle_package": {
+      "enum": [
+        "goggle_none",
+        "modular_goggles"
+      ]
+    },
+    "lower_face_package": {
+      "enum": [
+        "lower_exposed",
+        "modular_respirator"
+      ]
+    },
+    "detail_package": {
+      "enum": [
+        "detail_none",
+        "modular_implant"
+      ]
+    },
+    "outfit_accent_color_id": {
+      "$ref": "#/$defs/palette_id"
+    },
+    "torso": {
+      "enum": [
+        "modular_jacket"
+      ]
+    },
+    "eye_package": {
+      "enum": [
+        "eyes_foundation",
+        "pixel_eyes_almond",
+        "pixel_eyes_narrow"
+      ]
+    },
+    "nose_package": {
+      "enum": [
+        "nose_original",
+        "pixel_nose_straight",
+        "pixel_nose_broad"
+      ]
+    },
+    "mouth_package": {
+      "enum": [
+        "mouth_foundation",
+        "pixel_mouth_neutral",
+        "pixel_mouth_full"
+      ]
+    },
+    "iris_color_id": {
+      "$ref": "#/$defs/palette_id"
+    }
+  },
+  "$defs": {
+    "palette_id": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 23
+    }
+  },
+  "additionalProperties": true
+}

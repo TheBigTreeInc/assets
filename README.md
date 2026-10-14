@@ -7,13 +7,20 @@ only the packs they need, verify their contents and cache them for offline use.
 
 | System | Pack | Contents |
 | --- | --- | --- |
-| Modular portraits | `dominion-pixel` 1.0.1 | Four faces, two hairstyles plus bald, jacket, goggles, respirator and implant |
-| Modular portraits | `everyday-illustrated` 1.0.1 | Three faces, two hairstyles plus bald, two shirts and optional round glasses |
+| Modular portraits | `dominion-pixel` 1.1.0 | Four faces, independent eyes/noses/mouths, hair, jacket, goggles, respirator and implant |
+| Modular portraits | `everyday-illustrated` 1.1.0 | Three faces, independent eyes/noses/mouths, natural hair, two shirts and round glasses |
+
+| Modular portraits | `all-options` 1.1.0 | All seven heads and every option from both styles, freely mixed |
 
 Portraits use independently authored transparent components on a registered rig.
-Hair, clothes and accessories are interchangeable inside their own art pack.
-Facial features are fixed within each complete head. Different styles retain
-separate identities and are not mixed automatically. No game saves are stored here.
+Eyes (with brows), nose, mouth, hair, clothes and accessories are separate choices.
+The all-options pack permits mixing every part across the two styles. Original
+appearances retain their approved full-head defaults. Custom features activate a
+matching blank foundation. Pixel and illustrated components retain their source
+shading, so freely mixed portraits may intentionally have a hybrid style.
+Games can provide their own clothing menus using the optional editor filter.
+No game saves are stored here. Published 1.0.1 releases remain available unchanged;
+the catalog lists current 1.1.0 releases, which require the updated 1.1.0 clients.
 
 ## Download location
 
@@ -47,7 +54,7 @@ example files are included locally, so the workshop works without this repositor
 ## Godot
 
 See [clients/godot](clients/godot/README.md) for the downloader, trusted pack bindings
-and configuration example. The client is integrated in neon-control 0.7.85.
+and configuration example. The client is integrated in neon-control 0.7.86.
 Startup uses bundled or verified cached art. Missing packs download in the
 background and become available on the next launch. Offline fallback is retained.
 
@@ -82,6 +89,7 @@ animation and other systems can use this repository later, with suitable readers
 and checks for their formats. They are not implemented in these clients yet.
 Syndicate reference data and private game state are excluded from this repository.
 
-Run `python tools/validate_library.py` before committing pack changes. The initial
-release also passed 14 JavaScript contract/cache checks, 146 browser checks,
-132 rendered portrait combinations and the neon-control engine regression suite.
+Run `python tools/validate_library.py` before committing pack changes. Release 1.1.0 passed 19 JavaScript contract/cache checks, 146 legacy browser
+checks and 648 facial browser checks, including 448 explicit face/eye/nose/mouth
+combinations and the original 132 component combinations. Native profile/HUD
+persistence and the full neon-control engine regression suite also passed.

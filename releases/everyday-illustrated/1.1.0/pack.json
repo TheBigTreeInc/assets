@@ -1,0 +1,589 @@
+{
+  "schema": "modular-portraits.pack/v1",
+  "revision": 1,
+  "canvas": [
+    1254,
+    1254
+  ],
+  "rig": {
+    "id": "front-portrait-v1",
+    "scalpTopY": 0.21,
+    "eyesY": 0.51,
+    "chinY": 0.82
+  },
+  "colors": {
+    "skin": {
+      "label": "Skin",
+      "default": "#c18c69",
+      "swatches": [
+        "#3a201b",
+        "#4a2920",
+        "#5a3023",
+        "#6a3828",
+        "#7a432f",
+        "#8a4d36",
+        "#995a40",
+        "#a86a4c",
+        "#b57958",
+        "#c38867",
+        "#d19a7b",
+        "#dda98a",
+        "#e8b99d",
+        "#f0c7ad",
+        "#f4d2bc",
+        "#f7ddca",
+        "#8b5a48",
+        "#a76b55",
+        "#c48068",
+        "#d69a83",
+        "#70503f",
+        "#936b55",
+        "#b98970",
+        "#d4aa91"
+      ]
+    },
+    "hair": {
+      "label": "Hair",
+      "default": "#67442f",
+      "swatches": [
+        "#14161a",
+        "#20242b",
+        "#302a26",
+        "#4b3328",
+        "#65402c",
+        "#7b4b31",
+        "#8c5b3b",
+        "#a66a44",
+        "#c18a62",
+        "#d8b58d",
+        "#c8c4b8",
+        "#e1ded3",
+        "#4c5664",
+        "#667789",
+        "#245d68",
+        "#2f8c90",
+        "#5b316b",
+        "#8f3b75",
+        "#8e372a",
+        "#b65334",
+        "#8d7a37",
+        "#3d6d3c",
+        "#7885a0",
+        "#a7b0c4"
+      ]
+    },
+    "hairAccent": {
+      "label": "Hair highlights",
+      "default": "#9b7658",
+      "swatches": [
+        "#131920",
+        "#2b3640",
+        "#315a68",
+        "#3e7f8c",
+        "#557d47",
+        "#6e9b55",
+        "#7b653d",
+        "#9a7c45",
+        "#76516f",
+        "#9b5b83",
+        "#a03f3f",
+        "#c45a47",
+        "#877d65",
+        "#b6aa82",
+        "#57b7c6",
+        "#7be2e8",
+        "#c14bda",
+        "#e56ef2",
+        "#e0a83a",
+        "#f4d85c",
+        "#c9d4dd",
+        "#f0f4f5",
+        "#78dfa2",
+        "#d86b6b"
+      ]
+    },
+    "outfit": {
+      "label": "Clothing",
+      "default": "#528071",
+      "swatches": [
+        "#111820",
+        "#18242c",
+        "#20313a",
+        "#293f47",
+        "#343943",
+        "#414852",
+        "#4e5661",
+        "#5d6671",
+        "#34302e",
+        "#4b3b34",
+        "#624b3d",
+        "#79604e",
+        "#2b3e36",
+        "#395547",
+        "#4b6b58",
+        "#65806c",
+        "#31304a",
+        "#474362",
+        "#5d567a",
+        "#756c94",
+        "#4b2f34",
+        "#653b42",
+        "#824b54",
+        "#9d606a"
+      ]
+    },
+    "accessory": {
+      "label": "Accessory",
+      "default": "#383c40",
+      "swatches": [
+        "#1b6770",
+        "#228895",
+        "#2ca7b5",
+        "#52c9d4",
+        "#725326",
+        "#9a7130",
+        "#c18d3d",
+        "#e0b15d",
+        "#61294f",
+        "#843567",
+        "#a94384",
+        "#d05ca7",
+        "#344d72",
+        "#46699a",
+        "#5c87c0",
+        "#78a8da",
+        "#5c6b35",
+        "#778b42",
+        "#98ad55",
+        "#b8cb6f",
+        "#783337",
+        "#9b4146",
+        "#c15459",
+        "#e17578"
+      ]
+    },
+    "iris": {
+      "label": "Eyes",
+      "default": "#508a94",
+      "swatches": [
+        "#2c2018",
+        "#443125",
+        "#634b32",
+        "#886b42",
+        "#a28b50",
+        "#c2a366",
+        "#254638",
+        "#3d6650",
+        "#64835c",
+        "#8a9a70",
+        "#203640",
+        "#385565",
+        "#508a94",
+        "#6ba1ab",
+        "#93c4cb",
+        "#9caeb9",
+        "#292a32",
+        "#45414c",
+        "#64516e",
+        "#92728d",
+        "#306e9c",
+        "#4b8ac1",
+        "#9a4644",
+        "#ca7370"
+      ]
+    }
+  },
+  "layers": [
+    {
+      "slot": "outfit",
+      "color": "outfit"
+    },
+    {
+      "slot": "face",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995
+    },
+    {
+      "slot": "eyes",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true,
+      "chromaColor": "iris"
+    },
+    {
+      "slot": "nose",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true
+    },
+    {
+      "slot": "mouth",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true
+    },
+    {
+      "slot": "outfit",
+      "color": "outfit",
+      "frontOnly": true
+    },
+    {
+      "slot": "glasses",
+      "color": "accessory",
+      "preserveChroma": true,
+      "accessory": true,
+      "whiteThreshold": 0.995
+    },
+    {
+      "slot": "mask",
+      "color": "accessory",
+      "preserveChroma": true,
+      "accessory": true,
+      "whiteThreshold": 0.995
+    },
+    {
+      "slot": "implant",
+      "color": "accessory",
+      "preserveChroma": true,
+      "accessory": true,
+      "whiteThreshold": 0.995
+    },
+    {
+      "slot": "hair",
+      "color": "hair",
+      "accent": "hairAccent"
+    }
+  ],
+  "id": "everyday-illustrated",
+  "label": "Everyday \u00b7 illustrated",
+  "description": "Three everyday faces, natural side-part and curly hair, casual and collared shirts, and round glasses. A softer illustrated style for life and story games. Independent eyes, nose and mouth are available on matching facial foundations.",
+  "logicalSize": 512,
+  "shadeSteps": 0,
+  "pixelated": false,
+  "background": "#e7ecdf",
+  "slots": {
+    "face": {
+      "label": "Face",
+      "default": "face-1",
+      "options": [
+        {
+          "id": "face-1",
+          "label": "Soft features",
+          "asset": "everyday_head_01.png",
+          "modularAsset": "everyday_head_01_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
+        },
+        {
+          "id": "face-2",
+          "label": "Square jaw",
+          "asset": "everyday_head_02.png",
+          "modularAsset": "everyday_head_02_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
+        },
+        {
+          "id": "face-3",
+          "label": "Mature",
+          "asset": "everyday_head_03.png",
+          "modularAsset": "everyday_head_03_blank.png",
+          "featureDefaults": {
+            "eyes": "almond",
+            "nose": "straight",
+            "mouth": "neutral"
+          }
+        }
+      ]
+    },
+    "eyes": {
+      "label": "Eyes",
+      "default": "original",
+      "options": [
+        {
+          "id": "original",
+          "label": "Face default",
+          "asset": ""
+        },
+        {
+          "id": "almond",
+          "label": "Almond",
+          "asset": "features_eyes_almond.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.197,
+            0.171
+          ]
+        },
+        {
+          "id": "narrow",
+          "label": "Narrow",
+          "asset": "features_eyes_narrow.png",
+          "scale": [
+            0.64,
+            0.64
+          ],
+          "offset": [
+            0.18,
+            0.159
+          ]
+        }
+      ]
+    },
+    "nose": {
+      "label": "Nose",
+      "default": "original",
+      "options": [
+        {
+          "id": "original",
+          "label": "Face default",
+          "asset": ""
+        },
+        {
+          "id": "straight",
+          "label": "Straight",
+          "asset": "features_nose_straight.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.20023923444976077,
+            0.23921052631578948
+          ]
+        },
+        {
+          "id": "broad",
+          "label": "Broad",
+          "asset": "features_nose_broad.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.19976076555023925,
+            0.21528708133971297
+          ]
+        }
+      ]
+    },
+    "mouth": {
+      "label": "Mouth",
+      "default": "original",
+      "options": [
+        {
+          "id": "original",
+          "label": "Face default",
+          "asset": ""
+        },
+        {
+          "id": "neutral",
+          "label": "Neutral",
+          "asset": "features_mouth_neutral.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.20023923444976077,
+            0.3021291866028708
+          ]
+        },
+        {
+          "id": "full",
+          "label": "Full",
+          "asset": "features_mouth_full.png",
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.2007177033492823,
+            0.313133971291866
+          ]
+        }
+      ]
+    },
+    "hair": {
+      "label": "Hair",
+      "default": "swept",
+      "options": [
+        {
+          "id": "bald",
+          "label": "Bald",
+          "asset": ""
+        },
+        {
+          "id": "swept",
+          "label": "Side part",
+          "asset": "everyday_hair_swept.png",
+          "scale": [
+            0.78,
+            0.78
+          ],
+          "offset": [
+            0.11,
+            -0.02
+          ]
+        },
+        {
+          "id": "curly",
+          "label": "Curly crop",
+          "asset": "everyday_hair_curly.png",
+          "scale": [
+            0.78,
+            0.78
+          ],
+          "offset": [
+            0.11,
+            -0.02
+          ]
+        }
+      ]
+    },
+    "outfit": {
+      "label": "Clothing",
+      "default": "crew",
+      "options": [
+        {
+          "id": "crew",
+          "label": "Casual T-shirt",
+          "asset": "everyday_shirt_crew.png",
+          "scale": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0.09
+          ],
+          "frontFromY": 0.83,
+          "frontSlope": 0.4
+        },
+        {
+          "id": "collar",
+          "label": "Collared shirt",
+          "asset": "everyday_shirt_collar.png",
+          "scale": [
+            0.9,
+            0.9
+          ],
+          "offset": [
+            0.05,
+            0.14
+          ],
+          "frontFromY": 0.83,
+          "frontSlope": 0.4
+        }
+      ]
+    },
+    "glasses": {
+      "label": "Glasses",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "asset": ""
+        },
+        {
+          "id": "glasses",
+          "label": "Round glasses",
+          "asset": "everyday_glasses_v2.png",
+          "scale": [
+            0.8,
+            0.8
+          ],
+          "offset": [
+            0.1,
+            0.11
+          ]
+        }
+      ]
+    },
+    "mask": {
+      "label": "Mask",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "asset": ""
+        }
+      ]
+    },
+    "implant": {
+      "label": "Implant",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "asset": ""
+        }
+      ]
+    }
+  },
+  "assetVersion": "1.1.0",
+  "featureDefaults": {
+    "eyes": "almond",
+    "nose": "straight",
+    "mouth": "neutral"
+  },
+  "godot": {
+    "family": "everyday-illustrated-v1",
+    "slots": {
+      "face": {
+        "face-1": "everyday_face_1",
+        "face-2": "everyday_face_2",
+        "face-3": "everyday_face_3"
+      },
+      "hair": {
+        "bald": "everyday_bald",
+        "swept": "everyday_swept",
+        "curly": "everyday_curly"
+      },
+      "outfit": {
+        "crew": "everyday_crew",
+        "collar": "everyday_collar"
+      },
+      "glasses": {
+        "none": "everyday_none",
+        "glasses": "everyday_glasses"
+      },
+      "mask": {
+        "none": "lower_exposed"
+      },
+      "implant": {
+        "none": "detail_none"
+      },
+      "eyes": {
+        "original": "eyes_foundation",
+        "almond": "day_eyes_almond",
+        "narrow": "day_eyes_narrow"
+      },
+      "nose": {
+        "original": "nose_original",
+        "straight": "day_nose_straight",
+        "broad": "day_nose_broad"
+      },
+      "mouth": {
+        "original": "mouth_foundation",
+        "neutral": "day_mouth_neutral",
+        "full": "day_mouth_full"
+      }
+    }
+  }
+}

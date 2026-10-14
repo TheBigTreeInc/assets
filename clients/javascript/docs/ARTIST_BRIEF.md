@@ -74,6 +74,19 @@ before producing the complete pack. Inspect neckline, jaw, scalp coverage,
 accessory fit, transparency fringes and readability at icon sizes. Check every
 supported combination again at final delivery.
 
-Current runtime selection swaps complete heads. Independent eyes, brows, noses,
-mouths, facial hair, linked front/back long hair and expressions require a further
-agreed renderer/pack extension; layered masters keep that work possible later.
+Current runtime supports independent eye pairs (with eyebrows), noses and mouths.
+Deliver a matching blank facial foundation for each head shape, with smooth
+grayscale skin where the facial features attach. Keep the approved complete head
+as a separate optional legacy/default asset. Deliver each eye pair, nose and mouth
+as its own full 1254×1254 transparent image, registered to the same rig; do not
+deliver cropped face pieces. Keep feathered edges narrow and alpha clean.
+Use blue/cyan only in the irises for the runtime iris color channel; skin, brows,
+nose and lips should be neutral grayscale. Supply the scale/offset declaration
+if artwork needs a transform. Test both eye shapes, both nose shapes and both
+mouth shapes across every blank head before final delivery. Inspect seam blending
+under different skin colors and at 64, 128 and 256 pixels.
+
+Brows currently travel with the eye pair. Separate brows, ears, facial hair,
+expressions and linked front/back long hair still need an agreed extension.
+The mixed collection accepts parts from both art styles; a stylistic mismatch
+is allowed, but face/neck/feature registration must remain compatible.
