@@ -1,108 +1,26 @@
 # Shared game assets
 
-Versioned asset packs for TheBigTreeInc games and reusable systems. Games download
-only the packs they need, verify their contents and cache them for offline use.
+The current portrait system uses **one pack: portraits 2.0.0**.
+Faces, eyes, noses, mouths, hairstyles, clothing, eyewear, face coverings and
+augmentations have neutral names and numeric IDs. Optional pixel/illustrated
+tags describe rendering style. Glasses and goggles are types of Eyewear.
 
-## Available systems
+[System specification](docs/PORTRAIT_SYSTEM_SPEC.md) ·
+[Working JavaScript system](clients/javascript) ·
+[Numeric catalog 2](numeric-catalogs/2/catalog.json) ·
+[Download catalog](catalog.json)
 
-| System | Pack | Contents |
-| --- | --- | --- |
-| Modular portraits | `dominion-pixel` 1.1.0 | Four faces, independent eyes/noses/mouths, hair, jacket, goggles, respirator and implant |
-| Modular portraits | `everyday-illustrated` 1.1.0 | Three faces, independent eyes/noses/mouths, natural hair, two shirts and round glasses |
+30 unique PNGs: 7 heads, 4 each of eyes/noses/mouths, 4 hairstyles, 3 garments,
+round glasses, goggles, respirator and eye implant. None/Bald choices are merged.
+All parts can mix. Games choose their own clothing menus and job backgrounds.
+The specification, numeric schema, artist delivery rules, guided workshop and
+working game example are included. Only numeric format 2/library 2 is supported.
 
-| Modular portraits | `all-options` 1.1.0 | All seven heads and every option from both styles, freely mixed |
+Base URL: https://raw.githubusercontent.com/TheBigTreeInc/assets/main
+Pin the release id, version and SHA-256 with your game. The JavaScript download
+client verifies every file, caches downloads and supports bundled fallback.
+Historical releases remain archived; the active catalog lists only portraits.
+No game saves, credentials or private Syndicate data are included here.
 
-Portraits use independently authored transparent components on a registered rig.
-Eyes (with brows), nose, mouth, hair, clothes and accessories are separate choices.
-The all-options pack permits mixing every part across the two styles. Original
-appearances retain their approved full-head defaults. Custom features activate a
-matching blank foundation. Pixel and illustrated components retain their source
-shading, so freely mixed portraits may intentionally have a hybrid style.
-Games can provide their own clothing menus using the optional editor filter.
-No game saves are stored here. Published 1.0.1 releases remain available unchanged;
-the catalog lists current 1.1.0 releases, which require the updated 1.1.0 clients.
-
-## Add eyes, noses or mouths
-
-Read the [portrait component integration specification](docs/PORTRAIT_COMPONENT_SPEC.md)
-for artwork delivery, registration, iris colours, pack fields, Godot mappings and
-immutable release rules.
-
-## Download location
-
-Base URL for games:
-
-```
-https://raw.githubusercontent.com/TheBigTreeInc/assets/main
-```
-
-The catalog is [catalog.json](catalog.json). Each entry identifies an immutable
-release and its SHA-256. Copy its `id`, `version` and `sha256` into your game's
-trusted bindings. Games do not accept arbitrary asset URLs from character saves.
-For an additional repository snapshot pin, replace `main` in the base URL with
-the chosen commit SHA. A direct HTTPS host serving this same layout also works.
-
-## JavaScript
-
-`clients/javascript/` is a working portrait workshop, reusable Canvas renderer,
-editor, game-profile example and asset-library client. Run:
-
-```
-python clients/javascript/tools/serve.py --open
-```
-
-Use `GameAssetLibrary.loadRenderer(baseURL, trustedPin, {fallbackURL})` at game
-startup. See [the working integration code](clients/javascript/docs/SHARED_LIBRARY.md).
-The browser client verifies every file and decoded image canvas, uses CacheStorage
-for offline starts, and falls back to bundled art when downloads fail. Art and
-example files are included locally, so the workshop works without this repository.
-
-## Godot
-
-See [clients/godot](clients/godot/README.md) for the downloader, trusted pack bindings
-and configuration example. The client is integrated in neon-control 0.7.86.
-Startup uses bundled or verified cached art. Missing packs download in the
-background and become available on the next launch. Offline fallback is retained.
-
-## Repository layout
-
-```
-catalog.json
-releases/<pack-id>/<version>/release.json
-releases/<pack-id>/<version>/pack.json
-releases/<pack-id>/<version>/godot-catalog.json
-releases/<pack-id>/<version>/*.png
-clients/javascript/
-clients/godot/
-tools/validate_library.py
-```
-
-`release.json` indexes every pack file by SHA-256 and byte length. The consumer
-pins the release hash, then checks every file. Paths are relative and bounded;
-partial or corrupt downloads cannot replace a valid pack. `.gitattributes`
-preserves exact bytes across Git checkouts, including JSON line endings.
-
-## Add another system or pack
-
-Choose a unique pack ID, declare its kind and schema, and publish under a new
-version directory. Never overwrite published release bytes. Keep older versions
-available for games that still use them, and update consuming games' trusted pins
-explicitly. Each system should own its renderer, identity/schema and validation;
-the repository is shared storage, not a single game-specific appearance format.
-
-The initial download clients support portrait PNG/JSON packs. Terrain, sound,
-animation and other systems can use this repository later, with suitable readers
-and checks for their formats. They are not implemented in these clients yet.
-Syndicate reference data and private game state are excluded from this repository.
-
-Run `python tools/validate_library.py` before committing pack changes. Release 1.1.0 passed 19 JavaScript contract/cache checks, 146 legacy browser
-checks and 648 facial browser checks, including 448 explicit face/eye/nose/mouth
-combinations and the original 132 component combinations. Native profile/HUD
-persistence and the full neon-control engine regression suite also passed.
-
-## Portable numeric appearances (client 1.2.0)
-
-Read [the numeric appearance specification](docs/NUMERIC_PORTRAIT_SPEC.md).
-The [immutable catalog 1](numeric-catalogs/1/catalog.json) defines stable part IDs
-and pins artwork 1.1.0. JavaScript includes guided tabs, nearby colour controls,
-exact RGB and job background examples. Godot codecs and schemas are included.
+The Godot folder supplies an optional codec/game binding adapter. The previously
+delivered neon-control 0.7.87 game remains on its prior library until integrated.

@@ -1,20 +1,18 @@
 'use strict';
-const api=ModularPortraits, $=id=>document.getElementById(id), renderers=new Map(), appearances=new Map();
-const registry={'all-options':'packs/all-options/pack.json','everyday-illustrated':'packs/everyday-illustrated/pack.json','dominion-pixel':'packs/dominion-pixel/pack.json'};
-let renderer=null,system=null,editor=null,identity=null,ticket=0;
-const catalogPromise=NumericPortraits.loadCatalog("catalogs/numeric-catalog-1.json");
-function status(text,error=false){$('status').textContent=text;$('status').classList.toggle('error',error);}
-function loading(active){$('controls').inert=active;document.querySelectorAll('.actions button,.exports button,.exports input').forEach(control=>control.disabled=active);}
-function update(value){identity=value;appearances.set(renderer.pack.id,value);system.render(identity,{canvas:$('portrait'),size:512});system.render(identity,{canvas:$('card'),size:128});system.render(identity,{canvas:$('icon'),size:64});$('summary').textContent=Object.entries(identity.parts).map(([slot,id])=>system.choices(slot).find(o=>o.id===id)).filter(o=>o.hasAsset).map(o=>o.label).join(' · ');}
-
-async function style(id,appearance){const request=++ticket;loading(true);status('Loading art style…');try{let next=renderers.get(id);if(!next){next=await api.Renderer.load(registry[id]);renderers.set(id,next);}const catalog=await catalogPromise;if(request!==ticket)return;renderer=next;system=new NumericPortraits.System(next,catalog);editor?.destroy();$('pack-description').textContent=next.pack.description;const saved=appearance||appearances.get(id);identity=saved?(saved.format===1?system.normalize(saved):system.fromLegacy(saved)):system.defaultAppearance();editor=PortraitWizard.mount($('controls'),system,identity,{onChange:update});update(identity);status('Ready. Your choices are saved only when you choose Save.');}catch(error){if(request===ticket){if(renderer)$('style').value=renderer.pack.id;status(error.message,true);}}finally{if(request===ticket)loading(!renderer);}}
-function download(blob,name){const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-$('style').addEventListener('change',()=>style($('style').value));
-$('randomize').addEventListener('click',()=>{if(editor)editor.setAppearance(system.randomAppearance());});
-$('save').addEventListener('click',()=>{try{if(!identity)throw Error('Wait for the art pack to load.');localStorage.setItem('modular-portrait-kit:'+renderer.pack.id,NumericPortraits.serialize(system.catalog,identity));status('Appearance saved in this browser.');}catch(e){status('Could not save: '+e.message,true);}});
-$('restore').addEventListener('click',()=>{try{const text=localStorage.getItem('modular-portrait-kit:'+renderer.pack.id);if(!text)throw Error('No saved appearance for this art style.');{const saved=JSON.parse(text);editor.setAppearance(saved.format===1?NumericPortraits.deserialize(system.catalog,text):system.fromLegacy(api.deserialize(renderer.pack,text)));};status('Saved appearance restored.');}catch(e){status(e.message,true);}});
-$('export-png').addEventListener('click',async()=>{try{download(await new Promise(resolve=>system.render(identity,{size:512}).toBlob(resolve,'image/png')),renderer.pack.id+'-portrait.png');status('Portrait PNG exported.');}catch(e){status(e.message,true);}});
-$('export-json').addEventListener('click',()=>{try{download(new Blob([NumericPortraits.serialize(system.catalog,identity)],{type:'application/json'}),'portrait-appearance.json');status('Appearance JSON exported.');}catch(e){status(e.message,true);}});
-$('import-json').addEventListener('change',async event=>{try{const file=event.target.files[0];if(!file)return;if(file.size>16384)throw Error('Appearance file is too large.');const text=await file.text(),value=JSON.parse(text),catalog=await catalogPromise;const id=value.format===1?NumericPortraits.entry(catalog,value.pack).id:value.pack;if(!Object.hasOwn(registry,id))throw Error('This art pack is not installed.');if(value.format===1)NumericPortraits.validate(catalog,value);$('style').value=id;await style(id,value);status('Appearance imported.');}catch(e){status(e.message,true);}finally{event.target.value='';}});
-
-style($('style').value);
+(async()=>{
+ const $=id=>document.getElementById(id),api=NumericPortraits;
+ const system=await api.System.load('packs/portraits/pack.json',{catalogURL:'catalogs/library-2.json'});
+ const status=text=>$('status').textContent=text;
+ const draw=code=>{system.render(code,{canvas:$('portrait'),size:512});system.render(code,{canvas:$('card'),size:128});system.render(code,{canvas:$('icon'),size:64});};
+ const wizard=PortraitWizard.mount($('controls'),system,system.defaultAppearance(),{onChange:draw});draw(wizard.getAppearance());
+ const key='portrait-library:2';
+ const action=(id,fn)=>$(id).onclick=async()=>{try{await fn();}catch(e){status(e.message);}};
+ const download=(blob,name)=>{const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+ action('randomize',()=>wizard.setAppearance(system.randomAppearance()));
+ action('save',()=>{localStorage.setItem(key,api.serialize(system.catalog,wizard.getAppearance()));status('Appearance saved.');});
+ action('restore',()=>{wizard.setAppearance(api.deserialize(system.catalog,localStorage.getItem(key)));status('Appearance restored.');});
+ action('export-json',()=>{download(new Blob([api.serialize(system.catalog,wizard.getAppearance())],{type:'application/json'}),'portrait-appearance.json');status('Appearance exported.');});
+ action('export-png',async()=>{const blob=await new Promise(resolve=>system.render(wizard.getAppearance(),{size:512}).toBlob(resolve));if(!blob)throw Error('PNG export failed.');download(blob,'portrait.png');status('Portrait exported.');});
+ $('import-json').onchange=async event=>{try{const file=event.target.files[0];if(!file)return;if(file.size>16384)throw Error('Appearance file is too large.');wizard.setAppearance(api.deserialize(system.catalog,await file.text()));status('Appearance imported.');}catch(e){status(e.message);}finally{event.target.value='';}};
+ document.querySelectorAll('.actions button,.exports button,.exports input').forEach(b=>b.disabled=false);status('Ready. Every part belongs to the same library.');
+})().catch(e=>document.getElementById('status').textContent=e.message);

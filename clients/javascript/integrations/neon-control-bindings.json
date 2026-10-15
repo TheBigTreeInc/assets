@@ -1,0 +1,57 @@
+{
+  "family": "dominion-all-options-v1",
+  "slots": {
+    "face": {
+      "face-01": "mix_everyday_face_1",
+      "face-02": "mix_everyday_face_2",
+      "face-03": "mix_everyday_face_3",
+      "face-04": "mix_cyberpunk_face_1",
+      "face-05": "mix_cyberpunk_face_2",
+      "face-06": "mix_cyberpunk_face_3",
+      "face-07": "mix_cyberpunk_face_4"
+    },
+    "eyes": {
+      "eyes-01": "mix_everyday_almond",
+      "eyes-02": "mix_everyday_narrow",
+      "eyes-03": "mix_cyberpunk_almond",
+      "eyes-04": "mix_cyberpunk_narrow"
+    },
+    "nose": {
+      "nose-01": "mix_everyday_straight",
+      "nose-02": "mix_everyday_broad",
+      "nose-03": "mix_cyberpunk_straight",
+      "nose-04": "mix_cyberpunk_broad"
+    },
+    "mouth": {
+      "mouth-01": "mix_everyday_neutral",
+      "mouth-02": "mix_everyday_full",
+      "mouth-03": "mix_cyberpunk_neutral",
+      "mouth-04": "mix_cyberpunk_full"
+    },
+    "hair": {
+      "none": "mix_everyday_bald",
+      "hair-01": "mix_everyday_swept",
+      "hair-02": "mix_everyday_curly",
+      "hair-03": "mix_cyberpunk_swept",
+      "hair-04": "mix_cyberpunk_short"
+    },
+    "clothing": {
+      "clothing-01": "mix_everyday_crew",
+      "clothing-02": "mix_everyday_collar",
+      "clothing-03": "mix_cyberpunk_jacket"
+    },
+    "eyewear": {
+      "none": "mix_everyday_none",
+      "eyewear-01": "mix_everyday_glasses",
+      "eyewear-02": "mix_cyberpunk_glasses"
+    },
+    "faceCovering": {
+      "none": "mix_everyday_none",
+      "facecovering-01": "mix_cyberpunk_mask"
+    },
+    "augmentation": {
+      "none": "mix_everyday_none",
+      "augmentation-01": "mix_cyberpunk_implant"
+    }
+  }
+}

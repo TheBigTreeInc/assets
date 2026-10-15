@@ -5,7 +5,7 @@
   root.ModularPortraits = api;
 })(typeof globalThis === 'undefined' ? this : globalThis, function() {
   'use strict';
-  const SCHEMA = 'modular-portraits.identity/v1';
+  const SCHEMA = 'portrait-library.selection/v2';
   const PACK_SCHEMA = 'modular-portraits.pack/v1';
   const HEX = /^#[0-9a-f]{6}$/i;
   const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);

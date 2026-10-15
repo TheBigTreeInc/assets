@@ -1,17 +1,20 @@
 extends Node
 ## Optional immutable HTTPS packs. Bundled art is always the offline fallback.
-const BINDINGS := "res://game_data/characters/portrait_asset_sources.json"
-const CONFIG := "user://portrait-library.json"
-var bindings: Dictionary = {}
-var active: Dictionary = {}
-var status: String = "Bundled portraits"
-
-func _ready() -> void:
-	bindings = JSON.parse_string(FileAccess.get_file_as_string(BINDINGS))
-	for pack: Dictionary in bindings.get("packs", []):
-		var directory := cache_directory(pack)
-		if verify_cache(directory, pack):active[pack["catalog"]] = directory
-	call_deferred("refresh")
+## Call load_pack at startup. A verified cache is usable immediately and offline.
+func load_pack(base: String, pin: Dictionary, fallback_root: String) -> Dictionary:
+	if not safe_pin(pin):return {"error":"Invalid trusted release pin."}
+	var directory := cache_directory(pin)
+	if verify_cache(directory,pin) or await download_pack(base,pin):
+		return {"root":directory,"pack":JSON.parse_string(FileAccess.get_file_as_string(directory+"/pack.json")),"catalog":JSON.parse_string(FileAccess.get_file_as_string(directory+"/numeric-catalog.json")),"source":"cache"}
+	return {"root":fallback_root,"pack":JSON.parse_string(FileAccess.get_file_as_string(fallback_root+"/pack.json")),"source":"bundled"}
+static func safe_pin(pin: Dictionary) -> bool:
+	var pattern := RegEx.new()
+	pattern.compile("^[a-z0-9-]+$")
+	if pattern.search(str(pin.get("id","")))==null:return false
+	pattern.compile("^[0-9]+\\.[0-9]+\\.[0-9]+$")
+	if pattern.search(str(pin.get("version","")))==null:return false
+	pattern.compile("^[a-f0-9]{64}$")
+	return pattern.search(str(pin.get("sha256","")))!=null
 
 static func cache_directory(pack: Dictionary) -> String:
 	return "user://asset-library/%s/%s/%s" % [pack["id"], pack["version"], str(pack["sha256"]).left(16)]
@@ -32,7 +35,7 @@ static func parse_release(bytes: PackedByteArray, pack: Dictionary) -> Dictionar
 	if not parsed is Dictionary:return {}
 	if parsed.get("schema") != "game-assets.release/v1" or parsed.get("id") != pack["id"] or parsed.get("version") != pack["version"]:return {}
 	var files: Variant = parsed.get("files")
-	if not files is Dictionary or files.size() > 64 or not files.has("godot-catalog.json") or not files.has("pack.json"):return {}
+	if not files is Dictionary or files.size() > 64 or not files.has("numeric-catalog.json") or not files.has("pack.json"):return {}
 	var total := 0
 	for path: String in files:
 		var row: Variant = files[path]
@@ -56,23 +59,9 @@ static func verify_cache(directory: String, pack: Dictionary) -> bool:
 		if FileAccess.get_sha256(full) != str(release["files"][path]["sha256"]):return false
 	return true
 
-func resolve(catalog: String) -> Dictionary:
-	if active.has(catalog):return {"catalog": str(active[catalog]) + "/godot-catalog.json", "root":active[catalog]}
-	return {"catalog":catalog}
-
-func refresh() -> void:
-	if not FileAccess.file_exists(CONFIG):return
-	var config: Variant = JSON.parse_string(FileAccess.get_file_as_string(CONFIG))
-	if not config is Dictionary:return
-	var base: String = str(config.get("base_url", "")).trim_suffix("/")
-	if not base.begins_with("https://") or "@" in base or "?" in base or "#" in base:return
-	status = "Checking portrait library"
-	for pack: Dictionary in bindings.get("packs", []):
-		if active.has(pack["catalog"]):continue
-		if await download_pack(base, pack):status = "Downloaded portraits available next launch"
-		else:status = "Using bundled portraits; download unavailable"
-
 func download_pack(base: String, pack: Dictionary) -> bool:
+	if not safe_pin(pack) or not base.begins_with("https://") or "@" in base or "?" in base or "#" in base:return false
+	base=base.trim_suffix("/")
 	var prefix: String = base + "/releases/" + str(pack["id"]) + "/" + str(pack["version"]) + "/"
 	var bytes: PackedByteArray = await fetch_bytes(prefix + "release.json", 262144)
 	var release := parse_release(bytes, pack)
