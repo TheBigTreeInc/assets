@@ -1,0 +1,22 @@
+{
+  "id": 4,
+  "category": "mouth",
+  "name": "Wide",
+  "type": "mouth",
+  "tags": [
+    "pixel"
+  ],
+  "order": 4,
+  "render": {
+    "image": "art/2d5486ceb792a82808e48fe9b364a3f19ea83fecfac921e57a70697a22adfb6f.png",
+    "profile": "pixel",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.2,
+      0.3066746411483253
+    ]
+  }
+}

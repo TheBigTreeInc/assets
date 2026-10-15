@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "category": "augmentation",
+  "name": "Eye implant",
+  "type": "implant",
+  "tags": [
+    "pixel"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/a3027f7fb75d2126b8a833cf5315aca1c98b88d684c10172119e1328aab35dcb.png",
+    "profile": "pixel",
+    "scale": [
+      0.8,
+      0.6
+    ],
+    "offset": [
+      0.14,
+      0.235
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": 7,
+  "category": "mouth",
+  "name": "Defined bow",
+  "type": "mouth",
+  "tags": [
+    "illustrated",
+    "feminine"
+  ],
+  "order": 7,
+  "render": {
+    "image": "art/7ce0d2a611df69bfa6098a6e1f383484727c89c2a97bcded5b55c64ed1a1ddd7.png",
+    "profile": "illustrated",
+    "scale": [
+      0.32822818791946307,
+      0.32822818791946307
+    ],
+    "offset": [
+      0.3362785234899329,
+      0.485238255033557
+    ]
+  }
+}

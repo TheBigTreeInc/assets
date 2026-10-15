@@ -1,0 +1,23 @@
+{
+  "id": 7,
+  "category": "eyes",
+  "name": "Open rounded",
+  "type": "eyes",
+  "tags": [
+    "illustrated",
+    "feminine"
+  ],
+  "order": 7,
+  "render": {
+    "image": "art/b9bacf5719af1be983b6e3fe0642213e3abbbb58c5557431355a3f378031329d.png",
+    "profile": "illustrated",
+    "scale": [
+      0.549267371237319,
+      0.549267371237319
+    ],
+    "offset": [
+      0.225054232571482,
+      0.18628938118724625
+    ]
+  }
+}

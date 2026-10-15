@@ -1,0 +1,22 @@
+{
+  "id": 2,
+  "category": "eyes",
+  "name": "Narrow",
+  "type": "eyes",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 2,
+  "render": {
+    "image": "art/0ef49aad20cd880ddaa0f485caf435a55de7736003ab5162bc9424e98756d9a7.png",
+    "profile": "illustrated",
+    "scale": [
+      0.64,
+      0.64
+    ],
+    "offset": [
+      0.18,
+      0.159
+    ]
+  }
+}

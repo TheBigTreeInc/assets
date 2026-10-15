@@ -1,0 +1,23 @@
+{
+  "id": 5,
+  "category": "mouth",
+  "name": "Gentle smile",
+  "type": "mouth",
+  "tags": [
+    "illustrated",
+    "fantasy"
+  ],
+  "order": 5,
+  "render": {
+    "image": "art/434fc52be1df5783462d0fb3a8a808ac989e211cbe0f913a6a91133c57244d5a.png",
+    "profile": "illustrated",
+    "scale": [
+      0.47,
+      0.47
+    ],
+    "offset": [
+      0.265,
+      0.387
+    ]
+  }
+}

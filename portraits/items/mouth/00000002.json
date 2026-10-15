@@ -1,0 +1,22 @@
+{
+  "id": 2,
+  "category": "mouth",
+  "name": "Full",
+  "type": "mouth",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 2,
+  "render": {
+    "image": "art/9b6dba45fd7541a3c2feda5c250e7073345cf6553955c1be85ccf53a2995015e.png",
+    "profile": "illustrated",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.2007177033492823,
+      0.313133971291866
+    ]
+  }
+}

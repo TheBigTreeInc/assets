@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "category": "facialHair",
+  "name": "Short full beard",
+  "type": "beard",
+  "tags": [
+    "illustrated",
+    "fantasy"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/e9a6280d4234ee8db3fbaff52f64560613594eeb28c21239b9c762c68c47f79a.png",
+    "profile": "illustrated",
+    "scale": [
+      0.8,
+      0.8
+    ],
+    "offset": [
+      0.1,
+      0.17
+    ]
+  }
+}

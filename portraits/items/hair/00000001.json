@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "category": "hair",
+  "name": "Side part",
+  "type": "hairstyle",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/af0bc999a3deef223e4f497b823ee913e414b1874fcbe528c0b44d6fd5bf181b.png",
+    "profile": "illustrated",
+    "scale": [
+      0.78,
+      0.78
+    ],
+    "offset": [
+      0.11,
+      -0.02
+    ]
+  }
+}

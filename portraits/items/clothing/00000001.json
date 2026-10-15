@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "category": "clothing",
+  "name": "T-shirt",
+  "type": "t-shirt",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/6ac4b24d366389d893b97158a71babc933dfd2cd09b749ed6de35bc66775d323.png",
+    "profile": "illustrated",
+    "scale": [
+      1,
+      1
+    ],
+    "offset": [
+      0,
+      0.09
+    ]
+  }
+}

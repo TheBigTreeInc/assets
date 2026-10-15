@@ -1,0 +1,48 @@
+{
+  "id": 2,
+  "category": "head",
+  "name": "Square face",
+  "type": "head",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 2,
+  "render": {
+    "image": "art/75d241a9ba8d232dd87b9a20172e41afd62c4bb118df73b284de7262e44f81ba.png",
+    "profile": "illustrated",
+    "jawBoundary": [
+      [
+        0.26,
+        0.68
+      ],
+      [
+        0.29,
+        0.74
+      ],
+      [
+        0.37,
+        0.8
+      ],
+      [
+        0.45,
+        0.835
+      ],
+      [
+        0.55,
+        0.835
+      ],
+      [
+        0.63,
+        0.8
+      ],
+      [
+        0.71,
+        0.74
+      ],
+      [
+        0.74,
+        0.68
+      ]
+    ]
+  }
+}

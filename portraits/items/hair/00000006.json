@@ -1,0 +1,23 @@
+{
+  "id": 6,
+  "category": "hair",
+  "name": "Braided crown",
+  "type": "hairstyle",
+  "tags": [
+    "illustrated",
+    "fantasy"
+  ],
+  "order": 6,
+  "render": {
+    "image": "art/b35910a93ee2cac1e6b0bae967a699e8d45e5f757046a3a7b1439ad9b1b8b476.png",
+    "profile": "illustrated",
+    "scale": [
+      0.9,
+      0.9
+    ],
+    "offset": [
+      0.05,
+      0.03
+    ]
+  }
+}

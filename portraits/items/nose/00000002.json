@@ -1,0 +1,22 @@
+{
+  "id": 2,
+  "category": "nose",
+  "name": "Broad",
+  "type": "nose",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 2,
+  "render": {
+    "image": "art/0b255977054ead55d7544570ca0e26fadd374f6fd3cf1d36e145c1880c2a50ee.png",
+    "profile": "illustrated",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.19976076555023925,
+      0.21528708133971297
+    ]
+  }
+}

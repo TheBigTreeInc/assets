@@ -1,0 +1,22 @@
+{
+  "id": 2,
+  "category": "clothing",
+  "name": "Collared shirt",
+  "type": "shirt",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 2,
+  "render": {
+    "image": "art/b18a797c5b109d161b2a444155b4dd98cb12ef95a37ff113d0bffa309960ddc0.png",
+    "profile": "illustrated",
+    "scale": [
+      0.9,
+      0.9
+    ],
+    "offset": [
+      0.05,
+      0.14
+    ]
+  }
+}

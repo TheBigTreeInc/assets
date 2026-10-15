@@ -1,0 +1,23 @@
+{
+  "id": 5,
+  "category": "eyes",
+  "name": "Watchful",
+  "type": "eyes",
+  "tags": [
+    "illustrated",
+    "fantasy"
+  ],
+  "order": 5,
+  "render": {
+    "image": "art/4982fc2f721a12a2603279de65c9dd8ba1c13806a356664927df2dca4a842946.png",
+    "profile": "illustrated",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.197,
+      0.171
+    ]
+  }
+}

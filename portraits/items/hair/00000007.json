@@ -1,0 +1,23 @@
+{
+  "id": 7,
+  "category": "hair",
+  "name": "Tied back",
+  "type": "hairstyle",
+  "tags": [
+    "illustrated",
+    "fantasy"
+  ],
+  "order": 7,
+  "render": {
+    "image": "art/8e490bff4105ced272bbb146348edf557d2bb2d4362dc0abd50d2022afca8c50.png",
+    "profile": "illustrated",
+    "scale": [
+      0.85,
+      0.85
+    ],
+    "offset": [
+      0.075,
+      0.05
+    ]
+  }
+}

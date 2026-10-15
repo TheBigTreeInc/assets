@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "category": "eyes",
+  "name": "Almond",
+  "type": "eyes",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/2c94a2d649259bf227358991b210bb56231ab09a71fda3a67ca93d6b5a37f18e.png",
+    "profile": "illustrated",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.197,
+      0.171
+    ]
+  }
+}

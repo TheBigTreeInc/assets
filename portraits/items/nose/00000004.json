@@ -1,0 +1,22 @@
+{
+  "id": 4,
+  "category": "nose",
+  "name": "Wide bridge",
+  "type": "nose",
+  "tags": [
+    "pixel"
+  ],
+  "order": 4,
+  "render": {
+    "image": "art/9de8c2391bd609967616b4059a3994f3df3573212bb2dbabf6a1451f3384231b.png",
+    "profile": "pixel",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.2,
+      0.22772727272727272
+    ]
+  }
+}

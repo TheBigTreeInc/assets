@@ -1,0 +1,22 @@
+{
+  "id": 3,
+  "category": "hair",
+  "name": "Swept",
+  "type": "hairstyle",
+  "tags": [
+    "pixel"
+  ],
+  "order": 3,
+  "render": {
+    "image": "art/b6daa05625e04b8e7a2209729a6a2401b8d1bcda5682668202b2e2e1517b32b3.png",
+    "profile": "pixel",
+    "scale": [
+      0.84,
+      0.75
+    ],
+    "offset": [
+      0.07875,
+      0.0127
+    ]
+  }
+}

@@ -1,0 +1,502 @@
+{
+  "schema": "portraits.registry/v1",
+  "id": "portraits",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "rig": {
+    "id": "front-portrait-v1",
+    "scalpTopY": 0.21,
+    "eyesY": 0.51,
+    "chinY": 0.82
+  },
+  "logicalSize": 512,
+  "shadeSteps": 0,
+  "pixelated": false,
+  "background": "#e7ecdf",
+  "renderProfiles": {
+    "illustrated": {
+      "logicalSize": 512,
+      "shadeSteps": 0,
+      "pixelated": false,
+      "whiteThreshold": 0.995
+    },
+    "pixel": {
+      "logicalSize": 256,
+      "shadeSteps": 8,
+      "pixelated": true,
+      "whiteThreshold": 0.94
+    }
+  },
+  "categories": [
+    {
+      "id": 1,
+      "key": "head",
+      "label": "Face shape",
+      "nullable": false,
+      "noneLabel": "None",
+      "default": 1,
+      "items": [
+        "items/head/00000001.json",
+        "items/head/00000002.json",
+        "items/head/00000003.json",
+        "items/head/00000004.json",
+        "items/head/00000005.json",
+        "items/head/00000006.json",
+        "items/head/00000007.json",
+        "items/head/00000008.json",
+        "items/head/00000009.json",
+        "items/head/00000010.json"
+      ]
+    },
+    {
+      "id": 2,
+      "key": "eyes",
+      "label": "Eyes",
+      "nullable": false,
+      "noneLabel": "None",
+      "default": 1,
+      "items": [
+        "items/eyes/00000001.json",
+        "items/eyes/00000002.json",
+        "items/eyes/00000003.json",
+        "items/eyes/00000004.json",
+        "items/eyes/00000005.json",
+        "items/eyes/00000006.json",
+        "items/eyes/00000007.json"
+      ]
+    },
+    {
+      "id": 3,
+      "key": "nose",
+      "label": "Nose",
+      "nullable": false,
+      "noneLabel": "None",
+      "default": 1,
+      "items": [
+        "items/nose/00000001.json",
+        "items/nose/00000002.json",
+        "items/nose/00000003.json",
+        "items/nose/00000004.json",
+        "items/nose/00000005.json",
+        "items/nose/00000006.json"
+      ]
+    },
+    {
+      "id": 4,
+      "key": "mouth",
+      "label": "Mouth",
+      "nullable": false,
+      "noneLabel": "None",
+      "default": 1,
+      "items": [
+        "items/mouth/00000001.json",
+        "items/mouth/00000002.json",
+        "items/mouth/00000003.json",
+        "items/mouth/00000004.json",
+        "items/mouth/00000005.json",
+        "items/mouth/00000006.json",
+        "items/mouth/00000007.json"
+      ]
+    },
+    {
+      "id": 5,
+      "key": "hair",
+      "label": "Hair",
+      "nullable": true,
+      "noneLabel": "Bald",
+      "default": 0,
+      "items": [
+        "items/hair/00000001.json",
+        "items/hair/00000002.json",
+        "items/hair/00000003.json",
+        "items/hair/00000004.json",
+        "items/hair/00000005.json",
+        "items/hair/00000006.json",
+        "items/hair/00000007.json"
+      ]
+    },
+    {
+      "id": 6,
+      "key": "clothing",
+      "label": "Clothing",
+      "nullable": false,
+      "noneLabel": "None",
+      "default": 1,
+      "items": [
+        "items/clothing/00000001.json",
+        "items/clothing/00000002.json",
+        "items/clothing/00000003.json",
+        "items/clothing/00000004.json"
+      ]
+    },
+    {
+      "id": 7,
+      "key": "eyewear",
+      "label": "Eyewear",
+      "nullable": true,
+      "noneLabel": "None",
+      "default": 0,
+      "items": [
+        "items/eyewear/00000001.json",
+        "items/eyewear/00000002.json"
+      ]
+    },
+    {
+      "id": 8,
+      "key": "faceCovering",
+      "label": "Face covering",
+      "nullable": true,
+      "noneLabel": "None",
+      "default": 0,
+      "items": [
+        "items/faceCovering/00000001.json"
+      ]
+    },
+    {
+      "id": 9,
+      "key": "augmentation",
+      "label": "Augmentation",
+      "nullable": true,
+      "noneLabel": "None",
+      "default": 0,
+      "items": [
+        "items/augmentation/00000001.json"
+      ]
+    },
+    {
+      "id": 10,
+      "key": "facialHair",
+      "label": "Facial hair",
+      "nullable": true,
+      "noneLabel": "None",
+      "default": 0,
+      "items": [
+        "items/facialHair/00000001.json"
+      ]
+    },
+    {
+      "id": 11,
+      "key": "scars",
+      "label": "Scars",
+      "nullable": true,
+      "noneLabel": "None",
+      "default": 0,
+      "items": [
+        "items/scars/00000001.json"
+      ]
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "key": "skin",
+      "required": true,
+      "label": "Skin",
+      "default": "#c18c69",
+      "swatches": [
+        "#3a201b",
+        "#4a2920",
+        "#5a3023",
+        "#6a3828",
+        "#7a432f",
+        "#8a4d36",
+        "#995a40",
+        "#a86a4c",
+        "#b57958",
+        "#c38867",
+        "#d19a7b",
+        "#dda98a",
+        "#e8b99d",
+        "#f0c7ad",
+        "#f4d2bc",
+        "#f7ddca",
+        "#8b5a48",
+        "#a76b55",
+        "#c48068",
+        "#d69a83",
+        "#70503f",
+        "#936b55",
+        "#b98970",
+        "#d4aa91"
+      ]
+    },
+    {
+      "id": 2,
+      "key": "hair",
+      "required": true,
+      "label": "Hair",
+      "default": "#67442f",
+      "swatches": [
+        "#14161a",
+        "#20242b",
+        "#302a26",
+        "#4b3328",
+        "#65402c",
+        "#7b4b31",
+        "#8c5b3b",
+        "#a66a44",
+        "#c18a62",
+        "#d8b58d",
+        "#c8c4b8",
+        "#e1ded3",
+        "#4c5664",
+        "#667789",
+        "#245d68",
+        "#2f8c90",
+        "#5b316b",
+        "#8f3b75",
+        "#8e372a",
+        "#b65334",
+        "#8d7a37",
+        "#3d6d3c",
+        "#7885a0",
+        "#a7b0c4"
+      ]
+    },
+    {
+      "id": 3,
+      "key": "hairAccent",
+      "required": true,
+      "label": "Hair highlights",
+      "default": "#9b7658",
+      "swatches": [
+        "#131920",
+        "#2b3640",
+        "#315a68",
+        "#3e7f8c",
+        "#557d47",
+        "#6e9b55",
+        "#7b653d",
+        "#9a7c45",
+        "#76516f",
+        "#9b5b83",
+        "#a03f3f",
+        "#c45a47",
+        "#877d65",
+        "#b6aa82",
+        "#57b7c6",
+        "#7be2e8",
+        "#c14bda",
+        "#e56ef2",
+        "#e0a83a",
+        "#f4d85c",
+        "#c9d4dd",
+        "#f0f4f5",
+        "#78dfa2",
+        "#d86b6b"
+      ]
+    },
+    {
+      "id": 4,
+      "key": "clothing",
+      "required": true,
+      "label": "Clothing",
+      "default": "#528071",
+      "swatches": [
+        "#111820",
+        "#18242c",
+        "#20313a",
+        "#293f47",
+        "#343943",
+        "#414852",
+        "#4e5661",
+        "#5d6671",
+        "#34302e",
+        "#4b3b34",
+        "#624b3d",
+        "#79604e",
+        "#2b3e36",
+        "#395547",
+        "#4b6b58",
+        "#65806c",
+        "#31304a",
+        "#474362",
+        "#5d567a",
+        "#756c94",
+        "#4b2f34",
+        "#653b42",
+        "#824b54",
+        "#9d606a"
+      ]
+    },
+    {
+      "id": 5,
+      "key": "accessory",
+      "required": true,
+      "label": "Accessory",
+      "default": "#383c40",
+      "swatches": [
+        "#1b6770",
+        "#228895",
+        "#2ca7b5",
+        "#52c9d4",
+        "#725326",
+        "#9a7130",
+        "#c18d3d",
+        "#e0b15d",
+        "#61294f",
+        "#843567",
+        "#a94384",
+        "#d05ca7",
+        "#344d72",
+        "#46699a",
+        "#5c87c0",
+        "#78a8da",
+        "#5c6b35",
+        "#778b42",
+        "#98ad55",
+        "#b8cb6f",
+        "#783337",
+        "#9b4146",
+        "#c15459",
+        "#e17578"
+      ]
+    },
+    {
+      "id": 6,
+      "key": "iris",
+      "required": true,
+      "label": "Eyes",
+      "default": "#508a94",
+      "swatches": [
+        "#2c2018",
+        "#443125",
+        "#634b32",
+        "#886b42",
+        "#a28b50",
+        "#c2a366",
+        "#254638",
+        "#3d6650",
+        "#64835c",
+        "#8a9a70",
+        "#203640",
+        "#385565",
+        "#508a94",
+        "#6ba1ab",
+        "#93c4cb",
+        "#9caeb9",
+        "#292a32",
+        "#45414c",
+        "#64516e",
+        "#92728d",
+        "#306e9c",
+        "#4b8ac1",
+        "#9a4644",
+        "#ca7370"
+      ]
+    },
+    {
+      "id": 7,
+      "key": "facialHair",
+      "required": true,
+      "label": "Facial hair",
+      "default": "#67442f",
+      "swatches": [
+        "#14161a",
+        "#20242b",
+        "#302a26",
+        "#4b3328",
+        "#65402c",
+        "#7b4b31",
+        "#8c5b3b",
+        "#a66a44",
+        "#c18a62",
+        "#d8b58d",
+        "#c8c4b8",
+        "#e1ded3",
+        "#4c5664",
+        "#667789",
+        "#245d68",
+        "#2f8c90",
+        "#5b316b",
+        "#8f3b75",
+        "#8e372a",
+        "#b65334",
+        "#8d7a37",
+        "#3d6d3c",
+        "#7885a0",
+        "#a7b0c4"
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "slot": "head",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "anatomy": "neck"
+    },
+    {
+      "slot": "clothing",
+      "color": "clothing"
+    },
+    {
+      "slot": "head",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "anatomy": "head"
+    },
+    {
+      "slot": "eyes",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true,
+      "chromaColor": "iris"
+    },
+    {
+      "slot": "nose",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true
+    },
+    {
+      "slot": "mouth",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "feature": true
+    },
+    {
+      "slot": "scars",
+      "color": "skin",
+      "opacity": 0.65
+    },
+    {
+      "slot": "facialHair",
+      "color": "facialHair",
+      "accent": "hairAccent"
+    },
+    {
+      "slot": "eyewear",
+      "color": "accessory",
+      "preserveChroma": true,
+      "accessory": true,
+      "whiteThreshold": 0.995
+    },
+    {
+      "slot": "faceCovering",
+      "color": "accessory",
+      "preserveChroma": true,
+      "accessory": true,
+      "whiteThreshold": 0.995
+    },
+    {
+      "slot": "augmentation",
+      "color": "accessory",
+      "preserveChroma": true,
+      "accessory": true,
+      "whiteThreshold": 0.995
+    },
+    {
+      "slot": "hair",
+      "color": "hair",
+      "accent": "hairAccent"
+    }
+  ]
+}

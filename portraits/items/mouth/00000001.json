@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "category": "mouth",
+  "name": "Neutral",
+  "type": "mouth",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/266dddf5fdbe692d041a7d3b2fd038f0d0fba4ca7db8d19d9a591094d8be7848.png",
+    "profile": "illustrated",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.20023923444976077,
+      0.3021291866028708
+    ]
+  }
+}

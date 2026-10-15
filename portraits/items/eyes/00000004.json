@@ -1,0 +1,22 @@
+{
+  "id": 4,
+  "category": "eyes",
+  "name": "Deep-set",
+  "type": "eyes",
+  "tags": [
+    "pixel"
+  ],
+  "order": 4,
+  "render": {
+    "image": "art/c76cb5add435d1b33ab9ea8e93000b32e4f5bd9dbda2daa33b9afe89f3a9a8d3.png",
+    "profile": "pixel",
+    "scale": [
+      0.71,
+      0.71
+    ],
+    "offset": [
+      0.145,
+      0.124
+    ]
+  }
+}

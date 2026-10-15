@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "category": "nose",
+  "name": "Straight",
+  "type": "nose",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/d4e473e617c214216f7bafb17450b2d7f40566b5d3f838d4e74d9b911acf342f.png",
+    "profile": "illustrated",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.20023923444976077,
+      0.23921052631578948
+    ]
+  }
+}

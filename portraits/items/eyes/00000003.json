@@ -1,0 +1,22 @@
+{
+  "id": 3,
+  "category": "eyes",
+  "name": "Angular",
+  "type": "eyes",
+  "tags": [
+    "pixel"
+  ],
+  "order": 3,
+  "render": {
+    "image": "art/3d8a07b16f6735212af4303d8f70e20a6a8dbcfac0fa4806b70776d905a5a69f.png",
+    "profile": "pixel",
+    "scale": [
+      0.73,
+      0.73
+    ],
+    "offset": [
+      0.135,
+      0.117
+    ]
+  }
+}

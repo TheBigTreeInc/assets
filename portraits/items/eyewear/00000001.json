@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "category": "eyewear",
+  "name": "Round glasses",
+  "type": "glasses",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/7916bc2502c96d6ad1834b04d1fddae25b9ad5a637d3001097e352d30e9b6cd4.png",
+    "profile": "illustrated",
+    "scale": [
+      0.8,
+      0.8
+    ],
+    "offset": [
+      0.1,
+      0.11
+    ]
+  }
+}

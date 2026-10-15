@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "category": "faceCovering",
+  "name": "Respirator",
+  "type": "respirator",
+  "tags": [
+    "pixel"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/f61f22ef726c2817f55e235e0354d36d8fe4dd8bdb469c72f993082f7a751709.png",
+    "profile": "pixel",
+    "scale": [
+      0.72,
+      0.7
+    ],
+    "offset": [
+      0.14,
+      0.21
+    ]
+  }
+}

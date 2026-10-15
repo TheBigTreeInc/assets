@@ -1,0 +1,48 @@
+{
+  "id": 3,
+  "category": "head",
+  "name": "Mature face",
+  "type": "head",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 3,
+  "render": {
+    "image": "art/d9bea92158212413d0fcf43be73cb5b5be98e5e0b7ce8aa9b3c73a5b9ef0073a.png",
+    "profile": "illustrated",
+    "jawBoundary": [
+      [
+        0.26,
+        0.68
+      ],
+      [
+        0.29,
+        0.74
+      ],
+      [
+        0.37,
+        0.8
+      ],
+      [
+        0.45,
+        0.835
+      ],
+      [
+        0.55,
+        0.835
+      ],
+      [
+        0.63,
+        0.8
+      ],
+      [
+        0.71,
+        0.74
+      ],
+      [
+        0.74,
+        0.68
+      ]
+    ]
+  }
+}

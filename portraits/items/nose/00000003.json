@@ -1,0 +1,22 @@
+{
+  "id": 3,
+  "category": "nose",
+  "name": "Defined bridge",
+  "type": "nose",
+  "tags": [
+    "pixel"
+  ],
+  "order": 3,
+  "render": {
+    "image": "art/7c24ed984abc2007d3c0f211414ad244ca6b4ffbb45a15f1b76008cda0505ebe.png",
+    "profile": "pixel",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.2007177033492823,
+      0.22581339712918663
+    ]
+  }
+}

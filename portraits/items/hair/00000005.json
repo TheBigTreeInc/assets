@@ -1,0 +1,23 @@
+{
+  "id": 5,
+  "category": "hair",
+  "name": "Long waves",
+  "type": "hairstyle",
+  "tags": [
+    "illustrated",
+    "fantasy"
+  ],
+  "order": 5,
+  "render": {
+    "image": "art/fc84b562e48ca27479f7bf8de5dd350c19d1f4c51ecfecb143e1a36a3c0ba3ed.png",
+    "profile": "illustrated",
+    "scale": [
+      1,
+      1
+    ],
+    "offset": [
+      0,
+      0
+    ]
+  }
+}

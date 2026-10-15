@@ -1,0 +1,48 @@
+{
+  "id": 1,
+  "category": "head",
+  "name": "Soft face",
+  "type": "head",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/52154f468c2c1eebf00a85b7d699b4ff6111e733314387b68dbf9627f265a8a5.png",
+    "profile": "illustrated",
+    "jawBoundary": [
+      [
+        0.26,
+        0.68
+      ],
+      [
+        0.29,
+        0.74
+      ],
+      [
+        0.37,
+        0.8
+      ],
+      [
+        0.45,
+        0.835
+      ],
+      [
+        0.55,
+        0.835
+      ],
+      [
+        0.63,
+        0.8
+      ],
+      [
+        0.71,
+        0.74
+      ],
+      [
+        0.74,
+        0.68
+      ]
+    ]
+  }
+}

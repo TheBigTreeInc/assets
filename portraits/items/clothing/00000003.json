@@ -1,0 +1,22 @@
+{
+  "id": 3,
+  "category": "clothing",
+  "name": "High-collar jacket",
+  "type": "jacket",
+  "tags": [
+    "pixel"
+  ],
+  "order": 3,
+  "render": {
+    "image": "art/630ce143e2dc330c502d761b053f4cf3eec63ff94a5d9390f7cf1ee6119d20d9.png",
+    "profile": "pixel",
+    "scale": [
+      0.95,
+      0.95
+    ],
+    "offset": [
+      0.025,
+      0.09
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": 2,
+  "category": "eyewear",
+  "name": "Goggles",
+  "type": "goggles",
+  "tags": [
+    "pixel"
+  ],
+  "order": 2,
+  "render": {
+    "image": "art/62cab9312e7c56b1f262af869de955321911ca8d89a0cdd62a391a825b773ebe.png",
+    "profile": "pixel",
+    "scale": [
+      0.9,
+      0.8
+    ],
+    "offset": [
+      0.05,
+      0.105
+    ]
+  }
+}

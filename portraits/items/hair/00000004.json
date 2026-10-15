@@ -1,0 +1,22 @@
+{
+  "id": 4,
+  "category": "hair",
+  "name": "Short",
+  "type": "hairstyle",
+  "tags": [
+    "pixel"
+  ],
+  "order": 4,
+  "render": {
+    "image": "art/7fef6a741847e7e7cc9dfc5c6e7fbd1bb08d0e99584c06f876fd359c91006371.png",
+    "profile": "pixel",
+    "scale": [
+      0.84,
+      0.75
+    ],
+    "offset": [
+      0.07875,
+      0.0127
+    ]
+  }
+}

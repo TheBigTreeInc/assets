@@ -1,0 +1,22 @@
+{
+  "id": 3,
+  "category": "mouth",
+  "name": "Firm",
+  "type": "mouth",
+  "tags": [
+    "pixel"
+  ],
+  "order": 3,
+  "render": {
+    "image": "art/d08cfcc279e96f925e2d0cb0261c6bd3f4b60e30848a073baaebea94c271da6a.png",
+    "profile": "pixel",
+    "scale": [
+      0.6,
+      0.6
+    ],
+    "offset": [
+      0.19976076555023925,
+      0.2585885167464115
+    ]
+  }
+}

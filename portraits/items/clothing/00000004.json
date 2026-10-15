@@ -1,0 +1,23 @@
+{
+  "id": 4,
+  "category": "clothing",
+  "name": "Travel tunic",
+  "type": "tunic",
+  "tags": [
+    "illustrated",
+    "fantasy"
+  ],
+  "order": 4,
+  "render": {
+    "image": "art/48973defac023c8b02e1647e805cea54c471d3a97558c3d6bbba587a5609e7bd.png",
+    "profile": "illustrated",
+    "scale": [
+      1,
+      1
+    ],
+    "offset": [
+      0,
+      0.06
+    ]
+  }
+}

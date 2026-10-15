@@ -1,0 +1,23 @@
+{
+  "id": 6,
+  "category": "eyes",
+  "name": "Soft almond",
+  "type": "eyes",
+  "tags": [
+    "illustrated",
+    "feminine"
+  ],
+  "order": 6,
+  "render": {
+    "image": "art/dfe66905cb671f41a7df023b3db3f72af2750eedaad9d90ebf45ab2ba2879e27.png",
+    "profile": "illustrated",
+    "scale": [
+      0.4589010550347757,
+      0.4589010550347757
+    ],
+    "offset": [
+      0.2702330646479643,
+      0.23547607716097935
+    ]
+  }
+}

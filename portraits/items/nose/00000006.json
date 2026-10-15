@@ -1,0 +1,23 @@
+{
+  "id": 6,
+  "category": "nose",
+  "name": "Rounded tip",
+  "type": "nose",
+  "tags": [
+    "illustrated",
+    "feminine"
+  ],
+  "order": 6,
+  "render": {
+    "image": "art/ec17e078d39273c6f6865013a6886dd873ff6e2acf20a4361c381ed62ba5d510.png",
+    "profile": "illustrated",
+    "scale": [
+      0.3939267015706806,
+      0.4079794520547945
+    ],
+    "offset": [
+      0.30303664921465967,
+      0.35332191780821925
+    ]
+  }
+}

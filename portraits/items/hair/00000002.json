@@ -1,0 +1,22 @@
+{
+  "id": 2,
+  "category": "hair",
+  "name": "Curls",
+  "type": "hairstyle",
+  "tags": [
+    "illustrated"
+  ],
+  "order": 2,
+  "render": {
+    "image": "art/21f6f72e61e1cbb0270f5fe74022bfb0b4e33889f3f44ed86faa2dbb0893c6f8.png",
+    "profile": "illustrated",
+    "scale": [
+      0.78,
+      0.78
+    ],
+    "offset": [
+      0.11,
+      -0.02
+    ]
+  }
+}

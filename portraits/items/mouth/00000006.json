@@ -1,0 +1,23 @@
+{
+  "id": 6,
+  "category": "mouth",
+  "name": "Soft smile",
+  "type": "mouth",
+  "tags": [
+    "illustrated",
+    "feminine"
+  ],
+  "order": 6,
+  "render": {
+    "image": "art/749fac4111e70dc027744291de659a83ecfbe91c655c126854d2c6dd0d0f8f51.png",
+    "profile": "illustrated",
+    "scale": [
+      0.4312081784386617,
+      0.4312081784386617
+    ],
+    "offset": [
+      0.28473977695167285,
+      0.40719795539033454
+    ]
+  }
+}

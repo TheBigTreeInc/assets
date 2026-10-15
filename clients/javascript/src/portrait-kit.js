@@ -1,11 +1,10 @@
-/* Modular Portrait Kit — dependency-free browser canvas renderer and save contract. */
+/* Internal drawing engine. Public persistence API: Portraits.encode / Portraits.decode. */
 (function(root, factory) {
   const api = factory();
   if (typeof module === 'object' && module.exports) module.exports = api;
   root.ModularPortraits = api;
 })(typeof globalThis === 'undefined' ? this : globalThis, function() {
   'use strict';
-  const SCHEMA = 'portrait-library.selection/v2';
   const PACK_SCHEMA = 'modular-portraits.pack/v1';
   const HEX = /^#[0-9a-f]{6}$/i;
   const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
@@ -55,7 +54,7 @@
     }
     for (const layer of pack.layers) {
       if (!object(layer) || !own(pack.slots, layer.slot)) throw Error('Layer refers to an unknown slot.');
-      if(layer.anatomy!==undefined&&(!['head','neck'].includes(layer.anatomy)||layer.slot!=='face'))throw Error('Invalid anatomy plane.');
+      if(layer.anatomy!==undefined&&(!['head','neck'].includes(layer.anatomy)||layer.slot!=='head'))throw Error('Invalid anatomy plane.');
       if(layer.opacity!==undefined&&(!Number.isFinite(layer.opacity)||layer.opacity<0||layer.opacity>1))throw Error('Invalid layer opacity.');
       if (layer.color && !own(pack.colors, layer.color)) throw Error('Layer refers to an unknown color.');
       if (layer.accent && !own(pack.colors, layer.accent)) throw Error('Layer refers to an unknown accent.');
@@ -66,12 +65,9 @@
   function normalizeIdentity(pack, input = {}, {strict = false} = {}) {
     validatePack(pack);
     if (!object(input)) throw Error('Appearance must be an object.');
-    if (own(input,'schema') && input.schema !== SCHEMA) throw Error('Unsupported appearance version.');
-    if (own(input,'pack') && input.pack !== pack.id) throw Error('Appearance belongs to another art pack.');
-    if (own(input,'revision') && input.revision !== pack.revision) throw Error('Unsupported art pack revision.');
     if (own(input,'choices') && !object(input.choices)) throw Error('Component choices must be an object.');
     if (own(input,'colors') && !object(input.colors)) throw Error('Colors must be an object.');
-    const result = {schema: SCHEMA, pack: pack.id, revision: pack.revision, choices: {}, colors: {}};
+    const result = {choices: {}, colors: {}};
     for (const [key, slot] of Object.entries(pack.slots)) {
       const candidate = input.choices?.[key];
       const valid = slot.options.some(o => o.id === candidate);
@@ -84,18 +80,6 @@
       result.colors[key] = typeof candidate === 'string' && HEX.test(candidate) ? candidate.toLowerCase() : color.default;
     }
     return result;
-  }
-  function serialize(pack, appearance) { return JSON.stringify(normalizeIdentity(pack, appearance, {strict:true})); }
-  function deserialize(pack, text) {
-    if (typeof text !== 'string' || text.length > 16384) throw Error('Appearance file is invalid or too large.');
-    return normalizeIdentity(pack, JSON.parse(text), {strict:true});
-  }
-  function randomIdentity(pack, rng = Math.random) {
-    const value = normalizeIdentity(pack);
-    const pick = array => array[Math.min(array.length-1, Math.max(0, Math.floor(rng()*array.length)))];
-    for (const [key,slot] of Object.entries(pack.slots)) value.choices[key] = pick(slot.options).id;
-    for (const [key,color] of Object.entries(pack.colors)) if (color.swatches?.length) value.colors[key] = pick(color.swatches);
-    return value;
   }
   const rgb = hex => [1,3,5].map(i => parseInt(hex.slice(i,i+2),16)/255);
   const mix = (a,b,t) => a*(1-t)+b*t;
@@ -124,26 +108,6 @@
       this.pack=clone(pack);this.baseURL=baseURL;this.document=doc;this.cacheLimit=Math.max(1,Math.min(128,cacheLimit));
       this.images=new Map();this.tints=new Map();this.ready=false;
     }
-    static async load(manifestURL, options={}) {
-      const url=new URL(manifestURL, globalThis.location?.href);
-      const response=await fetch(url);
-      if (!response.ok) throw Error('Could not load art pack: HTTP '+response.status);
-      const renderer=new Renderer(await response.json(),url,options);
-      await renderer.preload();return renderer;
-    }
-    async preload() {
-      await Promise.all(validatePack(this.pack).map(async file => {
-        if(this.images.has(file)) return;
-        const url=new URL(file,this.baseURL),base=new URL(this.baseURL);
-        if(url.origin !== base.origin) throw Error('Portrait assets must share the pack origin.');
-        const image=this.document.createElement('img');image.crossOrigin='anonymous';
-        image.src=url.href;
-        await image.decode();
-        if(image.naturalWidth !== this.pack.canvas[0] || image.naturalHeight !== this.pack.canvas[1]) throw Error('Unexpected component canvas: '+file);
-        this.images.set(file,image);
-      }));
-      this.ready=true;return this;
-    }
     canvas(size) {const canvas=this.document.createElement('canvas');canvas.width=size;canvas.height=size;return canvas;}
     tint(file,primary,accent,layer,chromaColor=null) {
       const key=JSON.stringify([file,primary,accent,layer.preserveChroma,layer.whiteThreshold,layer.logicalSize,layer.shadeSteps,layer.pixelated,chromaColor]);
@@ -169,14 +133,14 @@
       const identity=normalizeIdentity(this.pack,input,{strict:true}), work=this.canvas(this.pack.logicalSize),ctx=work.getContext('2d');
       const n=work.width;ctx.imageSmoothingEnabled=!this.pack.pixelated;
       if(background) {if(!HEX.test(background))throw Error('Background must be a six-digit hex color or null.');ctx.fillStyle=background;ctx.fillRect(0,0,n,n);}
-      const face=this.pack.slots.face.options.find(o=>o.id===identity.choices.face);
+      const face=this.pack.slots.head.options.find(o=>o.id===identity.choices.head);
       const featuresActive=['eyes','nose','mouth'].some(slot=>this.pack.slots[slot]?.options.find(o=>o.id===identity.choices[slot])?.asset);
       for(const layer of this.pack.layers) {
         if(base&&layer.accessory)continue;
         if(layer.feature&&!featuresActive)continue;
         let option=this.pack.slots[layer.slot].options.find(o=>o.id===identity.choices[layer.slot]);
         if(layer.feature&&!option.asset)option=this.pack.slots[layer.slot].options.find(o=>o.id===(face.featureDefaults?.[layer.slot]??this.pack.featureDefaults?.[layer.slot]));
-        if(layer.slot==='face'&&featuresActive&&face.modularAsset)option={...option,asset:face.modularAsset};
+        if(layer.slot==='head'&&featuresActive&&face.modularAsset)option={...option,asset:face.modularAsset};
         if(layer.anatomy==='neck'&&face.neckAsset)option={...option,asset:face.neckAsset};
         if(!option)throw Error('Missing facial foundation default.');
         if(!option.asset)continue;
@@ -197,5 +161,5 @@
     async toBlob(identity,options={}) {return new Promise((resolve,reject)=>this.render(identity,options).toBlob(blob=>blob?resolve(blob):reject(Error('PNG export failed.')),'image/png'));}
     dispose() {this.images.clear();this.tints.clear();this.ready=false;}
   }
-  return {SCHEMA,PACK_SCHEMA,validatePack,normalizeIdentity,serialize,deserialize,randomIdentity,recolor,Renderer};
+  return {validatePack,normalizeIdentity,recolor,Renderer};
 });

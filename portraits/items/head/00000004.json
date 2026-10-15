@@ -1,0 +1,48 @@
+{
+  "id": 4,
+  "category": "head",
+  "name": "Angular face",
+  "type": "head",
+  "tags": [
+    "pixel"
+  ],
+  "order": 4,
+  "render": {
+    "image": "art/145f9268a1c2fb5cdc3da9df1e0b955d019f0f3947d761037bafd22cc4599e10.png",
+    "profile": "pixel",
+    "jawBoundary": [
+      [
+        0.26,
+        0.68
+      ],
+      [
+        0.29,
+        0.74
+      ],
+      [
+        0.37,
+        0.8
+      ],
+      [
+        0.45,
+        0.835
+      ],
+      [
+        0.55,
+        0.835
+      ],
+      [
+        0.63,
+        0.8
+      ],
+      [
+        0.71,
+        0.74
+      ],
+      [
+        0.74,
+        0.68
+      ]
+    ]
+  }
+}

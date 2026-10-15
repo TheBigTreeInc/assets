@@ -1,8 +1,0 @@
-{
-  "name": "portrait-library",
-  "version": "2.2.0",
-  "private": true,
-  "scripts": {
-    "test": "node --test --test-isolation=none tests/system.test.cjs tests/library.test.cjs"
-  }
-}

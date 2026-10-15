@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "category": "scars",
+  "name": "Healed cheek scar",
+  "type": "scar",
+  "tags": [
+    "illustrated",
+    "fantasy"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/07ff9752e45c8a2f0df1eee6724c1715d01da4ffcb2b81060442579be76fbbda.png",
+    "profile": "illustrated",
+    "scale": [
+      0.65,
+      0.65
+    ],
+    "offset": [
+      0.24,
+      0.22
+    ]
+  }
+}

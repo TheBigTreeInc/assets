@@ -1,0 +1,48 @@
+{
+  "id": 7,
+  "category": "head",
+  "name": "Weathered face",
+  "type": "head",
+  "tags": [
+    "pixel"
+  ],
+  "order": 7,
+  "render": {
+    "image": "art/c3899702dd35c2c27105389c6671da86be4769c2c9e84675c6f833f80e0f0f8d.png",
+    "profile": "pixel",
+    "jawBoundary": [
+      [
+        0.26,
+        0.68
+      ],
+      [
+        0.29,
+        0.74
+      ],
+      [
+        0.37,
+        0.8
+      ],
+      [
+        0.45,
+        0.835
+      ],
+      [
+        0.55,
+        0.835
+      ],
+      [
+        0.63,
+        0.8
+      ],
+      [
+        0.71,
+        0.74
+      ],
+      [
+        0.74,
+        0.68
+      ]
+    ]
+  }
+}
