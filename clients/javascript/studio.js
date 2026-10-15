@@ -1,12 +1,12 @@
 'use strict';
 (async()=>{
  const $=id=>document.getElementById(id),api=NumericPortraits;
- const system=await api.System.load('packs/portraits/pack.json',{catalogURL:'catalogs/library-3.json'});
+ const system=await api.System.load('packs/portraits/pack.json',{catalogURL:'catalogs/library-4.json'});
  const status=text=>$('status').textContent=text;
  const draw=code=>{system.render(code,{canvas:$('portrait'),size:512});system.render(code,{canvas:$('card'),size:128});system.render(code,{canvas:$('icon'),size:64});};
  const initial=system.defaultAppearance();Object.assign(initial.parts,{hair:5,eyes:5,mouth:5,clothing:4});
  const wizard=PortraitWizard.mount($('controls'),system,initial,{onChange:draw});draw(wizard.getAppearance());
- const key='portrait-library:3';
+ const key='portrait-library:4';
  const action=(id,fn)=>$(id).onclick=async()=>{try{await fn();}catch(e){status(e.message);}};
  const download=(blob,name)=>{const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
  action('randomize',()=>wizard.setAppearance(system.randomAppearance()));

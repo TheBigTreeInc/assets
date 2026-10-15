@@ -1,6 +1,6 @@
 {
   "schema": "modular-portraits.pack/v1",
-  "revision": 3,
+  "revision": 4,
   "canvas": [
     1254,
     1254
@@ -225,6 +225,13 @@
   },
   "layers": [
     {
+      "slot": "face",
+      "color": "skin",
+      "preserveChroma": true,
+      "whiteThreshold": 0.995,
+      "anatomy": "neck"
+    },
+    {
       "slot": "clothing",
       "color": "clothing"
     },
@@ -232,7 +239,8 @@
       "slot": "face",
       "color": "skin",
       "preserveChroma": true,
-      "whiteThreshold": 0.995
+      "whiteThreshold": 0.995,
+      "anatomy": "head"
     },
     {
       "slot": "eyes",
@@ -255,11 +263,6 @@
       "preserveChroma": true,
       "whiteThreshold": 0.995,
       "feature": true
-    },
-    {
-      "slot": "clothing",
-      "color": "clothing",
-      "frontOnly": true
     },
     {
       "slot": "scars",
@@ -323,7 +326,41 @@
           "tags": [
             "illustrated"
           ],
-          "type": "head"
+          "type": "head",
+          "jawBoundary": [
+            [
+              0.26,
+              0.68
+            ],
+            [
+              0.29,
+              0.74
+            ],
+            [
+              0.37,
+              0.8
+            ],
+            [
+              0.45,
+              0.835
+            ],
+            [
+              0.55,
+              0.835
+            ],
+            [
+              0.63,
+              0.8
+            ],
+            [
+              0.71,
+              0.74
+            ],
+            [
+              0.74,
+              0.68
+            ]
+          ]
         },
         {
           "id": "face-02",
@@ -338,7 +375,41 @@
           "tags": [
             "illustrated"
           ],
-          "type": "head"
+          "type": "head",
+          "jawBoundary": [
+            [
+              0.26,
+              0.68
+            ],
+            [
+              0.29,
+              0.74
+            ],
+            [
+              0.37,
+              0.8
+            ],
+            [
+              0.45,
+              0.835
+            ],
+            [
+              0.55,
+              0.835
+            ],
+            [
+              0.63,
+              0.8
+            ],
+            [
+              0.71,
+              0.74
+            ],
+            [
+              0.74,
+              0.68
+            ]
+          ]
         },
         {
           "id": "face-03",
@@ -353,7 +424,41 @@
           "tags": [
             "illustrated"
           ],
-          "type": "head"
+          "type": "head",
+          "jawBoundary": [
+            [
+              0.26,
+              0.68
+            ],
+            [
+              0.29,
+              0.74
+            ],
+            [
+              0.37,
+              0.8
+            ],
+            [
+              0.45,
+              0.835
+            ],
+            [
+              0.55,
+              0.835
+            ],
+            [
+              0.63,
+              0.8
+            ],
+            [
+              0.71,
+              0.74
+            ],
+            [
+              0.74,
+              0.68
+            ]
+          ]
         },
         {
           "id": "face-04",
@@ -368,7 +473,41 @@
           "tags": [
             "pixel"
           ],
-          "type": "head"
+          "type": "head",
+          "jawBoundary": [
+            [
+              0.26,
+              0.68
+            ],
+            [
+              0.29,
+              0.74
+            ],
+            [
+              0.37,
+              0.8
+            ],
+            [
+              0.45,
+              0.835
+            ],
+            [
+              0.55,
+              0.835
+            ],
+            [
+              0.63,
+              0.8
+            ],
+            [
+              0.71,
+              0.74
+            ],
+            [
+              0.74,
+              0.68
+            ]
+          ]
         },
         {
           "id": "face-05",
@@ -383,7 +522,41 @@
           "tags": [
             "pixel"
           ],
-          "type": "head"
+          "type": "head",
+          "jawBoundary": [
+            [
+              0.26,
+              0.68
+            ],
+            [
+              0.29,
+              0.74
+            ],
+            [
+              0.37,
+              0.8
+            ],
+            [
+              0.45,
+              0.835
+            ],
+            [
+              0.55,
+              0.835
+            ],
+            [
+              0.63,
+              0.8
+            ],
+            [
+              0.71,
+              0.74
+            ],
+            [
+              0.74,
+              0.68
+            ]
+          ]
         },
         {
           "id": "face-06",
@@ -398,7 +571,41 @@
           "tags": [
             "pixel"
           ],
-          "type": "head"
+          "type": "head",
+          "jawBoundary": [
+            [
+              0.26,
+              0.68
+            ],
+            [
+              0.29,
+              0.74
+            ],
+            [
+              0.37,
+              0.8
+            ],
+            [
+              0.45,
+              0.835
+            ],
+            [
+              0.55,
+              0.835
+            ],
+            [
+              0.63,
+              0.8
+            ],
+            [
+              0.71,
+              0.74
+            ],
+            [
+              0.74,
+              0.68
+            ]
+          ]
         },
         {
           "id": "face-07",
@@ -413,7 +620,41 @@
           "tags": [
             "pixel"
           ],
-          "type": "head"
+          "type": "head",
+          "jawBoundary": [
+            [
+              0.26,
+              0.68
+            ],
+            [
+              0.29,
+              0.74
+            ],
+            [
+              0.37,
+              0.8
+            ],
+            [
+              0.45,
+              0.835
+            ],
+            [
+              0.55,
+              0.835
+            ],
+            [
+              0.63,
+              0.8
+            ],
+            [
+              0.71,
+              0.74
+            ],
+            [
+              0.74,
+              0.68
+            ]
+          ]
         }
       ]
     },
@@ -951,8 +1192,6 @@
             0,
             0.09
           ],
-          "frontFromY": 0.83,
-          "frontSlope": 0.4,
           "render": {
             "logicalSize": 512,
             "shadeSteps": 0,
@@ -976,8 +1215,6 @@
             0.05,
             0.14
           ],
-          "frontFromY": 0.83,
-          "frontSlope": 0.4,
           "render": {
             "logicalSize": 512,
             "shadeSteps": 0,
@@ -1001,7 +1238,6 @@
             0.025,
             0.09
           ],
-          "frontFromY": 0.83,
           "render": {
             "logicalSize": 256,
             "shadeSteps": 8,
@@ -1035,9 +1271,7 @@
             "shadeSteps": 0,
             "pixelated": false,
             "whiteThreshold": 0.995
-          },
-          "frontFromY": 0.83,
-          "frontSlope": 0.3
+          }
         }
       ]
     },
@@ -1242,7 +1476,7 @@
       ]
     }
   },
-  "assetVersion": "2.1.0",
+  "assetVersion": "2.1.1",
   "featureDefaults": {
     "eyes": "eyes-01",
     "nose": "nose-01",

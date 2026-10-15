@@ -1,6 +1,6 @@
-# Portrait library 2.1.0 — system specification
+# Portrait library 2.1.1 — system specification
 
-One library, one pack: `portraits` 2.1.0. No everyday/cyberpunk collections,
+One library, one pack: `portraits` 2.1.1. No everyday/cyberpunk collections,
 compatibility aliases, old save imports or migration code are provided.
 
 ## Categories, types and optional tags
@@ -32,18 +32,18 @@ nose and mouth. The 38 transparent source PNGs are bundled exactly once.
 
 ## Portable appearance
 
-The saved object has exactly `format:2`, `library:3`, `parts`, `colors`.
+The saved object has exactly `format:2`, `library:4`, `parts`, `colors`.
 All leaf values are integers. Parts requires all eleven category keys above.
 Colours requires skin, hair, hairAccent, clothing, accessory, iris, facialHair. RGB is
 packed 0xRRGGBB, 0–16777215. Iris changes only the iris mask; accessory colour
 is shared by eyewear, face coverings and augmentations.
 
-Validate `schemas/appearance-v2.schema.json` AND `catalogs/library-3.json`.
+Validate `schemas/appearance-v2.schema.json` AND `catalogs/library-4.json`.
 Reject missing/extra fields, unknown IDs, formats or libraries, fractions,
 booleans and invalid RGB values. Appearance never includes names, stats, jobs,
 URLs or asset paths. Format 1 saves are intentionally rejected.
-Catalog 3 and released pack 2.1.0 are immutable once published. Future additions
-receive a new library ID and art version. No migration promise is made. Library 2 saves are rejected by this release.
+Catalog 4 and released pack 2.1.1 are immutable once published. Future additions
+receive a new library ID and art version. No migration promise is made. Library 2/3 saves are rejected by this release.
 
 ## JavaScript
 
@@ -53,7 +53,7 @@ numeric appearance returned by System; there is no old-save conversion API.
 
 ```js
 const system = await NumericPortraits.System.load('packs/portraits/pack.json', {
-  catalogURL:'catalogs/library-3.json',
+  catalogURL:'catalogs/library-4.json',
   backgroundProvider:({context}) => jobBackgrounds[context.jobId] || '#e7ecdf'
 });
 const appearance = system.defaultAppearance();
@@ -90,7 +90,7 @@ See examples/game-profile.html for working code, including job changes/save/load
 
 ## Downloading the single pack
 
-catalog.json at TheBigTreeInc/assets lists `portraits` 2.1.0 and its trusted hash.
+catalog.json at TheBigTreeInc/assets lists `portraits` 2.1.1 and its trusted hash.
 src/asset-library.js verifies hashes and caches files for offline use. Example:
 
 ```js
@@ -117,8 +117,8 @@ Heads are blank foundations without fixed eyes/nose/mouth. Eyes include brows;
 no independent eyebrow selection currently exists. Eye whites/skin must use
 the current masks; iris uses authored chroma and the chromaColor/threshold
 settings. Nose and mouth skin regions respond to the skin colour. Hair needs
-primary/highlight masks. Garments must overlap the neck cleanly and preserve
-the existing frontFromY collar layering. No background should be baked into
+primary/highlight masks. Garments must overlap the neck cleanly using the anatomy planes described below.
+The old frontFromY/frontSlope triangular overlap masks are removed. No background should be baked into
 any component. Inspect all 512/128/64 previews before accepting art.
 
 Add the new neutral option ID, label, type and tags to a new pack version;
@@ -148,6 +148,34 @@ Eight independently generated transparent components were created with built-in
 ImageGen: long waves, braided crown, tied-back hair, watchful eyes, gentle smile,
 short full beard, healed cheek scar and travel tunic. Exact generation prompts
 are in ASSET_PROMPTS.json; hashes and provenance are in ASSET_PROVENANCE.json.
-New layers stay optional, with None 0. The released 2.0.0 files remain immutable.
+New layers stay optional, with None 0. Earlier released files remain immutable.
 See examples/fantasy-gallery.html for six assembled portraits.
 
+
+## Head, neck and garment separation (2.1.1)
+
+Required drawing order: face anatomy=neck, clothing, face anatomy=head,
+then eyes/nose/mouth, scars, facialHair, covering/accessory layers and hair.
+The neck is intrinsic to the selected face and skin colour, not a user choice.
+Clothing transparency defines the real neckline; never draw a skin patch into
+a shirt. Garments cover the neck; the jaw/head stays above collars.
+
+Each face defines jawBoundary as an ascending-x array of normalized [x,y]
+coordinates following its jawline. Values must be finite in [0,1]. The renderer
+transforms this boundary with the face scale/offset and clips complementary
+head/neck drawing regions. Anatomy is a layer property: head or neck, only on
+the face slot. Optional neckAsset names a separate registered full-canvas PNG;
+otherwise the existing full head/neck texture supplies both drawing regions.
+Existing source PNGs are unchanged: separation happens during rendering.
+
+Preferred artist delivery: separate head and bare-neck RGBA PNGs on the same
+1254x1254 padded canvas, matching pose, anatomy, shading and registration.
+Head ends at the jaw. Neck begins beneath it with enough overlap to avoid a
+seam. Provide a jawBoundary for that head. Bare neck contains no collar,
+clothes or background. neckAsset shares the face's scale/offset/render settings
+and skin colour. Supply each garment with a genuinely transparent neck opening
+and no baked-in neck/skin. Verify all garments on all head shapes.
+
+Native game renderers must implement this order and complementary clipping too;
+the codec alone cannot change an existing renderer. See examples/collar-gallery.html
+for the shipped fit preview. No new bitmap artwork was needed for this update.

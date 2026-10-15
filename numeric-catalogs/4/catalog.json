@@ -1,10 +1,10 @@
 {
   "schema": "portrait-library.catalog/v2",
-  "library": 3,
+  "library": 4,
   "pack": {
     "id": "portraits",
-    "revision": 3,
-    "assetVersion": "2.1.0"
+    "revision": 4,
+    "assetVersion": "2.1.1"
   },
   "categories": {
     "face": {

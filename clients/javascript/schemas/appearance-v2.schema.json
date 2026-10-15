@@ -14,7 +14,7 @@
       "const": 2
     },
     "library": {
-      "const": 3
+      "const": 4
     },
     "parts": {
       "type": "object",

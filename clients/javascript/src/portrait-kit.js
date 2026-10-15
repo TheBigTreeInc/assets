@@ -36,6 +36,8 @@
           if (!safeAsset(option.modularAsset)) throw Error('Invalid modular head path.');
           files.add(option.modularAsset);
         }
+        if(option.neckAsset){if(!safeAsset(option.neckAsset))throw Error('Invalid neck asset path.');files.add(option.neckAsset);}
+        if(option.jawBoundary){if(!Array.isArray(option.jawBoundary)||option.jawBoundary.length<2||option.jawBoundary.some((p,i)=>!Array.isArray(p)||p.length!==2||p.some(n=>!Number.isFinite(n)||n<0||n>1)||(i&&p[0]<=option.jawBoundary[i-1][0])))throw Error('Invalid jaw boundary.');}
         if(option.render){
           if(!object(option.render))throw Error('Invalid component render settings.');
           if(option.render.logicalSize!==undefined&&(!Number.isInteger(option.render.logicalSize)||option.render.logicalSize<32||option.render.logicalSize>1024))throw Error('Invalid component resolution.');
@@ -53,6 +55,7 @@
     }
     for (const layer of pack.layers) {
       if (!object(layer) || !own(pack.slots, layer.slot)) throw Error('Layer refers to an unknown slot.');
+      if(layer.anatomy!==undefined&&(!['head','neck'].includes(layer.anatomy)||layer.slot!=='face'))throw Error('Invalid anatomy plane.');
       if(layer.opacity!==undefined&&(!Number.isFinite(layer.opacity)||layer.opacity<0||layer.opacity>1))throw Error('Invalid layer opacity.');
       if (layer.color && !own(pack.colors, layer.color)) throw Error('Layer refers to an unknown color.');
       if (layer.accent && !own(pack.colors, layer.accent)) throw Error('Layer refers to an unknown accent.');
@@ -174,13 +177,14 @@
         let option=this.pack.slots[layer.slot].options.find(o=>o.id===identity.choices[layer.slot]);
         if(layer.feature&&!option.asset)option=this.pack.slots[layer.slot].options.find(o=>o.id===(face.featureDefaults?.[layer.slot]??this.pack.featureDefaults?.[layer.slot]));
         if(layer.slot==='face'&&featuresActive&&face.modularAsset)option={...option,asset:face.modularAsset};
+        if(layer.anatomy==='neck'&&face.neckAsset)option={...option,asset:face.neckAsset};
         if(!option)throw Error('Missing facial foundation default.');
         if(!option.asset)continue;
         const drawLayer={...layer,...option.render};
         const texture=this.tint(option.asset,layer.color?identity.colors[layer.color]:null,layer.accent?identity.colors[layer.accent]:null,drawLayer,layer.chromaColor?identity.colors[layer.chromaColor]:null);
         const scale=option.scale||[1,1],offset=option.offset||[0,0];
         ctx.save();ctx.globalAlpha=drawLayer.opacity??1;
-        if(layer.frontOnly){const y=option.frontFromY??.83,slope=option.frontSlope??0;ctx.beginPath();ctx.moveTo(0,(y-slope*.5)*n);ctx.lineTo(n*.5,y*n);ctx.lineTo(n,(y-slope*.5)*n);ctx.lineTo(n,n);ctx.lineTo(0,n);ctx.closePath();ctx.clip();}
+        if(layer.anatomy){const jaw=face.jawBoundary||[[.26,.68],[.29,.74],[.37,.80],[.45,.835],[.55,.835],[.63,.80],[.71,.74],[.74,.68]],points=jaw.map(([x,y])=>[(offset[0]+x*scale[0])*n,(offset[1]+y*scale[1])*n]);ctx.beginPath();if(layer.anatomy==='head'){ctx.moveTo(0,0);ctx.lineTo(n,0);ctx.lineTo(n,points[points.length-1][1]);for(const [x,y] of [...points].reverse())ctx.lineTo(x,y);ctx.lineTo(0,points[0][1]);}else{ctx.moveTo(0,points[0][1]);for(const [x,y] of points)ctx.lineTo(x,y);ctx.lineTo(n,points[points.length-1][1]);ctx.lineTo(n,n);ctx.lineTo(0,n);}ctx.closePath();ctx.clip();}
         ctx.imageSmoothingEnabled=!(drawLayer.pixelated??this.pack.pixelated);
         ctx.drawImage(texture,offset[0]*n,offset[1]*n,scale[0]*n,scale[1]*n);
         ctx.restore();

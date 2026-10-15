@@ -25,9 +25,9 @@ for entry in catalog['packs']:
 assert len(catalog['packs'])==1 and catalog['packs'][0]['id']=='portraits'
 pin=json.loads((ROOT/'clients/javascript/integrations/trusted-release.json').read_text(encoding='utf-8'))
 assert all(pin[k]==catalog['packs'][0][k] for k in ['id','version','sha256'])
-numeric=json.loads((ROOT/'numeric-catalogs/3/catalog.json').read_text(encoding='utf-8'))
-assert numeric['library']==3 and numeric['schema']=='portrait-library.catalog/v2'
-assert numeric==json.loads((ROOT/'clients/javascript/catalogs/library-3.json').read_text(encoding='utf-8'))
+numeric=json.loads((ROOT/'numeric-catalogs/4/catalog.json').read_text(encoding='utf-8'))
+assert numeric['library']==4 and numeric['schema']=='portrait-library.catalog/v2'
+assert numeric==json.loads((ROOT/'clients/javascript/catalogs/library-4.json').read_text(encoding='utf-8'))
 assert numeric==json.loads((release.parent/'numeric-catalog.json').read_text(encoding='utf-8'))
 for category,ids in numeric['parts'].items():
  assert set(ids)=={o['id'] for o in pack['slots'][category]['options']}
