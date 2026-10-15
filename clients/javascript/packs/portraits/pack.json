@@ -1,6 +1,6 @@
 {
   "schema": "modular-portraits.pack/v1",
-  "revision": 4,
+  "revision": 5,
   "canvas": [
     1254,
     1254
@@ -655,6 +655,180 @@
               0.68
             ]
           ]
+        },
+        {
+          "id": "face-08",
+          "label": "Gentle oval",
+          "asset": "art/oval-face.png",
+          "type": "head",
+          "tags": [
+            "illustrated",
+            "feminine"
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "scale": [
+            0.92,
+            0.9947204161248374
+          ],
+          "offset": [
+            0.03999999999999998,
+            0.001378413524057237
+          ],
+          "jawBoundary": [
+            [
+              0.26,
+              0.6829665071770336
+            ],
+            [
+              0.29,
+              0.7429665071770335
+            ],
+            [
+              0.37,
+              0.8029665071770336
+            ],
+            [
+              0.45,
+              0.8379665071770335
+            ],
+            [
+              0.55,
+              0.8379665071770335
+            ],
+            [
+              0.63,
+              0.8029665071770336
+            ],
+            [
+              0.71,
+              0.7429665071770335
+            ],
+            [
+              0.74,
+              0.6829665071770336
+            ]
+          ]
+        },
+        {
+          "id": "face-09",
+          "label": "Heart-shaped",
+          "asset": "art/heart-face.png",
+          "type": "head",
+          "tags": [
+            "illustrated",
+            "feminine"
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "scale": [
+            0.94,
+            0.9478810408921934
+          ],
+          "offset": [
+            0.030000000000000027,
+            0.05731102850061956
+          ],
+          "jawBoundary": [
+            [
+              0.26,
+              0.6646251993620416
+            ],
+            [
+              0.29,
+              0.7246251993620415
+            ],
+            [
+              0.37,
+              0.7846251993620416
+            ],
+            [
+              0.45,
+              0.8196251993620415
+            ],
+            [
+              0.55,
+              0.8196251993620415
+            ],
+            [
+              0.63,
+              0.7846251993620416
+            ],
+            [
+              0.71,
+              0.7246251993620415
+            ],
+            [
+              0.74,
+              0.6646251993620416
+            ]
+          ]
+        },
+        {
+          "id": "face-10",
+          "label": "Mature contours",
+          "asset": "art/mature-face.png",
+          "type": "head",
+          "tags": [
+            "illustrated",
+            "feminine"
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "scale": [
+            0.97,
+            0.9947204161248374
+          ],
+          "offset": [
+            0.015000000000000013,
+            0.003758127438231451
+          ],
+          "jawBoundary": [
+            [
+              0.26,
+              0.6805741626794259
+            ],
+            [
+              0.29,
+              0.7405741626794259
+            ],
+            [
+              0.37,
+              0.8005741626794259
+            ],
+            [
+              0.45,
+              0.8355741626794259
+            ],
+            [
+              0.55,
+              0.8355741626794259
+            ],
+            [
+              0.63,
+              0.8005741626794259
+            ],
+            [
+              0.71,
+              0.7405741626794259
+            ],
+            [
+              0.74,
+              0.6805741626794259
+            ]
+          ]
         }
       ]
     },
@@ -777,6 +951,54 @@
             "pixelated": false,
             "whiteThreshold": 0.995
           }
+        },
+        {
+          "id": "eyes-06",
+          "label": "Soft almond",
+          "asset": "art/soft-almond-eyes.png",
+          "type": "eyes",
+          "tags": [
+            "illustrated",
+            "feminine"
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "scale": [
+            0.4589010550347757,
+            0.4589010550347757
+          ],
+          "offset": [
+            0.2702330646479643,
+            0.23547607716097935
+          ]
+        },
+        {
+          "id": "eyes-07",
+          "label": "Open rounded",
+          "asset": "art/open-rounded-eyes.png",
+          "type": "eyes",
+          "tags": [
+            "illustrated",
+            "feminine"
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "scale": [
+            0.549267371237319,
+            0.549267371237319
+          ],
+          "offset": [
+            0.225054232571482,
+            0.18628938118724625
+          ]
         }
       ]
     },
@@ -875,6 +1097,54 @@
             "pixel"
           ],
           "type": "nose"
+        },
+        {
+          "id": "nose-05",
+          "label": "Fine bridge",
+          "asset": "art/fine-bridge-nose.png",
+          "type": "nose",
+          "tags": [
+            "illustrated",
+            "feminine"
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "scale": [
+            0.5675431034482759,
+            0.6016666666666667
+          ],
+          "offset": [
+            0.2171336206896552,
+            0.23750000000000004
+          ]
+        },
+        {
+          "id": "nose-06",
+          "label": "Rounded tip",
+          "asset": "art/rounded-tip-nose.png",
+          "type": "nose",
+          "tags": [
+            "illustrated",
+            "feminine"
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "scale": [
+            0.3939267015706806,
+            0.4079794520547945
+          ],
+          "offset": [
+            0.30303664921465967,
+            0.35332191780821925
+          ]
         }
       ]
     },
@@ -997,6 +1267,54 @@
             "pixelated": false,
             "whiteThreshold": 0.995
           }
+        },
+        {
+          "id": "mouth-06",
+          "label": "Soft smile",
+          "asset": "art/soft-smile-mouth.png",
+          "type": "mouth",
+          "tags": [
+            "illustrated",
+            "feminine"
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "scale": [
+            0.4312081784386617,
+            0.4312081784386617
+          ],
+          "offset": [
+            0.28473977695167285,
+            0.40719795539033454
+          ]
+        },
+        {
+          "id": "mouth-07",
+          "label": "Defined bow",
+          "asset": "art/defined-bow-mouth.png",
+          "type": "mouth",
+          "tags": [
+            "illustrated",
+            "feminine"
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "scale": [
+            0.32822818791946307,
+            0.32822818791946307
+          ],
+          "offset": [
+            0.3362785234899329,
+            0.485238255033557
+          ]
         }
       ]
     },
@@ -1476,7 +1794,7 @@
       ]
     }
   },
-  "assetVersion": "2.1.1",
+  "assetVersion": "2.2.0",
   "featureDefaults": {
     "eyes": "eyes-01",
     "nose": "nose-01",

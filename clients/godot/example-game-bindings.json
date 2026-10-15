@@ -1,5 +1,5 @@
 {
-  "family": "portrait-library-4",
+  "family": "portrait-library-5",
   "slots": {
     "face": {
       "face-01": "face-01",
@@ -8,27 +8,36 @@
       "face-04": "face-04",
       "face-05": "face-05",
       "face-06": "face-06",
-      "face-07": "face-07"
+      "face-07": "face-07",
+      "face-08": "face-08",
+      "face-09": "face-09",
+      "face-10": "face-10"
     },
     "eyes": {
       "eyes-01": "eyes-01",
       "eyes-02": "eyes-02",
       "eyes-03": "eyes-03",
       "eyes-04": "eyes-04",
-      "eyes-05": "eyes-05"
+      "eyes-05": "eyes-05",
+      "eyes-06": "eyes-06",
+      "eyes-07": "eyes-07"
     },
     "nose": {
       "nose-01": "nose-01",
       "nose-02": "nose-02",
       "nose-03": "nose-03",
-      "nose-04": "nose-04"
+      "nose-04": "nose-04",
+      "nose-05": "nose-05",
+      "nose-06": "nose-06"
     },
     "mouth": {
       "mouth-01": "mouth-01",
       "mouth-02": "mouth-02",
       "mouth-03": "mouth-03",
       "mouth-04": "mouth-04",
-      "mouth-05": "mouth-05"
+      "mouth-05": "mouth-05",
+      "mouth-06": "mouth-06",
+      "mouth-07": "mouth-07"
     },
     "hair": {
       "none": "none",

@@ -1,0 +1,208 @@
+{
+  "schema": "game-assets.release/v1",
+  "id": "portraits",
+  "version": "2.2.0",
+  "kind": "portraits",
+  "files": {
+    "appearance.schema.json": {
+      "size": 3571,
+      "sha256": "316437cbd4e86795d61ad207192aaddcdf3d8b320e3d6fa3df2f62ccbbc934b2"
+    },
+    "art/braided-crown.png": {
+      "size": 999940,
+      "sha256": "b35910a93ee2cac1e6b0bae967a699e8d45e5f757046a3a7b1439ad9b1b8b476"
+    },
+    "art/component-001.png": {
+      "size": 673952,
+      "sha256": "52154f468c2c1eebf00a85b7d699b4ff6111e733314387b68dbf9627f265a8a5"
+    },
+    "art/component-002.png": {
+      "size": 693763,
+      "sha256": "75d241a9ba8d232dd87b9a20172e41afd62c4bb118df73b284de7262e44f81ba"
+    },
+    "art/component-003.png": {
+      "size": 888632,
+      "sha256": "d9bea92158212413d0fcf43be73cb5b5be98e5e0b7ce8aa9b3c73a5b9ef0073a"
+    },
+    "art/component-004.png": {
+      "size": 603741,
+      "sha256": "145f9268a1c2fb5cdc3da9df1e0b955d019f0f3947d761037bafd22cc4599e10"
+    },
+    "art/component-005.png": {
+      "size": 633619,
+      "sha256": "cf30596d9a8cd634b0dbdc4352837d89843d92810e216ac8073c8ade97944f99"
+    },
+    "art/component-006.png": {
+      "size": 609860,
+      "sha256": "1658b7f81403813670a25c9b23730dab4e10050c4a19458aca3ee83df45d353e"
+    },
+    "art/component-007.png": {
+      "size": 618255,
+      "sha256": "c3899702dd35c2c27105389c6671da86be4769c2c9e84675c6f833f80e0f0f8d"
+    },
+    "art/component-008.png": {
+      "size": 443867,
+      "sha256": "2c94a2d649259bf227358991b210bb56231ab09a71fda3a67ca93d6b5a37f18e"
+    },
+    "art/component-009.png": {
+      "size": 430156,
+      "sha256": "0ef49aad20cd880ddaa0f485caf435a55de7736003ab5162bc9424e98756d9a7"
+    },
+    "art/component-010.png": {
+      "size": 223615,
+      "sha256": "3d8a07b16f6735212af4303d8f70e20a6a8dbcfac0fa4806b70776d905a5a69f"
+    },
+    "art/component-011.png": {
+      "size": 236135,
+      "sha256": "c76cb5add435d1b33ab9ea8e93000b32e4f5bd9dbda2daa33b9afe89f3a9a8d3"
+    },
+    "art/component-012.png": {
+      "size": 185193,
+      "sha256": "d4e473e617c214216f7bafb17450b2d7f40566b5d3f838d4e74d9b911acf342f"
+    },
+    "art/component-013.png": {
+      "size": 216677,
+      "sha256": "0b255977054ead55d7544570ca0e26fadd374f6fd3cf1d36e145c1880c2a50ee"
+    },
+    "art/component-014.png": {
+      "size": 138814,
+      "sha256": "7c24ed984abc2007d3c0f211414ad244ca6b4ffbb45a15f1b76008cda0505ebe"
+    },
+    "art/component-015.png": {
+      "size": 183493,
+      "sha256": "9de8c2391bd609967616b4059a3994f3df3573212bb2dbabf6a1451f3384231b"
+    },
+    "art/component-016.png": {
+      "size": 165622,
+      "sha256": "266dddf5fdbe692d041a7d3b2fd038f0d0fba4ca7db8d19d9a591094d8be7848"
+    },
+    "art/component-017.png": {
+      "size": 173144,
+      "sha256": "9b6dba45fd7541a3c2feda5c250e7073345cf6553955c1be85ccf53a2995015e"
+    },
+    "art/component-018.png": {
+      "size": 141969,
+      "sha256": "d08cfcc279e96f925e2d0cb0261c6bd3f4b60e30848a073baaebea94c271da6a"
+    },
+    "art/component-019.png": {
+      "size": 149186,
+      "sha256": "2d5486ceb792a82808e48fe9b364a3f19ea83fecfac921e57a70697a22adfb6f"
+    },
+    "art/component-020.png": {
+      "size": 519465,
+      "sha256": "af0bc999a3deef223e4f497b823ee913e414b1874fcbe528c0b44d6fd5bf181b"
+    },
+    "art/component-021.png": {
+      "size": 646138,
+      "sha256": "21f6f72e61e1cbb0270f5fe74022bfb0b4e33889f3f44ed86faa2dbb0893c6f8"
+    },
+    "art/component-022.png": {
+      "size": 602423,
+      "sha256": "b6daa05625e04b8e7a2209729a6a2401b8d1bcda5682668202b2e2e1517b32b3"
+    },
+    "art/component-023.png": {
+      "size": 503092,
+      "sha256": "7fef6a741847e7e7cc9dfc5c6e7fbd1bb08d0e99584c06f876fd359c91006371"
+    },
+    "art/component-024.png": {
+      "size": 578419,
+      "sha256": "6ac4b24d366389d893b97158a71babc933dfd2cd09b749ed6de35bc66775d323"
+    },
+    "art/component-025.png": {
+      "size": 698902,
+      "sha256": "b18a797c5b109d161b2a444155b4dd98cb12ef95a37ff113d0bffa309960ddc0"
+    },
+    "art/component-026.png": {
+      "size": 779974,
+      "sha256": "630ce143e2dc330c502d761b053f4cf3eec63ff94a5d9390f7cf1ee6119d20d9"
+    },
+    "art/component-027.png": {
+      "size": 122952,
+      "sha256": "7916bc2502c96d6ad1834b04d1fddae25b9ad5a637d3001097e352d30e9b6cd4"
+    },
+    "art/component-028.png": {
+      "size": 183878,
+      "sha256": "62cab9312e7c56b1f262af869de955321911ca8d89a0cdd62a391a825b773ebe"
+    },
+    "art/component-029.png": {
+      "size": 307185,
+      "sha256": "f61f22ef726c2817f55e235e0354d36d8fe4dd8bdb469c72f993082f7a751709"
+    },
+    "art/component-030.png": {
+      "size": 97385,
+      "sha256": "a3027f7fb75d2126b8a833cf5315aca1c98b88d684c10172119e1328aab35dcb"
+    },
+    "art/defined-bow-mouth.png": {
+      "size": 476774,
+      "sha256": "7ce0d2a611df69bfa6098a6e1f383484727c89c2a97bcded5b55c64ed1a1ddd7"
+    },
+    "art/fine-bridge-nose.png": {
+      "size": 205376,
+      "sha256": "7d21da64039164d6f652f65db6198f38b70094783c44a45f5aeadbc4fa5d657e"
+    },
+    "art/gentle-smile.png": {
+      "size": 234772,
+      "sha256": "434fc52be1df5783462d0fb3a8a808ac989e211cbe0f913a6a91133c57244d5a"
+    },
+    "art/healed-scar.png": {
+      "size": 72424,
+      "sha256": "07ff9752e45c8a2f0df1eee6724c1715d01da4ffcb2b81060442579be76fbbda"
+    },
+    "art/heart-face.png": {
+      "size": 757001,
+      "sha256": "9bff8bd99a53d10a47aa15365377a519883ed04dba43b24dfbc1ce2dc83e1e3a"
+    },
+    "art/long-waves.png": {
+      "size": 1226117,
+      "sha256": "fc84b562e48ca27479f7bf8de5dd350c19d1f4c51ecfecb143e1a36a3c0ba3ed"
+    },
+    "art/mature-face.png": {
+      "size": 752115,
+      "sha256": "81f56c1bc51712e4ae49ad91ccf49babd554038950d904b6aa536c30d3b8cc44"
+    },
+    "art/open-rounded-eyes.png": {
+      "size": 648865,
+      "sha256": "b9bacf5719af1be983b6e3fe0642213e3abbbb58c5557431355a3f378031329d"
+    },
+    "art/oval-face.png": {
+      "size": 701600,
+      "sha256": "c2dd92ffa47949876e27890d210d74c35c12a26303ae10469016cd8616f0176a"
+    },
+    "art/rounded-tip-nose.png": {
+      "size": 354354,
+      "sha256": "ec17e078d39273c6f6865013a6886dd873ff6e2acf20a4361c381ed62ba5d510"
+    },
+    "art/short-beard.png": {
+      "size": 677102,
+      "sha256": "e9a6280d4234ee8db3fbaff52f64560613594eeb28c21239b9c762c68c47f79a"
+    },
+    "art/soft-almond-eyes.png": {
+      "size": 767907,
+      "sha256": "dfe66905cb671f41a7df023b3db3f72af2750eedaad9d90ebf45ab2ba2879e27"
+    },
+    "art/soft-smile-mouth.png": {
+      "size": 292094,
+      "sha256": "749fac4111e70dc027744291de659a83ecfbe91c655c126854d2c6dd0d0f8f51"
+    },
+    "art/tied-back.png": {
+      "size": 1218574,
+      "sha256": "8e490bff4105ced272bbb146348edf557d2bb2d4362dc0abd50d2022afca8c50"
+    },
+    "art/travel-tunic.png": {
+      "size": 1193359,
+      "sha256": "48973defac023c8b02e1647e805cea54c471d3a97558c3d6bbba587a5609e7bd"
+    },
+    "art/watchful-eyes.png": {
+      "size": 543357,
+      "sha256": "4982fc2f721a12a2603279de65c9dd8ba1c13806a356664927df2dca4a842946"
+    },
+    "numeric-catalog.json": {
+      "size": 2360,
+      "sha256": "74b818391f56c592feaa4846b7483cd2b0fbdbd9988d7b949e7731425467d0c1"
+    },
+    "pack.json": {
+      "size": 38238,
+      "sha256": "200e13eac57998e0fc4483a0fdb8d77df2b116a1d23594efed026aa26994e94a"
+    }
+  }
+}

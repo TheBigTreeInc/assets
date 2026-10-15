@@ -3,9 +3,9 @@
   "packs": [
     {
       "id": "portraits",
-      "version": "2.1.1",
-      "release": "releases/portraits/2.1.1/release.json",
-      "sha256": "1309046e4b952d3efe13fd8ad0b77227023f008bfe2d193591e6094e6f2bdde1"
+      "version": "2.2.0",
+      "release": "releases/portraits/2.2.0/release.json",
+      "sha256": "11f11dcdff5aba868eb2338504f9ae0460e73a7c61dea936fbe5641264e6d50b"
     }
   ]
 }

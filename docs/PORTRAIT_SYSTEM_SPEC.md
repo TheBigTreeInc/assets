@@ -1,16 +1,16 @@
-# Portrait library 2.1.1 — system specification
+# Portrait library 2.2.0 — system specification
 
-One library, one pack: `portraits` 2.1.1. No everyday/cyberpunk collections,
+One library, one pack: `portraits` 2.2.0. No everyday/cyberpunk collections,
 compatibility aliases, old save imports or migration code are provided.
 
 ## Categories, types and optional tags
 
 | Key | Category number | Contents |
 | --- | --- | --- |
-| face | 1 | 7 heads |
-| eyes | 2 | 5 eye pairs, with brows |
-| nose | 3 | 4 noses |
-| mouth | 4 | 5 mouths |
+| face | 1 | 10 heads |
+| eyes | 2 | 7 eye pairs, with brows |
+| nose | 3 | 6 noses |
+| mouth | 4 | 7 mouths |
 | hair | 5 | 7 hairstyles and Bald |
 | clothing | 6 | T-shirt, collared shirt, high-collar jacket, travel tunic |
 | eyewear | 7 | None, round glasses, goggles |
@@ -28,22 +28,22 @@ No option is owned by a genre or another pack. All combinations are allowed.
 None/Bald is 0; real parts are 1–N within their own category. Duplicate no-part
 entries are merged. Part numbers are explicit catalog entries, never list indices.
 There are no Face-default feature options: every face has independent eyes,
-nose and mouth. The 38 transparent source PNGs are bundled exactly once.
+nose and mouth. The 47 transparent source PNGs are bundled exactly once.
 
 ## Portable appearance
 
-The saved object has exactly `format:2`, `library:4`, `parts`, `colors`.
+The saved object has exactly `format:2`, `library:5`, `parts`, `colors`.
 All leaf values are integers. Parts requires all eleven category keys above.
 Colours requires skin, hair, hairAccent, clothing, accessory, iris, facialHair. RGB is
 packed 0xRRGGBB, 0–16777215. Iris changes only the iris mask; accessory colour
 is shared by eyewear, face coverings and augmentations.
 
-Validate `schemas/appearance-v2.schema.json` AND `catalogs/library-4.json`.
+Validate `schemas/appearance-v2.schema.json` AND `catalogs/library-5.json`.
 Reject missing/extra fields, unknown IDs, formats or libraries, fractions,
 booleans and invalid RGB values. Appearance never includes names, stats, jobs,
 URLs or asset paths. Format 1 saves are intentionally rejected.
-Catalog 4 and released pack 2.1.1 are immutable once published. Future additions
-receive a new library ID and art version. No migration promise is made. Library 2/3 saves are rejected by this release.
+Catalog 5 and released pack 2.2.0 are immutable once published. Future additions
+receive a new library ID and art version. No migration promise is made. Earlier library saves are rejected by this release.
 
 ## JavaScript
 
@@ -53,7 +53,7 @@ numeric appearance returned by System; there is no old-save conversion API.
 
 ```js
 const system = await NumericPortraits.System.load('packs/portraits/pack.json', {
-  catalogURL:'catalogs/library-4.json',
+  catalogURL:'catalogs/library-5.json',
   backgroundProvider:({context}) => jobBackgrounds[context.jobId] || '#e7ecdf'
 });
 const appearance = system.defaultAppearance();
@@ -90,7 +90,7 @@ See examples/game-profile.html for working code, including job changes/save/load
 
 ## Downloading the single pack
 
-catalog.json at TheBigTreeInc/assets lists `portraits` 2.1.1 and its trusted hash.
+catalog.json at TheBigTreeInc/assets lists `portraits` 2.2.0 and its trusted hash.
 src/asset-library.js verifies hashes and caches files for offline use. Example:
 
 ```js
@@ -152,7 +152,7 @@ New layers stay optional, with None 0. Earlier released files remain immutable.
 See examples/fantasy-gallery.html for six assembled portraits.
 
 
-## Head, neck and garment separation (2.1.1)
+## Head, neck and garment separation (2.2.0)
 
 Required drawing order: face anatomy=neck, clothing, face anatomy=head,
 then eyes/nose/mouth, scars, facialHair, covering/accessory layers and hair.
@@ -179,3 +179,23 @@ and no baked-in neck/skin. Verify all garments on all head shapes.
 Native game renderers must implement this order and complementary clipping too;
 the codec alone cannot change an existing renderer. See examples/collar-gallery.html
 for the shipped fit preview. No new bitmap artwork was needed for this update.
+
+## Feminine-focused facial options (2.2.0)
+
+Nine independently authored components add three adult face foundations
+(Gentle oval, Heart-shaped, Mature contours), two eye pairs (Soft almond,
+Open rounded), two noses (Fine bridge, Rounded tip) and two mouths
+(Soft smile, Defined bow). Tags are illustrated/feminine, with neutral names.
+These tags support optional filtering; no gender locks restrict combinations.
+All existing hair, clothing, scars, beards, glasses and implants remain available.
+
+Each foundation stays featureless, and its neck matches the head/garment layering.
+New head scale/offset is calibrated from scalp and chin landmarks. Eyes are
+registered by iris centers to x=.40/.60, y=.50; nose and mouth are independently
+registered. Artwork stays on its complete padded source canvas without cropping.
+REGISTRATION_CHECKS.json records measured landmarks and transforms.
+ASSET_PROMPTS.json contains the exact built-in ImageGen prompts for this batch
+and the preceding fantasy batch. ASSET_PROVENANCE.json records all 47 PNG hashes.
+See examples/feminine-gallery.html for six assembled portraits, including mixing
+with casual and fantasy clothing. Catalog 5/schema retain format 2, eleven
+categories and seven RGB colours. Earlier catalogs/releases are not modified.

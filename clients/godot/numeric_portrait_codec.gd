@@ -10,8 +10,8 @@ static func exact(value: Variant, keys: Array) -> bool:
 		if not value.has(key):return false
 	return true
 static func decode(code: Dictionary, catalog: Dictionary, bindings: Dictionary) -> Dictionary:
-	if catalog.get("schema")!="portrait-library.catalog/v2" or int(catalog.get("library",-1))!=4:return {"error":"Unsupported catalog."}
-	if not exact(code,["format","library","parts","colors"]) or not number(code.get("format")) or int(code["format"])!=2 or not number(code.get("library")) or int(code["library"])!=4:return {"error":"Unsupported appearance format or library."}
+	if catalog.get("schema")!="portrait-library.catalog/v2" or int(catalog.get("library",-1))!=5:return {"error":"Unsupported catalog."}
+	if not exact(code,["format","library","parts","colors"]) or not number(code.get("format")) or int(code["format"])!=2 or not number(code.get("library")) or int(code["library"])!=5:return {"error":"Unsupported appearance format or library."}
 	if not exact(code["parts"],PART_KEYS.keys()) or not exact(code["colors"],COLOR_KEYS.keys()):return {"error":"Invalid parts or colours."}
 	var appearance: Dictionary = {"style_family":bindings["family"],"portrait_rgb":{}}
 	for category: String in PART_KEYS:
@@ -29,8 +29,8 @@ static func decode(code: Dictionary, catalog: Dictionary, bindings: Dictionary) 
 		appearance["portrait_rgb"][COLOR_KEYS[color]]=int(code["colors"][color])
 	return {"appearance":appearance}
 static func encode(identity: Dictionary, catalog: Dictionary, bindings: Dictionary) -> Dictionary:
-	if catalog.get("schema")!="portrait-library.catalog/v2" or int(catalog.get("library",-1))!=4 or identity.get("style_family")!=bindings.get("family"):return {"error":"Unsupported catalog or game binding."}
-	var code: Dictionary = {"format":2,"library":4,"parts":{},"colors":{}}
+	if catalog.get("schema")!="portrait-library.catalog/v2" or int(catalog.get("library",-1))!=5 or identity.get("style_family")!=bindings.get("family"):return {"error":"Unsupported catalog or game binding."}
+	var code: Dictionary = {"format":2,"library":5,"parts":{},"colors":{}}
 	for category: String in PART_KEYS:
 		var found := false
 		for key: String in bindings["slots"][category]:

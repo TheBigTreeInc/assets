@@ -1,0 +1,141 @@
+{
+  "schema": "portrait-library.catalog/v2",
+  "library": 5,
+  "pack": {
+    "id": "portraits",
+    "revision": 5,
+    "assetVersion": "2.2.0"
+  },
+  "categories": {
+    "face": {
+      "id": 1,
+      "label": "Face"
+    },
+    "eyes": {
+      "id": 2,
+      "label": "Eyes"
+    },
+    "nose": {
+      "id": 3,
+      "label": "Nose"
+    },
+    "mouth": {
+      "id": 4,
+      "label": "Mouth"
+    },
+    "hair": {
+      "id": 5,
+      "label": "Hair"
+    },
+    "clothing": {
+      "id": 6,
+      "label": "Clothing"
+    },
+    "eyewear": {
+      "id": 7,
+      "label": "Eyewear"
+    },
+    "faceCovering": {
+      "id": 8,
+      "label": "Face covering"
+    },
+    "augmentation": {
+      "id": 9,
+      "label": "Augmentation"
+    },
+    "facialHair": {
+      "id": 10,
+      "label": "Facial hair"
+    },
+    "scars": {
+      "id": 11,
+      "label": "Scars"
+    }
+  },
+  "parts": {
+    "face": {
+      "face-01": 1,
+      "face-02": 2,
+      "face-03": 3,
+      "face-04": 4,
+      "face-05": 5,
+      "face-06": 6,
+      "face-07": 7,
+      "face-08": 8,
+      "face-09": 9,
+      "face-10": 10
+    },
+    "eyes": {
+      "eyes-01": 1,
+      "eyes-02": 2,
+      "eyes-03": 3,
+      "eyes-04": 4,
+      "eyes-05": 5,
+      "eyes-06": 6,
+      "eyes-07": 7
+    },
+    "nose": {
+      "nose-01": 1,
+      "nose-02": 2,
+      "nose-03": 3,
+      "nose-04": 4,
+      "nose-05": 5,
+      "nose-06": 6
+    },
+    "mouth": {
+      "mouth-01": 1,
+      "mouth-02": 2,
+      "mouth-03": 3,
+      "mouth-04": 4,
+      "mouth-05": 5,
+      "mouth-06": 6,
+      "mouth-07": 7
+    },
+    "hair": {
+      "none": 0,
+      "hair-01": 1,
+      "hair-02": 2,
+      "hair-03": 3,
+      "hair-04": 4,
+      "hair-05": 5,
+      "hair-06": 6,
+      "hair-07": 7
+    },
+    "clothing": {
+      "clothing-01": 1,
+      "clothing-02": 2,
+      "clothing-03": 3,
+      "clothing-04": 4
+    },
+    "eyewear": {
+      "none": 0,
+      "eyewear-01": 1,
+      "eyewear-02": 2
+    },
+    "faceCovering": {
+      "none": 0,
+      "facecovering-01": 1
+    },
+    "augmentation": {
+      "none": 0,
+      "augmentation-01": 1
+    },
+    "facialHair": {
+      "none": 0,
+      "facialhair-01": 1
+    },
+    "scars": {
+      "none": 0,
+      "scar-01": 1
+    }
+  },
+  "colors": [
+    "skin",
+    "hair",
+    "hairAccent",
+    "accessory",
+    "iris",
+    "clothing",
+    "facialHair"
+  ]
+}

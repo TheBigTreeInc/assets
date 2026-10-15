@@ -1,7 +1,7 @@
 'use strict';
 (async()=>{
  const checks=[],check=(passed,name)=>{checks.push({passed:!!passed,name});if(!passed)throw Error(name);};
- const api=NumericPortraits,sys=await api.System.load('../packs/portraits/pack.json',{catalogURL:'../catalogs/library-4.json'}),code=sys.defaultAppearance();code.colors.iris=api.rgb('#123456');
+ const api=NumericPortraits,sys=await api.System.load('../packs/portraits/pack.json',{catalogURL:'../catalogs/library-5.json'}),code=sys.defaultAppearance();code.colors.iris=api.rgb('#123456');
  const png=sys.toDataURL(code);check(sys.toDataURL(api.deserialize(sys.catalog,api.serialize(sys.catalog,code)))===png,'Exact numeric save/render restoration');
  check(sys.choices('eyewear',{type:'glasses'}).length===1,'Glasses is an eyewear type');check(sys.choices('hair',{tags:['pixel']}).length===2,'Style tags filter hairstyles');
  const fixture=structuredClone(sys.pack);fixture.canvas=[32,32];fixture.logicalSize=64;fixture.colors={skin:{label:'Skin',default:'#0000ff'},clothing:{label:'Clothing',default:'#ff0000'}};fixture.slots={face:{label:'Face',default:'head',options:[{id:'head',asset:'head.png',jawBoundary:[[0,.5],[1,.5]]}]},clothing:{label:'Clothing',default:'shirt',options:[{id:'shirt',asset:'shirt.png'}]}};fixture.layers=[{slot:'face',color:'skin',anatomy:'neck',preserveChroma:true},{slot:'clothing',color:'clothing',preserveChroma:true},{slot:'face',color:'skin',anatomy:'head',preserveChroma:true}];
@@ -12,10 +12,12 @@
  for(const face of sys.choices('face'))for(const eyes of sys.choices('eyes'))for(const nose of sys.choices('nose'))for(const mouth of sys.choices('mouth')){
   const value=structuredClone(code);Object.assign(value.parts,{face:face.id,eyes:eyes.id,nose:nose.id,mouth:mouth.id});const image=sys.toDataURL(value,{size:64});hashes.add(image);count++;
  }
- check(count===700&&hashes.size===700,'700 distinct face/eyes/nose/mouth combinations render');
+ check(count===2940&&hashes.size===2940,'2940 distinct face/eyes/nose/mouth combinations render');
  for(const category of ['hair','clothing','eyewear','faceCovering','augmentation','facialHair','scars'])for(const choice of sys.choices(category)){const value=structuredClone(code);value.parts[category]=choice.id;check(sys.toDataURL(value,{size:128}).startsWith('data:image/png'),'Renders '+category+' '+choice.label);}
  for(const face of sys.choices('face'))for(const hair of sys.choices('hair',{tags:['fantasy']}))for(const facialHair of [0,1])for(const scars of [0,1]){const v=structuredClone(code);Object.assign(v.parts,{face:face.id,hair:hair.id,facialHair,scars,clothing:4,eyes:5,mouth:5});check(sys.toDataURL(v,{size:128}).startsWith('data:image/png'),'Fantasy mix '+face.id+'/'+hair.id+'/'+facialHair+'/'+scars);}
  const coloured=structuredClone(code);coloured.colors.facialHair=api.rgb('#aa3322');check(sys.toDataURL(coloured)===sys.toDataURL(code),'Beard colour leaves clean-shaven portrait unchanged');const bearded=structuredClone(code);bearded.parts.facialHair=1;coloured.parts.facialHair=1;check(sys.toDataURL(coloured)!==sys.toDataURL(bearded),'Independent beard colour changes visible beard');
+ check(['face','eyes','nose','mouth'].map(k=>sys.choices(k,{tags:['feminine']}).length).join(',')==='3,2,2,2','Nine feminine parts in the shared library');
+ for(const face of [8,9,10])for(const eyes of [6,7])for(const nose of [5,6])for(const mouth of [6,7])for(const clothing of [1,2,3,4]){const v=structuredClone(code);Object.assign(v.parts,{face,eyes,nose,mouth,clothing,hair:5});check(sys.toDataURL(v,{size:128}).startsWith('data:image/png'),'Feminine mix '+[face,eyes,nose,mouth,clothing].join('/'));}
  const original=api.serialize(sys.catalog,code);sys.backgroundProvider=({context})=>context.jobId===101?'#ffffff':'#000000';
  check(sys.toDataURL(code,{context:{jobId:101}})!==sys.toDataURL(code,{context:{jobId:102}}),'Game job changes background');check(api.serialize(sys.catalog,code)===original,'Job leaves numeric appearance unchanged');
  check(sys.render(code,{background:null}).getContext('2d').getImageData(0,0,1,1).data[3]===0,'Transparent background');

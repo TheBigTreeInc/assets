@@ -197,6 +197,60 @@
       "sha256": "48973defac023c8b02e1647e805cea54c471d3a97558c3d6bbba587a5609e7bd",
       "generator": "built-in ImageGen",
       "purpose": "Medieval fantasy modular travel-tunic"
+    },
+    {
+      "path": "packs/portraits/art/oval-face.png",
+      "sha256": "c2dd92ffa47949876e27890d210d74c35c12a26303ae10469016cd8616f0176a",
+      "generator": "built-in ImageGen",
+      "purpose": "Feminine-focused modular oval-face"
+    },
+    {
+      "path": "packs/portraits/art/heart-face.png",
+      "sha256": "9bff8bd99a53d10a47aa15365377a519883ed04dba43b24dfbc1ce2dc83e1e3a",
+      "generator": "built-in ImageGen",
+      "purpose": "Feminine-focused modular heart-face"
+    },
+    {
+      "path": "packs/portraits/art/mature-face.png",
+      "sha256": "81f56c1bc51712e4ae49ad91ccf49babd554038950d904b6aa536c30d3b8cc44",
+      "generator": "built-in ImageGen",
+      "purpose": "Feminine-focused modular mature-face"
+    },
+    {
+      "path": "packs/portraits/art/soft-almond-eyes.png",
+      "sha256": "dfe66905cb671f41a7df023b3db3f72af2750eedaad9d90ebf45ab2ba2879e27",
+      "generator": "built-in ImageGen",
+      "purpose": "Feminine-focused modular soft-almond-eyes"
+    },
+    {
+      "path": "packs/portraits/art/open-rounded-eyes.png",
+      "sha256": "b9bacf5719af1be983b6e3fe0642213e3abbbb58c5557431355a3f378031329d",
+      "generator": "built-in ImageGen",
+      "purpose": "Feminine-focused modular open-rounded-eyes"
+    },
+    {
+      "path": "packs/portraits/art/fine-bridge-nose.png",
+      "sha256": "7d21da64039164d6f652f65db6198f38b70094783c44a45f5aeadbc4fa5d657e",
+      "generator": "built-in ImageGen",
+      "purpose": "Feminine-focused modular fine-bridge-nose"
+    },
+    {
+      "path": "packs/portraits/art/rounded-tip-nose.png",
+      "sha256": "ec17e078d39273c6f6865013a6886dd873ff6e2acf20a4361c381ed62ba5d510",
+      "generator": "built-in ImageGen",
+      "purpose": "Feminine-focused modular rounded-tip-nose"
+    },
+    {
+      "path": "packs/portraits/art/soft-smile-mouth.png",
+      "sha256": "749fac4111e70dc027744291de659a83ecfbe91c655c126854d2c6dd0d0f8f51",
+      "generator": "built-in ImageGen",
+      "purpose": "Feminine-focused modular soft-smile-mouth"
+    },
+    {
+      "path": "packs/portraits/art/defined-bow-mouth.png",
+      "sha256": "7ce0d2a611df69bfa6098a6e1f383484727c89c2a97bcded5b55c64ed1a1ddd7",
+      "generator": "built-in ImageGen",
+      "purpose": "Feminine-focused modular defined-bow-mouth"
     }
   ]
 }

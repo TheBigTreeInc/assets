@@ -1,10 +1,10 @@
 {
   "schema": "portrait-library.catalog/v2",
-  "library": 4,
+  "library": 5,
   "pack": {
     "id": "portraits",
-    "revision": 4,
-    "assetVersion": "2.1.1"
+    "revision": 5,
+    "assetVersion": "2.2.0"
   },
   "categories": {
     "face": {
@@ -60,27 +60,36 @@
       "face-04": 4,
       "face-05": 5,
       "face-06": 6,
-      "face-07": 7
+      "face-07": 7,
+      "face-08": 8,
+      "face-09": 9,
+      "face-10": 10
     },
     "eyes": {
       "eyes-01": 1,
       "eyes-02": 2,
       "eyes-03": 3,
       "eyes-04": 4,
-      "eyes-05": 5
+      "eyes-05": 5,
+      "eyes-06": 6,
+      "eyes-07": 7
     },
     "nose": {
       "nose-01": 1,
       "nose-02": 2,
       "nose-03": 3,
-      "nose-04": 4
+      "nose-04": 4,
+      "nose-05": 5,
+      "nose-06": 6
     },
     "mouth": {
       "mouth-01": 1,
       "mouth-02": 2,
       "mouth-03": 3,
       "mouth-04": 4,
-      "mouth-05": 5
+      "mouth-05": 5,
+      "mouth-06": 6,
+      "mouth-07": 7
     },
     "hair": {
       "none": 0,
