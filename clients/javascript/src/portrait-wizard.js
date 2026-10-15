@@ -1,7 +1,7 @@
 (function(root){
  'use strict';
- const steps=[{label:'Face',slots:['face','eyes','nose','mouth']},{label:'Hair',slots:['hair']},{label:'Details',slots:['eyewear','faceCovering','augmentation']},{label:'Clothing',slots:['clothing']},{label:'Review',slots:[]}];
- const colors={face:['skin'],eyes:['iris'],hair:['hair','hairAccent'],clothing:['clothing']};
+ const steps=[{label:'Face',slots:['face','eyes','nose','mouth']},{label:'Hair',slots:['hair','facialHair']},{label:'Details',slots:['scars','eyewear','faceCovering','augmentation']},{label:'Clothing',slots:['clothing']},{label:'Review',slots:[]}];
+ const colors={face:['skin'],eyes:['iris'],hair:['hair','hairAccent'],clothing:['clothing'],facialHair:['facialHair']};
  function mount(container,system,initial,{onChange=()=>{},allowedOptions={}}={}){
   const numeric=root.NumericPortraits,clone=v=>JSON.parse(JSON.stringify(v));let value=system.normalize(initial),step=0,history=[];const initialValue=system.defaultAppearance();
   const options=slot=>system.choices(slot).filter(o=>!Object.hasOwn(allowedOptions,slot)||allowedOptions[slot].includes(o.id));

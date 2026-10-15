@@ -53,6 +53,7 @@
     }
     for (const layer of pack.layers) {
       if (!object(layer) || !own(pack.slots, layer.slot)) throw Error('Layer refers to an unknown slot.');
+      if(layer.opacity!==undefined&&(!Number.isFinite(layer.opacity)||layer.opacity<0||layer.opacity>1))throw Error('Invalid layer opacity.');
       if (layer.color && !own(pack.colors, layer.color)) throw Error('Layer refers to an unknown color.');
       if (layer.accent && !own(pack.colors, layer.accent)) throw Error('Layer refers to an unknown accent.');
       if (layer.chromaColor && !own(pack.colors, layer.chromaColor)) throw Error('Layer refers to an unknown iris color.');
@@ -178,7 +179,7 @@
         const drawLayer={...layer,...option.render};
         const texture=this.tint(option.asset,layer.color?identity.colors[layer.color]:null,layer.accent?identity.colors[layer.accent]:null,drawLayer,layer.chromaColor?identity.colors[layer.chromaColor]:null);
         const scale=option.scale||[1,1],offset=option.offset||[0,0];
-        ctx.save();
+        ctx.save();ctx.globalAlpha=drawLayer.opacity??1;
         if(layer.frontOnly){const y=option.frontFromY??.83,slope=option.frontSlope??0;ctx.beginPath();ctx.moveTo(0,(y-slope*.5)*n);ctx.lineTo(n*.5,y*n);ctx.lineTo(n,(y-slope*.5)*n);ctx.lineTo(n,n);ctx.lineTo(0,n);ctx.closePath();ctx.clip();}
         ctx.imageSmoothingEnabled=!(drawLayer.pixelated??this.pack.pixelated);
         ctx.drawImage(texture,offset[0]*n,offset[1]*n,scale[0]*n,scale[1]*n);

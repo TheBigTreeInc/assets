@@ -1,6 +1,6 @@
 {
   "schema": "modular-portraits.pack/v1",
-  "revision": 2,
+  "revision": 3,
   "canvas": [
     1254,
     1254
@@ -191,6 +191,36 @@
         "#824b54",
         "#9d606a"
       ]
+    },
+    "facialHair": {
+      "label": "Facial hair",
+      "default": "#67442f",
+      "swatches": [
+        "#14161a",
+        "#20242b",
+        "#302a26",
+        "#4b3328",
+        "#65402c",
+        "#7b4b31",
+        "#8c5b3b",
+        "#a66a44",
+        "#c18a62",
+        "#d8b58d",
+        "#c8c4b8",
+        "#e1ded3",
+        "#4c5664",
+        "#667789",
+        "#245d68",
+        "#2f8c90",
+        "#5b316b",
+        "#8f3b75",
+        "#8e372a",
+        "#b65334",
+        "#8d7a37",
+        "#3d6d3c",
+        "#7885a0",
+        "#a7b0c4"
+      ]
     }
   },
   "layers": [
@@ -230,6 +260,16 @@
       "slot": "clothing",
       "color": "clothing",
       "frontOnly": true
+    },
+    {
+      "slot": "scars",
+      "color": "skin",
+      "opacity": 0.65
+    },
+    {
+      "slot": "facialHair",
+      "color": "facialHair",
+      "accent": "hairAccent"
     },
     {
       "slot": "eyewear",
@@ -472,6 +512,30 @@
             "pixel"
           ],
           "type": "eyes"
+        },
+        {
+          "id": "eyes-05",
+          "label": "Watchful",
+          "asset": "art/watchful-eyes.png",
+          "type": "eyes",
+          "tags": [
+            "illustrated",
+            "fantasy"
+          ],
+          "scale": [
+            0.6,
+            0.6
+          ],
+          "offset": [
+            0.197,
+            0.171
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          }
         }
       ]
     },
@@ -668,6 +732,30 @@
             "pixel"
           ],
           "type": "mouth"
+        },
+        {
+          "id": "mouth-05",
+          "label": "Gentle smile",
+          "asset": "art/gentle-smile.png",
+          "type": "mouth",
+          "tags": [
+            "illustrated",
+            "fantasy"
+          ],
+          "scale": [
+            0.47,
+            0.47
+          ],
+          "offset": [
+            0.265,
+            0.387
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          }
         }
       ]
     },
@@ -772,6 +860,78 @@
             "pixel"
           ],
           "type": "hairstyle"
+        },
+        {
+          "id": "hair-05",
+          "label": "Long waves",
+          "asset": "art/long-waves.png",
+          "type": "hairstyle",
+          "tags": [
+            "illustrated",
+            "fantasy"
+          ],
+          "scale": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          }
+        },
+        {
+          "id": "hair-06",
+          "label": "Braided crown",
+          "asset": "art/braided-crown.png",
+          "type": "hairstyle",
+          "tags": [
+            "illustrated",
+            "fantasy"
+          ],
+          "scale": [
+            0.9,
+            0.9
+          ],
+          "offset": [
+            0.05,
+            0.03
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          }
+        },
+        {
+          "id": "hair-07",
+          "label": "Tied back",
+          "asset": "art/tied-back.png",
+          "type": "hairstyle",
+          "tags": [
+            "illustrated",
+            "fantasy"
+          ],
+          "scale": [
+            0.85,
+            0.85
+          ],
+          "offset": [
+            0.075,
+            0.05
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          }
         }
       ]
     },
@@ -852,6 +1012,32 @@
             "pixel"
           ],
           "type": "jacket"
+        },
+        {
+          "id": "clothing-04",
+          "label": "Travel tunic",
+          "asset": "art/travel-tunic.png",
+          "type": "tunic",
+          "tags": [
+            "illustrated",
+            "fantasy"
+          ],
+          "scale": [
+            1,
+            1
+          ],
+          "offset": [
+            0,
+            0.06
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          },
+          "frontFromY": 0.83,
+          "frontSlope": 0.3
         }
       ]
     },
@@ -982,9 +1168,81 @@
           "type": "implant"
         }
       ]
+    },
+    "facialHair": {
+      "label": "Facial hair",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "type": "none",
+          "tags": []
+        },
+        {
+          "id": "facialhair-01",
+          "label": "Short full beard",
+          "asset": "art/short-beard.png",
+          "type": "beard",
+          "tags": [
+            "illustrated",
+            "fantasy"
+          ],
+          "scale": [
+            0.8,
+            0.8
+          ],
+          "offset": [
+            0.1,
+            0.17
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          }
+        }
+      ]
+    },
+    "scars": {
+      "label": "Scars",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "type": "none",
+          "tags": []
+        },
+        {
+          "id": "scar-01",
+          "label": "Healed cheek scar",
+          "asset": "art/healed-scar.png",
+          "type": "scar",
+          "tags": [
+            "illustrated",
+            "fantasy"
+          ],
+          "scale": [
+            0.65,
+            0.65
+          ],
+          "offset": [
+            0.24,
+            0.22
+          ],
+          "render": {
+            "logicalSize": 512,
+            "shadeSteps": 0,
+            "pixelated": false,
+            "whiteThreshold": 0.995
+          }
+        }
+      ]
     }
   },
-  "assetVersion": "2.0.0",
+  "assetVersion": "2.1.0",
   "featureDefaults": {
     "eyes": "eyes-01",
     "nose": "nose-01",

@@ -1,7 +1,7 @@
 extends RefCounted
 ## Portable v2 codec. bindings is game-owned; catalog is the trusted library catalog.
-const PART_KEYS := {"face":"portrait_archetype","eyes":"eye_package","nose":"nose_package","mouth":"mouth_package","hair":"hair","clothing":"torso","eyewear":"goggle_package","faceCovering":"lower_face_package","augmentation":"detail_package"}
-const COLOR_KEYS := {"skin":"skin","hair":"hair","hairAccent":"hairAccent","clothing":"outfit","accessory":"accessory","iris":"iris"}
+const PART_KEYS := {"face":"portrait_archetype","eyes":"eye_package","nose":"nose_package","mouth":"mouth_package","hair":"hair","clothing":"torso","eyewear":"goggle_package","faceCovering":"lower_face_package","augmentation":"detail_package","facialHair":"facial_hair","scars":"scar_package"}
+const COLOR_KEYS := {"skin":"skin","hair":"hair","hairAccent":"hairAccent","clothing":"outfit","accessory":"accessory","iris":"iris","facialHair":"facialHair"}
 static func number(value: Variant, maximum: int = 2147483647) -> bool:
 	return typeof(value) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(value)) and float(value)==floor(float(value)) and float(value)>=0 and float(value)<=maximum
 static func exact(value: Variant, keys: Array) -> bool:
@@ -10,8 +10,8 @@ static func exact(value: Variant, keys: Array) -> bool:
 		if not value.has(key):return false
 	return true
 static func decode(code: Dictionary, catalog: Dictionary, bindings: Dictionary) -> Dictionary:
-	if catalog.get("schema")!="portrait-library.catalog/v2" or int(catalog.get("library",-1))!=2:return {"error":"Unsupported catalog."}
-	if not exact(code,["format","library","parts","colors"]) or not number(code.get("format")) or int(code["format"])!=2 or not number(code.get("library")) or int(code["library"])!=2:return {"error":"Unsupported appearance format or library."}
+	if catalog.get("schema")!="portrait-library.catalog/v2" or int(catalog.get("library",-1))!=3:return {"error":"Unsupported catalog."}
+	if not exact(code,["format","library","parts","colors"]) or not number(code.get("format")) or int(code["format"])!=2 or not number(code.get("library")) or int(code["library"])!=3:return {"error":"Unsupported appearance format or library."}
 	if not exact(code["parts"],PART_KEYS.keys()) or not exact(code["colors"],COLOR_KEYS.keys()):return {"error":"Invalid parts or colours."}
 	var appearance: Dictionary = {"style_family":bindings["family"],"portrait_rgb":{}}
 	for category: String in PART_KEYS:
@@ -29,8 +29,8 @@ static func decode(code: Dictionary, catalog: Dictionary, bindings: Dictionary) 
 		appearance["portrait_rgb"][COLOR_KEYS[color]]=int(code["colors"][color])
 	return {"appearance":appearance}
 static func encode(identity: Dictionary, catalog: Dictionary, bindings: Dictionary) -> Dictionary:
-	if catalog.get("schema")!="portrait-library.catalog/v2" or int(catalog.get("library",-1))!=2 or identity.get("style_family")!=bindings.get("family"):return {"error":"Unsupported catalog or game binding."}
-	var code: Dictionary = {"format":2,"library":2,"parts":{},"colors":{}}
+	if catalog.get("schema")!="portrait-library.catalog/v2" or int(catalog.get("library",-1))!=3 or identity.get("style_family")!=bindings.get("family"):return {"error":"Unsupported catalog or game binding."}
+	var code: Dictionary = {"format":2,"library":3,"parts":{},"colors":{}}
 	for category: String in PART_KEYS:
 		var found := false
 		for key: String in bindings["slots"][category]:

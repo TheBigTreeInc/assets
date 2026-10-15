@@ -149,6 +149,54 @@
       "path": "packs/portraits/art/component-030.png",
       "sha256": "a3027f7fb75d2126b8a833cf5315aca1c98b88d684c10172119e1328aab35dcb",
       "source": "packs\\all-options\\dominion-pixel\\implant.png"
+    },
+    {
+      "path": "packs/portraits/art/long-waves.png",
+      "sha256": "fc84b562e48ca27479f7bf8de5dd350c19d1f4c51ecfecb143e1a36a3c0ba3ed",
+      "generator": "built-in ImageGen",
+      "purpose": "Medieval fantasy modular long-waves"
+    },
+    {
+      "path": "packs/portraits/art/braided-crown.png",
+      "sha256": "b35910a93ee2cac1e6b0bae967a699e8d45e5f757046a3a7b1439ad9b1b8b476",
+      "generator": "built-in ImageGen",
+      "purpose": "Medieval fantasy modular braided-crown"
+    },
+    {
+      "path": "packs/portraits/art/tied-back.png",
+      "sha256": "8e490bff4105ced272bbb146348edf557d2bb2d4362dc0abd50d2022afca8c50",
+      "generator": "built-in ImageGen",
+      "purpose": "Medieval fantasy modular tied-back"
+    },
+    {
+      "path": "packs/portraits/art/watchful-eyes.png",
+      "sha256": "4982fc2f721a12a2603279de65c9dd8ba1c13806a356664927df2dca4a842946",
+      "generator": "built-in ImageGen",
+      "purpose": "Medieval fantasy modular watchful-eyes"
+    },
+    {
+      "path": "packs/portraits/art/gentle-smile.png",
+      "sha256": "434fc52be1df5783462d0fb3a8a808ac989e211cbe0f913a6a91133c57244d5a",
+      "generator": "built-in ImageGen",
+      "purpose": "Medieval fantasy modular gentle-smile"
+    },
+    {
+      "path": "packs/portraits/art/short-beard.png",
+      "sha256": "e9a6280d4234ee8db3fbaff52f64560613594eeb28c21239b9c762c68c47f79a",
+      "generator": "built-in ImageGen",
+      "purpose": "Medieval fantasy modular short-beard"
+    },
+    {
+      "path": "packs/portraits/art/healed-scar.png",
+      "sha256": "07ff9752e45c8a2f0df1eee6724c1715d01da4ffcb2b81060442579be76fbbda",
+      "generator": "built-in ImageGen",
+      "purpose": "Medieval fantasy modular healed-scar"
+    },
+    {
+      "path": "packs/portraits/art/travel-tunic.png",
+      "sha256": "48973defac023c8b02e1647e805cea54c471d3a97558c3d6bbba587a5609e7bd",
+      "generator": "built-in ImageGen",
+      "purpose": "Medieval fantasy modular travel-tunic"
     }
   ]
 }

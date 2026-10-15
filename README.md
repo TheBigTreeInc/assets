@@ -1,20 +1,22 @@
 # Shared game assets
 
-The current portrait system uses **one pack: portraits 2.0.0**.
+The current portrait system uses **one pack: portraits 2.1.0**.
 Faces, eyes, noses, mouths, hairstyles, clothing, eyewear, face coverings and
 augmentations have neutral names and numeric IDs. Optional pixel/illustrated
 tags describe rendering style. Glasses and goggles are types of Eyewear.
 
 [System specification](docs/PORTRAIT_SYSTEM_SPEC.md) ·
 [Working JavaScript system](clients/javascript) ·
-[Numeric catalog 2](numeric-catalogs/2/catalog.json) ·
+[Numeric catalog 3](numeric-catalogs/3/catalog.json) ·
 [Download catalog](catalog.json)
 
-30 unique PNGs: 7 heads, 4 each of eyes/noses/mouths, 4 hairstyles, 3 garments,
-round glasses, goggles, respirator and eye implant. None/Bald choices are merged.
+38 unique PNGs, including eight medieval fantasy additions: long waves, braided
+crown, tied-back hair, watchful eyes, gentle smile, beard, healed scar and tunic.
+Facial hair and Scars have independent selectors; beard colour is independent.
+None/Bald choices are merged.
 All parts can mix. Games choose their own clothing menus and job backgrounds.
 The specification, numeric schema, artist delivery rules, guided workshop and
-working game example are included. Only numeric format 2/library 2 is supported.
+working game example are included. Only numeric format 2/library 3 is supported.
 
 Base URL: https://raw.githubusercontent.com/TheBigTreeInc/assets/main
 Pin the release id, version and SHA-256 with your game. The JavaScript download

@@ -1,15 +1,17 @@
-# Numeric portrait v2 game adapter
+# Portrait library 3 native data clients
 
-Bundle numeric-catalogs/2/catalog.json and a game binding table. The provided
-neon-control-bindings.json targets neon-control 0.7.87's native renderer.
-numeric_portrait_codec.gd.decode(code,catalog,bindings) returns {appearance:...}
-or {error:...}; encode(identity,catalog,bindings) returns the portable numeric
-object or {error:...}. Exact portrait_rgb values are required on encode.
-No old preset or palette conversion is included. The binding maps portable
-clothing to the native renderer's outfit colour; native IDs are game details.
+numeric_portrait_codec.gd encodes/decodes format 2, library 3, all eleven
+categories and seven RGB colours. example-game-bindings.json demonstrates
+mapping portable options to a game's own component IDs; replace it with your
+game bindings. Codec success returns appearance; unknown parts return error.
+The codec alone does not provide a native portrait renderer.
+
 portrait_asset_library.gd.load_pack(baseURL,trustedPin,fallbackRoot) verifies
-the single release, caches it and returns root/pack/catalog metadata. The cached
-result is usable immediately and offline. Bundle the numeric catalog separately
-for fallback. This client does not supply a complete native renderer. The delivered
-neon-control 0.7.87 ZIP has not been rebuilt to adopt the unified library.
-Read ../../docs/PORTRAIT_SYSTEM_SPEC.md for the system contract.
+the single release, caches it and returns root/pack/catalog metadata. Cache
+results work immediately and offline. Bundle the numeric catalog separately
+for fallback. Use clients/javascript/integrations/trusted-release.json as a
+trusted pin when consuming portraits 2.1.0.
+
+Your renderer must implement facialHair, scars, independent facialHair RGB and
+layer.opacity as documented in ../../docs/PORTRAIT_SYSTEM_SPEC.md. The earlier
+neon-control 0.7.87 game integration is not updated by these generic clients.

@@ -1,0 +1,71 @@
+{
+  "family": "portrait-library-3",
+  "slots": {
+    "face": {
+      "face-01": "face-01",
+      "face-02": "face-02",
+      "face-03": "face-03",
+      "face-04": "face-04",
+      "face-05": "face-05",
+      "face-06": "face-06",
+      "face-07": "face-07"
+    },
+    "eyes": {
+      "eyes-01": "eyes-01",
+      "eyes-02": "eyes-02",
+      "eyes-03": "eyes-03",
+      "eyes-04": "eyes-04",
+      "eyes-05": "eyes-05"
+    },
+    "nose": {
+      "nose-01": "nose-01",
+      "nose-02": "nose-02",
+      "nose-03": "nose-03",
+      "nose-04": "nose-04"
+    },
+    "mouth": {
+      "mouth-01": "mouth-01",
+      "mouth-02": "mouth-02",
+      "mouth-03": "mouth-03",
+      "mouth-04": "mouth-04",
+      "mouth-05": "mouth-05"
+    },
+    "hair": {
+      "none": "none",
+      "hair-01": "hair-01",
+      "hair-02": "hair-02",
+      "hair-03": "hair-03",
+      "hair-04": "hair-04",
+      "hair-05": "hair-05",
+      "hair-06": "hair-06",
+      "hair-07": "hair-07"
+    },
+    "clothing": {
+      "clothing-01": "clothing-01",
+      "clothing-02": "clothing-02",
+      "clothing-03": "clothing-03",
+      "clothing-04": "clothing-04"
+    },
+    "eyewear": {
+      "none": "none",
+      "eyewear-01": "eyewear-01",
+      "eyewear-02": "eyewear-02"
+    },
+    "faceCovering": {
+      "none": "none",
+      "facecovering-01": "facecovering-01"
+    },
+    "augmentation": {
+      "none": "none",
+      "augmentation-01": "augmentation-01"
+    },
+    "facialHair": {
+      "none": "none",
+      "facialhair-01": "facialhair-01"
+    },
+    "scars": {
+      "none": "none",
+      "scar-01": "scar-01"
+    }
+  }
+}
