@@ -1,0 +1,29 @@
+{
+  "id": 10,
+  "category": "clothing",
+  "name": "Circuit-panel shirt",
+  "type": "shirt",
+  "tags": [
+    "pixel",
+    "cyberpunk"
+  ],
+  "order": 10,
+  "render": {
+    "image": "art/49d50d7d96f85e0e9a37a9cb1333d1a71c1d000ac1a3a7f3bbc83ee2b519cd13.png",
+    "profile": "pixel",
+    "scale": [
+      0.9,
+      0.9
+    ],
+    "offset": [
+      0.05,
+      0.23
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create one original modular shirt texture for a reusable pixel-art portrait character generator. A cyberpunk crew-neck technical shirt with asymmetric stitched panels and subtle luminous-looking circuit piping, all in grayscale for recolouring. Garment alone on lower half of canvas, shoulders filling width at bottom, neckline sides around x=470 and780 at y=780, transparent neck opening. No head, neck, skin, mannequin, hanger. Upper 55 percent of canvas empty. Bottom continues beyond image edge. Transparent RGBA PNG, exactly1254 by1254 square canvas. Refined pixel art with crisp deliberate square clusters, limited neutral grayscale palette suitable for runtime tinting. Diffuse frontal lighting, symmetric front-facing orientation. No coloured pixels, logos, text, labels, contact sheet or multiple views. Component artwork only, truly transparent negative space.",
+    "notes": "Original standalone transparent component. Front-facing portrait only. No animation or full-body artwork. Editable layered artist source unavailable."
+  }
+}

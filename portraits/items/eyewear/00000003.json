@@ -1,0 +1,29 @@
+{
+  "id": 3,
+  "category": "eyewear",
+  "name": "Slim wrap visor",
+  "type": "visor",
+  "tags": [
+    "pixel",
+    "cyberpunk"
+  ],
+  "order": 3,
+  "render": {
+    "image": "art/6381f5c3def697033157f28806d1f4fe859fa1032e2c44213345ce5f4654801d.png",
+    "profile": "pixel",
+    "scale": [
+      0.55,
+      0.55
+    ],
+    "offset": [
+      0.225,
+      0.235
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create one original modular visor texture for a reusable pixel-art portrait character generator. One slim wraparound futuristic visor, a single continuous translucent smoky lens with angular neutral grayscale frame and small temple modules. No straps across face. Lens lightly translucent so eyes remain visible. Eyewear alone centered horizontally and vertically, occupying 75 percent canvas width and 20 percent height. No head, eyes, eyebrows, nose, hair, skin or face. Transparent RGBA PNG, exactly1254 by1254 square canvas. Refined pixel art with crisp deliberate square clusters, limited neutral grayscale palette suitable for runtime tinting. Diffuse frontal lighting, symmetric front-facing orientation. No coloured pixels, logos, text, labels, contact sheet or multiple views. Component artwork only, truly transparent negative space.",
+    "notes": "Original standalone transparent component. Front-facing portrait only. No animation or full-body artwork. Editable layered artist source unavailable."
+  }
+}

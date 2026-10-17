@@ -1,0 +1,29 @@
+{
+  "id": 3,
+  "category": "facialHair",
+  "name": "Braided dwarf beard",
+  "type": "beard",
+  "tags": [
+    "pixel",
+    "fantasy"
+  ],
+  "order": 3,
+  "render": {
+    "image": "art/841e295b72343b244302a4a502950a16a9a15c65f25b8f46abb3c2d28419f6a2.png",
+    "profile": "pixel",
+    "scale": [
+      0.55,
+      0.55
+    ],
+    "offset": [
+      0.225,
+      0.505
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create one original modular beard texture for a reusable pixel-art portrait character generator. One full fantasy beard with moustache and two short thick braids, broad at jaw and tapered below chin. Simple dark bands binding braids. Transparent open mouth gap, no skin or lips. Neutral grayscale hair. Beard alone centered horizontally and vertically, occupying 60 percent width and 38 percent height. No head, skin, nose, eyes, clothing or background. Transparent RGBA PNG, exactly1254 by1254 square canvas. Refined pixel art with crisp deliberate square clusters, limited neutral grayscale palette suitable for runtime tinting. Diffuse frontal lighting, symmetric front-facing orientation. No coloured pixels, logos, text, labels, contact sheet or multiple views. Component artwork only, truly transparent negative space.",
+    "notes": "Original standalone transparent component. Front-facing portrait only. No animation or full-body artwork. Editable layered artist source unavailable."
+  }
+}

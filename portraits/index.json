@@ -134,7 +134,11 @@
         "items/clothing/00000004.json",
         "items/clothing/00000005.json",
         "items/clothing/00000006.json",
-        "items/clothing/00000007.json"
+        "items/clothing/00000007.json",
+        "items/clothing/00000008.json",
+        "items/clothing/00000009.json",
+        "items/clothing/00000010.json",
+        "items/clothing/00000011.json"
       ]
     },
     {
@@ -146,7 +150,9 @@
       "default": 0,
       "items": [
         "items/eyewear/00000001.json",
-        "items/eyewear/00000002.json"
+        "items/eyewear/00000002.json",
+        "items/eyewear/00000003.json",
+        "items/eyewear/00000004.json"
       ]
     },
     {
@@ -179,7 +185,9 @@
       "noneLabel": "None",
       "default": 0,
       "items": [
-        "items/facialHair/00000001.json"
+        "items/facialHair/00000001.json",
+        "items/facialHair/00000002.json",
+        "items/facialHair/00000003.json"
       ]
     },
     {

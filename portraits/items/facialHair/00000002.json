@@ -1,0 +1,29 @@
+{
+  "id": 2,
+  "category": "facialHair",
+  "name": "Neat goatee",
+  "type": "beard",
+  "tags": [
+    "pixel",
+    "everyday"
+  ],
+  "order": 2,
+  "render": {
+    "image": "art/ba47ec3574431ca0e239ab66b4d378ea69974dd93a816e6464a177eb0bcd7f79.png",
+    "profile": "pixel",
+    "scale": [
+      0.4,
+      0.4
+    ],
+    "offset": [
+      0.3,
+      0.505
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create one original modular beard texture for a reusable pixel-art portrait character generator. One neatly trimmed goatee with moustache, chin beard and short connectors; open transparent mouth gap, cheek area empty. Neutral grayscale hair, no skin or lips. Beard alone centered horizontally and vertically, occupying 60 percent width and 38 percent height. No head, skin, nose, eyes, clothing or background. Transparent RGBA PNG, exactly1254 by1254 square canvas. Refined pixel art with crisp deliberate square clusters, limited neutral grayscale palette suitable for runtime tinting. Diffuse frontal lighting, symmetric front-facing orientation. No coloured pixels, logos, text, labels, contact sheet or multiple views. Component artwork only, truly transparent negative space.",
+    "notes": "Original standalone transparent component. Front-facing portrait only. No animation or full-body artwork. Editable layered artist source unavailable."
+  }
+}

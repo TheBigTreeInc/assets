@@ -1,0 +1,29 @@
+{
+  "id": 11,
+  "category": "clothing",
+  "name": "Techwear zip shirt",
+  "type": "shirt",
+  "tags": [
+    "pixel",
+    "cyberpunk"
+  ],
+  "order": 11,
+  "render": {
+    "image": "art/ef3fbbb44298afcc6abfe65019a2d20fc0e98c10c1c9b5e7c2cc25b2a5a26a53.png",
+    "profile": "pixel",
+    "scale": [
+      0.9,
+      0.9
+    ],
+    "offset": [
+      0.05,
+      0.2
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create one original modular shirt texture for a reusable pixel-art portrait character generator. A cyberpunk high-tech zip-front shirt with a short stand collar, diagonal seam lines and a small blank chest panel. No armor. Garment alone on lower half of canvas, shoulders filling width at bottom, neckline sides around x=470 and780 at y=780, transparent neck opening. No head, neck, skin, mannequin, hanger. Upper 55 percent of canvas empty. Bottom continues beyond image edge. Transparent RGBA PNG, exactly1254 by1254 square canvas. Refined pixel art with crisp deliberate square clusters, limited neutral grayscale palette suitable for runtime tinting. Diffuse frontal lighting, symmetric front-facing orientation. No coloured pixels, logos, text, labels, contact sheet or multiple views. Component artwork only, truly transparent negative space.",
+    "notes": "Original standalone transparent component. Front-facing portrait only. No animation or full-body artwork. Editable layered artist source unavailable."
+  }
+}
