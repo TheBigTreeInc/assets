@@ -1,0 +1,29 @@
+{
+  "id": 6,
+  "category": "clothing",
+  "name": "Button henley",
+  "type": "shirt",
+  "tags": [
+    "pixel",
+    "casual"
+  ],
+  "order": 6,
+  "render": {
+    "image": "art/f5dbed62bf86a77c7476c9872a7b9ddb05bf4cc5ea04ae8a3c3f6420164aac84.png",
+    "profile": "pixel",
+    "scale": [
+      0.9,
+      0.9
+    ],
+    "offset": [
+      0.05,
+      0.23
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create one original modular clothing texture: casual henley shirt, rounded neckline and short three-button placket, for a front-facing pixel-art portrait generator. Transparent PNG 1254x1254 canvas. Refined pixel art with crisp square clusters, restrained 6-tone neutral grayscale fabric for runtime recolouring, no coloured pixels, no logos, no text. Head-and-shoulders framing only. Shirt shoulders fill bottom of square; shoulder seams near x=100 and x=1150 at y=980; neckline sides around x=470 and x=780, y=800, neckline bottom around y=1030. Bottom garment continues beyond bottom edge. Upper 60 percent canvas empty transparent. Neck opening is genuinely transparent, NO neck, skin, head, body, mannequin, hanger or background; garment alone. Centered symmetrical frontal pose, slight natural fabric folds, consistent diffuse lighting. One standalone component, no sheet or multiple views.",
+    "notes": "Original transparent garment component. No baked neck or skin. Front portrait only; no animation or full-body representation. Editable layered artist source unavailable."
+  }
+}
