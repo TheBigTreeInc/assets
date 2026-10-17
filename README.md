@@ -1,6 +1,6 @@
 # Shared game assets — Portrait Library 3.0.1
 
-One library of 47 modular images, with one metadata descriptor per item. One decimal portrait value stores permanent part IDs and exact colours. Everyday, fantasy, feminine and cyberpunk parts can be freely mixed.
+One library of 50 modular images, with one metadata descriptor per item. One decimal portrait value stores permanent part IDs and exact colours. Everyday, fantasy, feminine and cyberpunk parts can be freely mixed.
 
 Start `Start Portrait Workshop.cmd`, or run `python tools/serve.py --open`. The standalone workshop is `index.html`. The JavaScript integration example and formal contract are in [docs/PORTRAIT_SPEC.md](docs/PORTRAIT_SPEC.md). Serve over localhost/HTTPS; opening HTML as a `file:` URL cannot fetch the assets.
 

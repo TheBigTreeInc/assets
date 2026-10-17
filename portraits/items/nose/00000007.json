@@ -1,0 +1,29 @@
+{
+  "id": 7,
+  "category": "nose",
+  "name": "Rounded pixel nose",
+  "type": "nose",
+  "tags": [
+    "pixel",
+    "expressive"
+  ],
+  "order": 7,
+  "render": {
+    "image": "art/f0a2fb6ca20857618bcb475573cf58171b8143acd1b5dbf830d1d1782dc46da8.png",
+    "profile": "pixel",
+    "scale": [
+      0.396,
+      0.396
+    ],
+    "offset": [
+      0.302,
+      0.383
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create ONE original modular nose texture for a reusable pixel-art portrait character generator. One front-facing small rounded nose with a softly defined broad tip and subtle nostrils. Neutral grayscale shading for skin tinting. No eyes, eyebrows, mouth. Refined pixel art: deliberate square pixel clusters, limited 6-tone neutral grayscale palette except blue irises, clean stepped edges, no smooth painterly rendering. True transparent background. Only the facial feature, no head silhouette, skin rectangle, character, hair, clothes, UI, labels or contact sheet. Very minimal surrounding skin, fade to transparency at outer contour. Square canvas 1254 by 1254 requested. Place the feature centered horizontally and vertically, occupying 30% width and 22% height. Crisp readable sprite component, designed as a separately selectable layer, consistent frontal diffuse lighting. Output a standalone transparent PNG.",
+    "notes": "Original separately generated transparent component; no third-party artwork used. Front portrait only; no animation or full-body representation."
+  }
+}

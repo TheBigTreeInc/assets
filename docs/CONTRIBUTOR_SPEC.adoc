@@ -82,7 +82,7 @@ Use the actual parent/base revision, rather than HEAD after committing, to detec
 
 The `Validate and package character engine` workflow validates pull requests and pushes, checks permanent identities, runs tests and uploads the ZipRunner ZIP plus SHA-256. It checks out a pinned upstream ZipRunner validator into a separate temporary directory. That directory MUST NOT be included in the engine ZIP.
 
-The workflow has read-only repository permissions and does not deploy a site, publish a release or grant operator acceptance. A green workflow is automated producer evidence. Visual acceptance and installation on the recipient's configured runner remain explicit checks.
+The validation job has read-only repository permissions. After successful validation on main, a separate job with Pages and identity-token permissions deploys the public workshop and assets to GitHub Pages. Pull requests do not deploy. The workflow does not publish a release or grant operator acceptance. A green workflow is automated producer evidence. Visual acceptance and installation on the recipient's configured runner remain explicit checks.
 
 The package project key is `portrait-library`. Its source root is the ZIP root, with no outer wrapper folder. Prerequisites are Python 3.10+ and Node 22.8+ on PATH. The recipe's start action opens the workshop on a local loopback server after successful checks. A trusted local ZipRunner configuration must accept the recipe and resolve the declared verification runner identifiers.
 

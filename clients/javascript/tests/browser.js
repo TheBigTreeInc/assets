@@ -12,7 +12,7 @@
  for(const head of sys.choices('head'))for(const eyes of sys.choices('eyes'))for(const nose of sys.choices('nose'))for(const mouth of sys.choices('mouth')){
   const value=structuredClone(code);Object.assign(value.parts,{head:head.id,eyes:eyes.id,nose:nose.id,mouth:mouth.id});const image=sys.toDataURL(value,{size:64});hashes.add(image);count++;
  }
- check(count===2940&&hashes.size===2940,'2940 distinct face/eyes/nose/mouth combinations render');
+ check(count===4480&&hashes.size===4480,'4480 distinct face/eyes/nose/mouth combinations render');
  for(const category of ['hair','clothing','eyewear','faceCovering','augmentation','facialHair','scars'])for(const choice of sys.choices(category)){const value=structuredClone(code);value.parts[category]=choice.id;check(sys.toDataURL(value,{size:128}).startsWith('data:image/png'),'Renders '+category+' '+choice.label);}
  for(const head of sys.choices('head'))for(const hair of sys.choices('hair',{tags:['fantasy']}))for(const facialHair of [0,1])for(const scars of [0,1]){const v=structuredClone(code);Object.assign(v.parts,{head:head.id,hair:hair.id,facialHair,scars,clothing:4,eyes:5,mouth:5});check(sys.toDataURL(v,{size:128}).startsWith('data:image/png'),'Fantasy mix '+head.id+'/'+hair.id+'/'+facialHair+'/'+scars);}
  const coloured=structuredClone(code);coloured.colors.facialHair=api.rgb('#aa3322');check(sys.toDataURL(coloured)===sys.toDataURL(code),'Beard colour leaves clean-shaven portrait unchanged');const bearded=structuredClone(code);bearded.parts.facialHair=1;coloured.parts.facialHair=1;check(sys.toDataURL(coloured)!==sys.toDataURL(bearded),'Independent beard colour changes visible beard');

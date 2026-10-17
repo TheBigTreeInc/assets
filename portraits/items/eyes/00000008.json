@@ -1,0 +1,29 @@
+{
+  "id": 8,
+  "category": "eyes",
+  "name": "Attentive pixel eyes",
+  "type": "eyes",
+  "tags": [
+    "pixel",
+    "expressive"
+  ],
+  "order": 8,
+  "render": {
+    "image": "art/cb278b601c4cd5a80d04bb408448a55c7e47a20180eb9e489cb3b17720e9c15e.png",
+    "profile": "pixel",
+    "scale": [
+      0.508,
+      0.508
+    ],
+    "offset": [
+      0.246,
+      0.227
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create ONE original modular eyes texture for a reusable pixel-art portrait character generator. A matched pair of front-facing softly upturned almond eyes with subtle arched eyebrows, expressive but adult proportions. Blue irises (#3060d0) with black pupils and tiny white highlights. No nose, no mouth. Refined pixel art: deliberate square pixel clusters, limited 6-tone neutral grayscale palette except blue irises, clean stepped edges, no smooth painterly rendering. True transparent background. Only the facial feature, no head silhouette, skin rectangle, character, hair, clothes, UI, labels or contact sheet. Very minimal surrounding skin, fade to transparency at outer contour. Square canvas 1254 by 1254 requested. Place the feature centered horizontally and vertically, occupying 70% width and 22% height. Crisp readable sprite component, designed as a separately selectable layer, consistent frontal diffuse lighting. Output a standalone transparent PNG.",
+    "notes": "Original separately generated transparent component; no third-party artwork used. Front portrait only; no animation or full-body representation."
+  }
+}

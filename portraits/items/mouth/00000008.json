@@ -1,0 +1,29 @@
+{
+  "id": 8,
+  "category": "mouth",
+  "name": "Warm pixel smile",
+  "type": "mouth",
+  "tags": [
+    "pixel",
+    "expressive"
+  ],
+  "order": 8,
+  "render": {
+    "image": "art/56ab1cf421a1b0fa3d2758dfb3e39dcf46aa295c6cfc11ff65bf476087fb4910.png",
+    "profile": "pixel",
+    "scale": [
+      0.402,
+      0.402
+    ],
+    "offset": [
+      0.295,
+      0.489
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create ONE original modular mouth texture for a reusable pixel-art portrait character generator. One front-facing closed mouth with a subtle warm asymmetrical smile, softly full lips. Neutral grayscale shading for skin tinting. No nose, eyes, teeth. Refined pixel art: deliberate square pixel clusters, limited 6-tone neutral grayscale palette except blue irises, clean stepped edges, no smooth painterly rendering. True transparent background. Only the facial feature, no head silhouette, skin rectangle, character, hair, clothes, UI, labels or contact sheet. Very minimal surrounding skin, fade to transparency at outer contour. Square canvas 1254 by 1254 requested. Place the feature centered horizontally and vertically, occupying 30% width and 22% height. Crisp readable sprite component, designed as a separately selectable layer, consistent frontal diffuse lighting. Output a standalone transparent PNG.",
+    "notes": "Original separately generated transparent component; no third-party artwork used. Front portrait only; no animation or full-body representation."
+  }
+}
