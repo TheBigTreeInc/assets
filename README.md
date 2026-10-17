@@ -18,4 +18,6 @@ Start with [Character Engine Specification](docs/CHARACTER_ENGINE_SPEC.adoc) and
 
 ## ZipRunner and CI
 
+The live workshop is at https://thebigtreeinc.github.io/assets/. The shared catalog is at https://thebigtreeinc.github.io/assets/portraits/index.json. GitHub Pages publishes automatically after successful validation on main; pull requests validate and stage the website without deploying it. Only public runtime files, artwork, metadata and documentation are staged. Repository settings must use GitHub Actions as the Pages source. See the Actions deployment environment for the latest deployment status. This live catalog follows main; integrations requiring a fixed snapshot should use a pinned release archive.
+
 The GitHub workflow validates source and builds a ZipRunner 2.3 archive with a verification plan and checksum. Register project.zr with project key portrait-library. See ZIPRUNNER_HANDOFF.md for prerequisites, operator checks and known limits. Reproduce the artifact with python tools/package_ziprunner.py --validator PATH/TO/ziprunner-spec/tools/validate.py using pinned upstream commit 341005206094862853435ad68801be7ff28c4490. Output goes into dist/.

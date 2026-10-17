@@ -38,7 +38,9 @@ def run(against=None):
     require(len(categories)<=255 and len(colors)<=255,'Too many fields')
     descriptors={p.relative_to(ROOT).as_posix() for p in (ROOT/'portraits/items').rglob('*.json')}
     require(descriptors==set(items),'Unlisted or missing item descriptor')
-    actual={p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.png') if '.git' not in p.parts}
+    # Generated deployment output is not a second source artwork store.
+    actual={p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.png')
+            if p.relative_to(ROOT).parts[0] not in {'.git', 'dist', '_ziprunner-spec'}}
     require(actual==files,'Artwork must appear once, only in art/, and all artwork must be referenced')
     hashes=set();size=0
     for file in files:

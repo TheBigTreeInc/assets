@@ -1,4 +1,4 @@
-name: Validate and package character engine
+name: Validate, package and publish character engine
 on:
   push:
     branches: [main]
@@ -52,3 +52,25 @@ jobs:
             dist/portrait-library-*-ziprunner.zip.sha256
           if-no-files-found: error
           retention-days: 30
+      - name: Stage public website
+        run: python tools/build_pages.py
+      - name: Upload website
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: dist/pages
+  deploy-pages:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: validate-package
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
