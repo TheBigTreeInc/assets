@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "category": "neckwear",
+  "name": "Classic bow tie",
+  "type": "bowTie",
+  "tags": [
+    "pixel",
+    "costume"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/f6fbabdfc6832382d1e4d5028dcddf25208e3302f523f52e51e01fb3b50d07c0.png",
+    "profile": "pixel",
+    "scale": [
+      0.24,
+      0.24
+    ],
+    "offset": [
+      0.38,
+      0.745
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create ONE original modular neckwear component for a pixel-art portrait character creator. One classic symmetrical fabric bow tie with central knot and folded wings, small short neck strap behind. Bow tie alone, centered at x=627 y=627, occupying 65 percent width and 25 percent height. No collar, shirt or neck. Exactly1254 by1254 RGBA PNG with a genuinely transparent background. Refined pixel art, deliberate crisp square pixel clusters, 6 to8 neutral grayscale tones for runtime recolouring, consistent soft frontal light. Transparent negative spaces and transparent area where face goes. No skin, face, eyes, nose, mouth, neck, body, mannequin, background, checkerboard, text, UI, other components or contact sheet. Single front-facing component, preserve empty canvas margins. Standalone selectable art, not a finished character.",
+    "notes": "Original standalone transparent component. Front portrait only; no full-body or animation artwork. Editable layered artist source unavailable."
+  }
+}

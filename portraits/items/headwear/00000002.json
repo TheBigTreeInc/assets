@@ -1,0 +1,29 @@
+{
+  "id": 2,
+  "category": "headwear",
+  "name": "Bunny-ear headband",
+  "type": "animalEars",
+  "tags": [
+    "pixel",
+    "costume"
+  ],
+  "order": 2,
+  "render": {
+    "image": "art/32354288f108d8023c305f3336b08954a2ed7bd24011009e7f4126b9d1960620.png",
+    "profile": "pixel",
+    "scale": [
+      0.65,
+      0.4
+    ],
+    "offset": [
+      0.175,
+      -0.015
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create ONE original modular headwear component for a pixel-art portrait character creator. One cute costume bunny-ear headband, two long upright softly rounded ears, one slightly bent near tip, attached to slender curved band. Ear tips around x=440 and814 at y=100; curved band arches over crown at y=700, band ends x=300 and954 at y=900. No hair, skull or character. Headband and ears form one standalone component. Exactly1254 by1254 RGBA PNG with a genuinely transparent background. Refined pixel art, deliberate crisp square pixel clusters, 6 to8 neutral grayscale tones for runtime recolouring, consistent soft frontal light. Transparent negative spaces and transparent area where face goes. No skin, face, eyes, nose, mouth, neck, body, mannequin, background, checkerboard, text, UI, other components or contact sheet. Single front-facing component, preserve empty canvas margins. Standalone selectable art, not a finished character.",
+    "notes": "Original standalone transparent component. Front portrait only; no full-body or animation artwork. Editable layered artist source unavailable."
+  }
+}

@@ -117,7 +117,10 @@
         "items/hair/00000004.json",
         "items/hair/00000005.json",
         "items/hair/00000006.json",
-        "items/hair/00000007.json"
+        "items/hair/00000007.json",
+        "items/hair/00000008.json",
+        "items/hair/00000009.json",
+        "items/hair/00000010.json"
       ]
     },
     {
@@ -199,6 +202,30 @@
       "default": 0,
       "items": [
         "items/scars/00000001.json"
+      ]
+    },
+    {
+      "id": 12,
+      "key": "neckwear",
+      "label": "Neckwear",
+      "nullable": true,
+      "noneLabel": "None",
+      "default": 0,
+      "items": [
+        "items/neckwear/00000001.json"
+      ]
+    },
+    {
+      "id": 13,
+      "key": "headwear",
+      "label": "Headwear",
+      "nullable": true,
+      "noneLabel": "None",
+      "default": 0,
+      "items": [
+        "items/headwear/00000001.json",
+        "items/headwear/00000002.json",
+        "items/headwear/00000003.json"
       ]
     }
   ],
@@ -433,6 +460,34 @@
         "#7885a0",
         "#a7b0c4"
       ]
+    },
+    {
+      "id": 8,
+      "key": "neckwear",
+      "label": "Neckwear",
+      "required": false,
+      "default": "#383c40",
+      "swatches": [
+        "#383c40",
+        "#b53553",
+        "#254d8c",
+        "#dfbb55",
+        "#f0e4dd"
+      ]
+    },
+    {
+      "id": 9,
+      "key": "headwear",
+      "label": "Headwear",
+      "required": false,
+      "default": "#d78ba8",
+      "swatches": [
+        "#d78ba8",
+        "#383c40",
+        "#b53553",
+        "#67509b",
+        "#e1ded3"
+      ]
     }
   ],
   "layers": [
@@ -453,6 +508,10 @@
       "preserveChroma": true,
       "whiteThreshold": 0.995,
       "anatomy": "head"
+    },
+    {
+      "slot": "neckwear",
+      "color": "neckwear"
     },
     {
       "slot": "eyes",
@@ -511,6 +570,10 @@
       "slot": "hair",
       "color": "hair",
       "accent": "hairAccent"
+    },
+    {
+      "slot": "headwear",
+      "color": "headwear"
     }
   ]
 }

@@ -1,0 +1,40 @@
+= Hairstyles and Portrait Accessories
+:revnumber: 1.0.0
+:revdate: 2026-10-17
+:toc:
+
+== Scope
+
+Engine 3.0.2 adds three original pixel hairstyles and independent headwear and neckwear selections. All art supports front-facing portraits only. Full-body artwork, animation, named anchors and general multi-piece rendering remain future work.
+
+== Permanent fields and selections
+
+[cols="1,1,2,2",options="header"]
+|===
+|Category |Item ID |Name |Creator tab
+|hair |8 |Soft layered bob |Hair
+|hair |9 |High ponytail |Hair
+|hair |10 |Twin space buns |Hair
+|neckwear |1 |Classic bow tie |Clothing
+|headwear |1 |Cat-ear headband |Hair
+|headwear |2 |Bunny-ear headband |Hair
+|headwear |3 |Ribbon headband |Hair
+|===
+
+Category ID 12 is `neckwear`; category ID 13 is `headwear`. Both are nullable, default to 0 (None), and omit zero records from the decimal character value. Headwear is a single choice: select cat ears, bunny ears or ribbon, not multiple headbands simultaneously. Hair, headwear, clothing and neckwear are independent selections.
+
+Optional colour ID 8 is `neckwear`, default `#383c40`; optional colour ID 9 is `headwear`, default `#d78ba8`. Each uses an unsigned 24-bit RGB integer. Colours equal to their immutable defaults are omitted from the value. These are separate from shared eyewear colour. Hair continues to use the existing hair and highlight channels.
+
+The existing numeric encoding remains version 1. Updated readers reconstruct absent categories as 0 and absent colours using these defaults. Old codes re-encode to exactly the same decimal text and retain their old image when the new accessories are None. Earlier clients reject codes containing unknown new fields; integrations must load an updated registry before using these choices.
+
+== Composition contract
+
+The neckwear plane follows the head plane, before facial features. This draws the bow tie over the neck and garment. The headwear plane follows hair. Existing planes retain their exact definitions and relative order. New optional planes MUST NOT change an older character with no new accessories selected.
+
+Headbands are costume accessories and use a fixed front-portrait registration. Tall ears use the available upper margin. Some large hairstyles may intersect a headband; hosts may filter incompatible combinations. This version does not calculate rig-specific fitting or provide hidden rear pieces.
+
+== Delivery and provenance
+
+Each item has one descriptor under `portraits/items/` and one content-addressed RGBA PNG in `art/`. Items were generated separately with the built-in OpenAI image tool, without third-party reference artwork. The exact final generation prompt and provenance are in each descriptor. Editable layered artist source is unavailable.
+
+Export requirements and future representation work follow link:CONTRIBUTOR_SPEC.adoc[the contributor specification]. The canonical character value follows link:PORTRAIT_SPEC.md[the runtime contract]. Run identity checks against the actual base commit, the JavaScript tests, and the browser test page. Review the new accessories with short and long hairstyles, different heads and shirt colours before accepting them for a host application's picker.

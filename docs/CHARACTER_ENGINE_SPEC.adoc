@@ -13,11 +13,11 @@ MUST, MUST NOT, SHOULD and MAY express normative requirements. This document gov
 
 == Implementation boundary
 
-This specification ships with engine package 3.0.1. Publishing a specification does not implement the features it describes.
+This specification ships with engine package 3.0.2. Publishing a specification does not implement the features it describes.
 
 [cols="2,3,2",options="header"]
 |===
-|Capability |Contract |Status in 3.0.1
+|Capability |Contract |Status in 3.0.2
 |Portrait composition |Registered transparent images, facial parts, accessories and colours |Implemented
 |Permanent identity |Category-scoped numeric IDs; one decimal character value |Implemented for current portrait categories
 |Storage and loading |One content-addressed art store; item metadata; verified cache |Implemented
@@ -30,6 +30,8 @@ This specification ships with engine package 3.0.1. Publishing a specification d
 |===
 
 `engine-capabilities.json` is the machine-readable release declaration. The existing `pixel` and `illustrated` rendering profiles describe individual current assets; they are not yet interchangeable representations of every object. A caller cannot obtain missing high-detail artwork by requesting a larger output image.
+
+Engine 3.0.2 implements independent optional headwear and neckwear slots and colours. Their allocated numeric fields, layer placement and artwork coverage are defined in link:ACCESSORY_ADDITIONS.adoc[the accessory contract].
 
 == Design decisions
 
@@ -117,7 +119,7 @@ A rig MUST provide a deterministic base draw order. Optional relative constraint
 
 Back/torso/neck/face/front-accessory planes MUST be explicit. Layer order may vary with direction and frame; one global numeric depth cannot describe every facing direction. Masks MAY handle local occlusion, but MUST NOT erase unrelated pieces globally. No texture processing may silently flatten selectable objects together.
 
-The current draw order is neck, garment, head, facial features, scars, facial hair, eyewear, face covering, augmentation and hair. The existing renderer's neck and head planes are an implemented special case, not general multi-piece support.
+The current draw order is neck, garment, head, neckwear, facial features, scars, facial hair, eyewear, face covering, augmentation, hair and headwear. The existing renderer's neck and head planes are an implemented special case, not general multi-piece support.
 
 == Views and portrait extraction
 

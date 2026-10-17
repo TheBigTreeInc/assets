@@ -1,8 +1,8 @@
 {
   "schema": "ziprunner.workboard-update.v1",
   "project": "portrait-library",
-  "version": "3.0.1",
-  "summary": "Architecture and contributor specifications appended to the current portrait engine, with GitHub validation and a ZipRunner 2.3 source package.",
+  "version": "3.0.2",
+  "summary": "Portrait library with new hairstyles, independent headwear and neckwear, existing gear additions, normative specifications, Pages and ZipRunner delivery.",
   "implemented": [
     {
       "id": "CL-SPEC",
@@ -26,6 +26,14 @@
       "summary": "Deliver the current engine with source-root recipe, workboard, verification plan, explicit remaining work and a direct ZIP handoff.",
       "operator_checks": [
         "Register project key portrait-library in a separate disposable ZipRunner project with Python 3.10+ and Node 22+ on PATH. Stop an earlier managed preview if present, approve the local recipe, import the ZIP, run the checks, open the workshop, change a face and eye colour, save then restore the character. Confirm future representation/full-body features remain marked pending."
+      ]
+    },
+    {
+      "id": "CL-ACCESSORIES",
+      "title": "Independent portrait accessories and feminine hairstyles",
+      "summary": "Add three hairstyles, bow tie and three headbands, with independent optional headwear/neckwear IDs and colours, stable old codes and guided controls.",
+      "operator_checks": [
+        "In Hair select each new hairstyle and headwear; in Clothing select a bow tie without changing the shirt. Change each accessory colour, save/restore the code and check alignment on several heads. Headbands occupy one headwear slot."
       ]
     }
   ],

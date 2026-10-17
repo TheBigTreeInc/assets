@@ -1,0 +1,29 @@
+{
+  "id": 3,
+  "category": "headwear",
+  "name": "Ribbon headband",
+  "type": "ribbon",
+  "tags": [
+    "pixel",
+    "costume"
+  ],
+  "order": 3,
+  "render": {
+    "image": "art/bf9285419d8ab7f67d9b43478af99cd34204332ba2142280453e3e586d323f78.png",
+    "profile": "pixel",
+    "scale": [
+      0.7,
+      0.7
+    ],
+    "offset": [
+      0.15,
+      0.02
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create ONE original modular headwear component for a pixel-art portrait character creator. One feminine fabric ribbon headband with a tasteful medium bow at the top right. Slim curved band arcs over head. Band crown x=627 y=500, band ends x=300 and954 at y=850, bow centered x=890 y=470. No hair, skull or character. Band and bow form one standalone component. Exactly1254 by1254 RGBA PNG with a genuinely transparent background. Refined pixel art, deliberate crisp square pixel clusters, 6 to8 neutral grayscale tones for runtime recolouring, consistent soft frontal light. Transparent negative spaces and transparent area where face goes. No skin, face, eyes, nose, mouth, neck, body, mannequin, background, checkerboard, text, UI, other components or contact sheet. Single front-facing component, preserve empty canvas margins. Standalone selectable art, not a finished character.",
+    "notes": "Original standalone transparent component. Front portrait only; no full-body or animation artwork. Editable layered artist source unavailable."
+  }
+}

@@ -1,6 +1,6 @@
 # Portrait system specification
 
-Library client 3.0.1; numeric encoding 1; registry schema `portraits.registry/v1`.
+Library client 3.0.2; numeric encoding 1; registry schema `portraits.registry/v1`.
 These describe separate things. Updating the client or adding artwork does not change saved portrait values.
 
 ## Identity
@@ -74,14 +74,18 @@ There is no art-release number or catalog revision inside this integer. Only the
 | 9 | augmentation | Yes |
 | 10 | facialHair | Yes |
 | 11 | scars | Yes |
+| 12 | neckwear | Yes |
+| 13 | headwear | Yes |
 
 Colour IDs: 1 skin, 2 hair, 3 hairAccent, 4 clothing, 5 accessory, 6 iris, 7 facialHair. All seven are required. Arbitrary 24-bit colours are supported. Parts from different styles may be mixed. Games may restrict picker choices without reassigning IDs or changing the code format.
+
+Optional colour IDs: 8 neckwear (default #383c40), 9 headwear (default #d78ba8). New accessory categories default to None. See [accessory contract](ACCESSORY_ADDITIONS.adoc) for selection and drawing semantics.
 
 ## Rendering and artist delivery
 
 All current PNGs are transparent RGBA, 1254×1254, in the shared `front-portrait-v1` rig. Deliver complete independently drawn parts, never slices from a flattened portrait. Keep empty canvas margins and facial anchors consistent. Standard frontal eye line is about normalized Y .51, scalp .21, chin .82; provide measured `scale:[x,y]` and `offset:[x,y]` where necessary. They are normalized drawing-canvas registration, not an image crop. Leave underlying face features out of blank heads; draw eyes, nose and mouth separately. Hair and eyewear must fit the rig. Provide neutral grayscale tintable shading and transparent backgrounds; current eye art uses a blue chroma mask for the iris, preserving whites and highlights. Hair supports primary/accent colours, clothing its own colour, and beard an independent colour. Review at 64, 128 and 512 pixels with different heads and clothing before accepting a new item.
 
-Draw order is neck, clothing, head, facial features, scars, beard, eyewear, face covering, augmentation, hair. Head metadata has a `jawBoundary` polyline of ascending-X normalized points, clipped into complementary neck/head regions; this keeps the neck below clothing and the face above the collar. Artists may deliver a separate registered neck PNG as `render.neckAsset`; it follows the same content-hash storage rule. The existing heads share one image for both planes, without a second PNG. Do not flatten a collar into head artwork.
+Draw order is neck, clothing, head, neckwear, facial features, scars, beard, eyewear, face covering, augmentation, hair, headwear. Head metadata has a `jawBoundary` polyline of ascending-X normalized points, clipped into complementary neck/head regions; this keeps the neck below clothing and the face above the collar. Artists may deliver a separate registered neck PNG as `render.neckAsset`; it follows the same content-hash storage rule. The existing heads share one image for both planes, without a second PNG. Do not flatten a collar into head artwork.
 
 Profiles define logical shading/resolution (`pixel`: 256px, 8 shade steps; `illustrated`: 512px, continuous shading). Changing an existing profile or registration changes existing portraits and is prohibited by the permanent-identity contract. Run `python tools/check_library.py --against HEAD` before committing additions; it verifies files and compares identities against Git history without maintaining another duplicate ledger.
 
@@ -119,4 +123,4 @@ The callback currently returns a six-digit hex colour or null. Games can draw th
 
 ## Migration scope
 
-3.0.0 introduced the replacement for the earlier version-pinned JSON saves and duplicated release folders. It does not read those older saves. Existing item numbers were preserved where categories were retained; `face` became `head`. 3.0.1 adds the architecture/contributor specifications, CI and ZipRunner packaging without changing the numeric format or rendering behavior. Archived deliveries and Git history remain available. Host application integration is a separate step.
+3.0.0 introduced the replacement for the earlier version-pinned JSON saves and duplicated release folders. It does not read those older saves. Existing item numbers were preserved where categories were retained; `face` became `head`. 3.0.1 added architecture/contributor specifications, CI and ZipRunner packaging. 3.0.2 adds optional headwear and neckwear fields and drawing planes; older codes keep their exact value and image when these are None. Archived deliveries and Git history remain available. Host application integration is a separate step.

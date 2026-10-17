@@ -1,0 +1,29 @@
+{
+  "id": 9,
+  "category": "hair",
+  "name": "High ponytail",
+  "type": "hair",
+  "tags": [
+    "pixel",
+    "feminine"
+  ],
+  "order": 9,
+  "render": {
+    "image": "art/90d9b75cc075ca432f05ba49d388f4b5aea8592c4eb222ab1786e68448b03f6e.png",
+    "profile": "pixel",
+    "scale": [
+      0.88,
+      0.88
+    ],
+    "offset": [
+      0.12,
+      0.05
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create ONE original modular hair component for a pixel-art portrait character creator. A feminine high ponytail hairstyle, neatly swept back crown with a long curved ponytail visible to the right side and a few soft side locks. Hair shell alone, transparent face opening. Scalp top around y=230, crown sides x=300 and950, forehead opening y=430. Ponytail flows toward right shoulder to y=1080. No ribbons, bands or accessories. Exactly1254 by1254 RGBA PNG with a genuinely transparent background. Refined pixel art, deliberate crisp square pixel clusters, 6 to8 neutral grayscale tones for runtime recolouring, consistent soft frontal light. Transparent negative spaces and transparent area where face goes. No skin, face, eyes, nose, mouth, neck, body, mannequin, background, checkerboard, text, UI, other components or contact sheet. Single front-facing component, preserve empty canvas margins. Standalone selectable art, not a finished character.",
+    "notes": "Original standalone transparent component. Front portrait only; no full-body or animation artwork. Editable layered artist source unavailable."
+  }
+}

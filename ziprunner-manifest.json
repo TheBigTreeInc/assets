@@ -3,14 +3,14 @@
   "spec_version": "1.0.0",
   "project": {
     "key": "portrait-library",
-    "version": "3.0.1",
-    "base_version": "3.0.0"
+    "version": "3.0.2",
+    "base_version": "3.0.1"
   },
   "update": {
-    "id": "CL-20261017-SPEC-CI-ZIP",
+    "id": "CL-20261017-HAIR-ACCESSORIES",
     "kind": "source_update",
     "created_at": "2026-10-17T12:00:00+02:00",
-    "summary": "Current portrait engine with normative architecture/contributor specifications, CI and ZipRunner 2.3 packaging."
+    "summary": "Add feminine hairstyles and independent headwear/neckwear portrait selections, preserving old character values."
   },
   "planned_work": [
     {
@@ -48,6 +48,12 @@
       "title": "Recipient ZipRunner acceptance",
       "acceptance_criteria": "Run the delivered recipe and manual feature checks on the recipient installation; producer tests do not establish operator acceptance.",
       "priority": "medium"
+    },
+    {
+      "id": "CL-ACCESSORIES",
+      "title": "Independent portrait accessories and feminine hairstyles",
+      "acceptance_criteria": "Add three hairstyles, bow tie and three headbands, with independent optional headwear/neckwear IDs and colours, stable old codes and guided controls.",
+      "priority": "high"
     }
   ],
   "done_work": [
@@ -81,6 +87,17 @@
           "kind": "documentation",
           "ref": "ZIPRUNNER_HANDOFF.md",
           "description": "Delivered source/contract; operator acceptance is separate."
+        }
+      ]
+    },
+    {
+      "id": "CL-ACCESSORIES",
+      "summary": "Add three hairstyles, bow tie and three headbands, with independent optional headwear/neckwear IDs and colours, stable old codes and guided controls.",
+      "evidence": [
+        {
+          "kind": "documentation",
+          "ref": "docs/ACCESSORY_ADDITIONS.adoc",
+          "description": "Field IDs, rendering planes, selection controls and generated asset provenance."
         }
       ]
     }

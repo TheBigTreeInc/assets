@@ -51,8 +51,14 @@ def run(against=None):
         subprocess.run(['git','rev-parse','--verify',against],cwd=ROOT,check=True,capture_output=True)
         old=git_json(against,'portraits/index.json',optional=True)
         if old:
-            for key in ('schema','id','canvas','rig','logicalSize','shadeSteps','pixelated','layers'):
+            for key in ('schema','id','canvas','rig','logicalSize','shadeSteps','pixelated'):
                 require(old[key]==index[key],f'Existing rendering contract changed: {key}')
+            old_slots={c['key'] for c in old['categories']}
+            # New optional slots may add planes, while every old plane and its order stay exact.
+            require([layer for layer in index['layers'] if layer['slot'] in old_slots]==old['layers'],
+                    'Existing layer definitions or order changed')
+            require(all(layer['slot'] in {c['key'] for c in categories} for layer in index['layers']),
+                    'Layer refers to unknown category')
             for name,profile in old['renderProfiles'].items(): require(index['renderProfiles'].get(name)==profile,f'Existing profile changed: {name}')
             for oldc in old['categories']:
                 new=next((c for c in categories if c['id']==oldc['id']),None)

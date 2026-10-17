@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "category": "headwear",
+  "name": "Cat-ear headband",
+  "type": "animalEars",
+  "tags": [
+    "pixel",
+    "costume"
+  ],
+  "order": 1,
+  "render": {
+    "image": "art/82b2718b37729ed732e2cd7d7eac427eba20df04dc825e13cc625102ba337b2d.png",
+    "profile": "pixel",
+    "scale": [
+      0.7,
+      0.7
+    ],
+    "offset": [
+      0.15,
+      -0.05
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create ONE original modular headwear component for a pixel-art portrait character creator. One cute costume cat-ear headband with two triangular ears and a slender curved band. Ear tips around x=330 and924 at y=270; inner curved band arches over crown at y=500, band ends x=300 and954 at y=770. No hair, skull or character. Headband and ears form one standalone component. Exactly1254 by1254 RGBA PNG with a genuinely transparent background. Refined pixel art, deliberate crisp square pixel clusters, 6 to8 neutral grayscale tones for runtime recolouring, consistent soft frontal light. Transparent negative spaces and transparent area where face goes. No skin, face, eyes, nose, mouth, neck, body, mannequin, background, checkerboard, text, UI, other components or contact sheet. Single front-facing component, preserve empty canvas margins. Standalone selectable art, not a finished character.",
+    "notes": "Original standalone transparent component. Front portrait only; no full-body or animation artwork. Editable layered artist source unavailable."
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schema": "ziprunner.verification-plan/v1",
   "project": "portrait-library",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "tasks": [
     {
       "id": "CL-SPEC",
@@ -46,6 +46,20 @@
           ]
         }
       ]
+    },
+    {
+      "id": "CL-ACCESSORIES",
+      "criteria": [
+        {
+          "id": "CL-ACCESSORIES-AC1",
+          "description": "Add three hairstyles, bow tie and three headbands, with independent optional headwear/neckwear IDs and colours, stable old codes and guided controls.",
+          "mode": "mixed",
+          "checks": [
+            "CL-ENGINE-AUTO",
+            "CL-ACCESSORIES-MANUAL"
+          ]
+        }
+      ]
     }
   ],
   "checks": [
@@ -69,9 +83,10 @@
       "runner_ref": "portrait-node-tests",
       "test_ref": "clients/javascript/tests/codec.test.cjs",
       "assertions": [
-        "All 2940 facial combinations roundtrip without ID changes.",
+        "All 4480 facial combinations roundtrip without ID changes.",
         "Metadata ordering and labels do not change encoded values.",
-        "Unknown IDs are rejected."
+        "Unknown IDs are rejected.",
+        "New headwear and neckwear selections and colours are independent; old character codes are unchanged."
       ]
     },
     {
@@ -106,6 +121,13 @@
       "stage": "acceptance",
       "description": "ZipRunner 2.3 source distribution review",
       "instructions": "Register project key portrait-library in a separate disposable ZipRunner project with Python 3.10+ and Node 22+ on PATH. Stop an earlier managed preview if present, approve the local recipe, import the ZIP, run the checks, open the workshop, change a face and eye colour, save then restore the character. Confirm future representation/full-body features remain marked pending."
+    },
+    {
+      "id": "CL-ACCESSORIES-MANUAL",
+      "kind": "manual",
+      "stage": "acceptance",
+      "description": "Independent portrait accessories and feminine hairstyles",
+      "instructions": "In Hair select each new hairstyle and headwear; in Clothing select a bow tie without changing the shirt. Change each accessory colour, save/restore the code and check alignment on several heads. Headbands occupy one headwear slot."
     }
   ]
 }

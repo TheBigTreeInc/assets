@@ -1,6 +1,6 @@
-# Shared game assets — Portrait Library 3.0.1
+# Shared game assets — Portrait Library 3.0.2
 
-One library of 61 modular images, with one metadata descriptor per item. One decimal portrait value stores permanent part IDs and exact colours. Everyday, fantasy, feminine and cyberpunk parts can be freely mixed.
+One library of 68 modular images, with one metadata descriptor per item. One decimal portrait value stores permanent part IDs and exact colours. Everyday, fantasy, feminine and cyberpunk parts can be freely mixed.
 
 Start `Start Portrait Workshop.cmd`, or run `python tools/serve.py --open`. The standalone workshop is `index.html`. The JavaScript integration example and formal contract are in [docs/PORTRAIT_SPEC.md](docs/PORTRAIT_SPEC.md). Serve over localhost/HTTPS; opening HTML as a `file:` URL cannot fetch the assets.
 
@@ -21,3 +21,5 @@ Start with [Character Engine Specification](docs/CHARACTER_ENGINE_SPEC.adoc) and
 The live workshop is at https://thebigtreeinc.github.io/assets/. The shared catalog is at https://thebigtreeinc.github.io/assets/portraits/index.json. GitHub Pages publishes automatically after successful validation on main; pull requests validate and stage the website without deploying it. Only public runtime files, artwork, metadata and documentation are staged. Repository settings must use GitHub Actions as the Pages source. See the Actions deployment environment for the latest deployment status. This live catalog follows main; integrations requiring a fixed snapshot should use a pinned release archive.
 
 The GitHub workflow validates source and builds a ZipRunner 2.3 archive with a verification plan and checksum. Register project.zr with project key portrait-library. See ZIPRUNNER_HANDOFF.md for prerequisites, operator checks and known limits. Reproduce the artifact with python tools/package_ziprunner.py --validator PATH/TO/ziprunner-spec/tools/validate.py using pinned upstream commit 341005206094862853435ad68801be7ff28c4490. Output goes into dist/.
+
+Version 3.0.2 adds three feminine hairstyles, a bow tie and costume headbands, with independent headwear and neckwear slots and colours. See [accessory contract](docs/ACCESSORY_ADDITIONS.adoc).

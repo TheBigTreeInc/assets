@@ -1,0 +1,29 @@
+{
+  "id": 10,
+  "category": "hair",
+  "name": "Twin space buns",
+  "type": "hair",
+  "tags": [
+    "pixel",
+    "feminine"
+  ],
+  "order": 10,
+  "render": {
+    "image": "art/b23b61a31ec6ce4374cc749818c0f1558fbd336dddafb7fc8e4cdbdd1e8e5ce1.png",
+    "profile": "pixel",
+    "scale": [
+      0.72,
+      0.72
+    ],
+    "offset": [
+      0.14,
+      0.07
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation",
+    "date": "2026-10-17",
+    "prompt": "Create ONE original modular hair component for a pixel-art portrait character creator. A feminine twin-bun hairstyle with two rounded space buns above the temples, soft parted fringe and short face-framing tendrils. Hair shell alone, transparent face opening. Scalp top around y=230, side buns x=230 and1020 at y=320, forehead opening y=440. No accessories. Exactly1254 by1254 RGBA PNG with a genuinely transparent background. Refined pixel art, deliberate crisp square pixel clusters, 6 to8 neutral grayscale tones for runtime recolouring, consistent soft frontal light. Transparent negative spaces and transparent area where face goes. No skin, face, eyes, nose, mouth, neck, body, mannequin, background, checkerboard, text, UI, other components or contact sheet. Single front-facing component, preserve empty canvas margins. Standalone selectable art, not a finished character.",
+    "notes": "Original standalone transparent component. Front portrait only; no full-body or animation artwork. Editable layered artist source unavailable."
+  }
+}

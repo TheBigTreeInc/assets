@@ -10,7 +10,7 @@ This document is the submission contract for artists, programmers and integrator
 
 == Choose a supported delivery target
 
-For engine 3.0.1, supply registered front-facing portrait components compatible with `front-portrait-v1`. Supported categories are head, eyes, nose, mouth, hair, clothing, eyewear, face covering, augmentation, facial hair and scars. Current separate colour channels are skin, hair, hair accent, clothing, accessory, iris and facial hair.
+For engine 3.0.2, supply registered front-facing portrait components compatible with `front-portrait-v1`. Supported categories are head, eyes, nose, mouth, hair, clothing, eyewear, face covering, augmentation, facial hair, scars, headwear and neckwear. Current colour channels are skin, hair, hair accent, clothing, accessory, iris, facial hair, headwear and neckwear.
 
 For a proposed representation or full-body extension, supply design examples and source artwork in a proposal branch first. Do not add fields that the current loader ignores to the production registry. The proposal MUST identify the schema, capability, renderer and tests required before activation.
 
