@@ -1,0 +1,111 @@
+{
+  "schema": "ziprunner.verification-plan/v1",
+  "project": "portrait-library",
+  "version": "3.0.1",
+  "tasks": [
+    {
+      "id": "CL-SPEC",
+      "criteria": [
+        {
+          "id": "CL-SPEC-AC1",
+          "description": "Define object identity, representations, multi-piece layers, anchors, views and delivery requirements, with implemented capabilities distinguished from future extensions.",
+          "mode": "mixed",
+          "checks": [
+            "CL-DOCS-AUTO",
+            "CL-SPEC-MANUAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CL-CI",
+      "criteria": [
+        {
+          "id": "CL-CI-AC1",
+          "description": "Run identity and engine checks and produce a validated source ZIP and checksum through a pinned GitHub workflow.",
+          "mode": "mixed",
+          "checks": [
+            "CL-ENGINE-AUTO",
+            "CL-PACKAGE-AUTO",
+            "CL-CI-MANUAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CL-ZIP",
+      "criteria": [
+        {
+          "id": "CL-ZIP-AC1",
+          "description": "Deliver the current engine with source-root recipe, workboard, verification plan, explicit remaining work and a direct ZIP handoff.",
+          "mode": "mixed",
+          "checks": [
+            "CL-DOCS-AUTO",
+            "CL-PACKAGE-AUTO",
+            "CL-ZIP-MANUAL"
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "CL-DOCS-AUTO",
+      "kind": "automated",
+      "stage": "integration",
+      "description": "Release identity and contract reference checks",
+      "runner_ref": "portrait-delivery-check",
+      "test_ref": "tools/check_delivery.py",
+      "assertions": [
+        "Project and version match across package, recipe, workboard, capabilities and verification plan.",
+        "Specification links resolve and delivered work maps to packaged checks."
+      ]
+    },
+    {
+      "id": "CL-ENGINE-AUTO",
+      "kind": "automated",
+      "stage": "functional",
+      "description": "Saved identity restoration and metadata stability",
+      "runner_ref": "portrait-node-tests",
+      "test_ref": "clients/javascript/tests/codec.test.cjs",
+      "assertions": [
+        "All 2940 facial combinations roundtrip without ID changes.",
+        "Metadata ordering and labels do not change encoded values.",
+        "Unknown IDs are rejected."
+      ]
+    },
+    {
+      "id": "CL-PACKAGE-AUTO",
+      "kind": "automated",
+      "stage": "integration",
+      "description": "Archive byte integrity and ZipRunner producer validation",
+      "runner_ref": "portrait-package-check",
+      "test_ref": "tools/package_ziprunner.py",
+      "assertions": [
+        "ZIP entries exactly match the collected source payloads and CRC checks pass.",
+        "Pinned upstream validator accepts the archive with the required functional verification plan."
+      ]
+    },
+    {
+      "id": "CL-SPEC-MANUAL",
+      "kind": "manual",
+      "stage": "acceptance",
+      "description": "Character architecture and contributor contract review",
+      "instructions": "Read both AsciiDoc specifications and confirm the intended layering, representation, framing and artist requirements are clear. Confirm planned capabilities are not reported as implemented."
+    },
+    {
+      "id": "CL-CI-MANUAL",
+      "kind": "manual",
+      "stage": "acceptance",
+      "description": "GitHub validation and packaging workflow review",
+      "instructions": "Inspect a workflow run for this commit. Confirm identity checks and tests pass and the ZIP plus checksum are downloadable artifacts."
+    },
+    {
+      "id": "CL-ZIP-MANUAL",
+      "kind": "manual",
+      "stage": "acceptance",
+      "description": "ZipRunner 2.3 source distribution review",
+      "instructions": "Register project key portrait-library in a separate disposable ZipRunner project with Python 3.10+ and Node 22+ on PATH. Stop an earlier managed preview if present, approve the local recipe, import the ZIP, run the checks, open the workshop, change a face and eye colour, save then restore the character. Confirm future representation/full-body features remain marked pending."
+    }
+  ]
+}

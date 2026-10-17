@@ -1,0 +1,156 @@
+{
+  "schema": "ziprunner.update-manifest/v1",
+  "spec_version": "1.0.0",
+  "project": {
+    "key": "portrait-library",
+    "version": "3.0.1",
+    "base_version": "3.0.0"
+  },
+  "update": {
+    "id": "CL-20261017-SPEC-CI-ZIP",
+    "kind": "source_update",
+    "created_at": "2026-10-17T12:00:00+02:00",
+    "summary": "Current portrait engine with normative architecture/contributor specifications, CI and ZipRunner 2.3 packaging."
+  },
+  "planned_work": [
+    {
+      "id": "CL-SPEC",
+      "title": "Character architecture and contributor contract",
+      "acceptance_criteria": "Define object identity, representations, multi-piece layers, anchors, views and delivery requirements, with implemented capabilities distinguished from future extensions.",
+      "priority": "high"
+    },
+    {
+      "id": "CL-CI",
+      "title": "GitHub validation and packaging workflow",
+      "acceptance_criteria": "Run identity and engine checks and produce a validated source ZIP and checksum through a pinned GitHub workflow.",
+      "priority": "high"
+    },
+    {
+      "id": "CL-ZIP",
+      "title": "ZipRunner 2.3 source distribution",
+      "acceptance_criteria": "Deliver the current engine with source-root recipe, workboard, verification plan, explicit remaining work and a direct ZIP handoff.",
+      "priority": "high"
+    },
+    {
+      "id": "CL-REPRESENTATIONS",
+      "title": "Alternate representations and multi-piece composition",
+      "acceptance_criteria": "Implement versioned representation selection, named anchors, layer validation and authored examples while preserving existing IDs and output.",
+      "priority": "high"
+    },
+    {
+      "id": "CL-VIEWS",
+      "title": "Standard views and full-body assets",
+      "acceptance_criteria": "Implement avatar, portrait and full-body framing with required artwork, bounds, compatibility and missing-capability tests.",
+      "priority": "high"
+    },
+    {
+      "id": "CL-ACCEPTANCE",
+      "title": "Recipient ZipRunner acceptance",
+      "acceptance_criteria": "Run the delivered recipe and manual feature checks on the recipient installation; producer tests do not establish operator acceptance.",
+      "priority": "medium"
+    }
+  ],
+  "done_work": [
+    {
+      "id": "CL-SPEC",
+      "summary": "Define object identity, representations, multi-piece layers, anchors, views and delivery requirements, with implemented capabilities distinguished from future extensions.",
+      "evidence": [
+        {
+          "kind": "documentation",
+          "ref": "docs/CHARACTER_ENGINE_SPEC.adoc",
+          "description": "Delivered source/contract; operator acceptance is separate."
+        }
+      ]
+    },
+    {
+      "id": "CL-CI",
+      "summary": "Run identity and engine checks and produce a validated source ZIP and checksum through a pinned GitHub workflow.",
+      "evidence": [
+        {
+          "kind": "documentation",
+          "ref": ".github/workflows/character-engine.yml",
+          "description": "Delivered source/contract; operator acceptance is separate."
+        }
+      ]
+    },
+    {
+      "id": "CL-ZIP",
+      "summary": "Deliver the current engine with source-root recipe, workboard, verification plan, explicit remaining work and a direct ZIP handoff.",
+      "evidence": [
+        {
+          "kind": "documentation",
+          "ref": "ZIPRUNNER_HANDOFF.md",
+          "description": "Delivered source/contract; operator acceptance is separate."
+        }
+      ]
+    }
+  ],
+  "todo_work": [
+    {
+      "id": "CL-REPRESENTATIONS",
+      "status": "planned",
+      "next_action": "Implement versioned representation selection, named anchors, layer validation and authored examples while preserving existing IDs and output."
+    },
+    {
+      "id": "CL-VIEWS",
+      "status": "planned",
+      "next_action": "Implement avatar, portrait and full-body framing with required artwork, bounds, compatibility and missing-capability tests."
+    },
+    {
+      "id": "CL-ACCEPTANCE",
+      "status": "planned",
+      "next_action": "Run the delivered recipe and manual feature checks on the recipient installation; producer tests do not establish operator acceptance."
+    }
+  ],
+  "validation": {
+    "model_reported": "partial",
+    "checks": [
+      {
+        "id": "library",
+        "description": "Canonical art and metadata integrity",
+        "status": "not_run",
+        "reason": "Package builder records fresh results in the distributed ZIP."
+      },
+      {
+        "id": "delivery",
+        "description": "Specification and release metadata checks",
+        "status": "not_run",
+        "reason": "Package builder records fresh results in the distributed ZIP."
+      },
+      {
+        "id": "javascript",
+        "description": "Numeric identity and cache regression suite",
+        "status": "not_run",
+        "reason": "Package builder records fresh results in the distributed ZIP."
+      },
+      {
+        "id": "recipient",
+        "description": "Recipient ZipRunner import and operator review",
+        "status": "not_run",
+        "reason": "Requires the recipient configured project and manual acceptance."
+      }
+    ]
+  },
+  "handover": {
+    "next_pass": "Import as portrait-library, verify the current creator, review the specifications and implement the planned representation/view extensions under the declared contract.",
+    "risks": [
+      "Alternate representations, general multi-piece objects and full-body views are specified but not implemented."
+    ],
+    "blockers": [],
+    "notes": [
+      "Source project key is portrait-library. Existing unrelated game projects are not integration targets."
+    ]
+  },
+  "operator_actions": [
+    {
+      "id": "CL-OP-ACCEPT",
+      "description": "Register project key portrait-library in a separate disposable ZipRunner project with Python 3.10+ and Node 22+ on PATH. Stop an earlier managed preview if present, approve the local recipe, import the ZIP, run the checks, open the workshop, change a face and eye colour, save then restore the character. Confirm future representation/full-body features remain marked pending.",
+      "status": "required"
+    }
+  ],
+  "release": {
+    "requested": false,
+    "requires_operator_approval": true,
+    "notes": "Consumer acceptance is independent of publishing source and CI artifacts."
+  }
+}

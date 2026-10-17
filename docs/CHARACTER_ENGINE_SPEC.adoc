@@ -1,0 +1,191 @@
+= Shared Character Engine Specification
+:revnumber: 1.0.0
+:revdate: 2026-10-17
+:toc: left
+:sectnums:
+:source-highlighter: rouge
+
+== Purpose and authority
+
+This specification defines a reusable, texture-driven character system. A single character definition selects permanent object IDs and colours. A rendering request selects a visual representation and a view. The engine composes the required artwork into an avatar, portrait, full-body image or supported sprite frame.
+
+MUST, MUST NOT, SHOULD and MAY express normative requirements. This document governs architecture and future development. link:CONTRIBUTOR_SPEC.adoc[Contributor specification] governs artwork and code submissions. link:PORTRAIT_SPEC.md[Current runtime contract] governs the existing wire format and API. If an architectural extension is not implemented, it MUST be reported as unsupported rather than accepted silently.
+
+== Implementation boundary
+
+This specification ships with engine package 3.0.1. Publishing a specification does not implement the features it describes.
+
+[cols="2,3,2",options="header"]
+|===
+|Capability |Contract |Status in 3.0.1
+|Portrait composition |Registered transparent images, facial parts, accessories and colours |Implemented
+|Permanent identity |Category-scoped numeric IDs; one decimal character value |Implemented for current portrait categories
+|Storage and loading |One content-addressed art store; item metadata; verified cache |Implemented
+|Creation interface |Guided tabs, preview, save and restore |Implemented
+|Object representations |The same object with independently authored pixel and illustrated artwork |Specified; not implemented
+|Multiple pieces and anchors |Back/front pieces attached to named rig anchors |Specified; not implemented
+|Standard views |Avatar, portrait, full body and sprite views over one character |Specified; not implemented as a view API
+|Full-body artwork |Body, separate upper/lower garments, footwear |Specified; artwork and runtime extension required
+|Animation |Directional frame sets with matching attachments |Optional future extension; not implemented
+|===
+
+`engine-capabilities.json` is the machine-readable release declaration. The existing `pixel` and `illustrated` rendering profiles describe individual current assets; they are not yet interchangeable representations of every object. A caller cannot obtain missing high-detail artwork by requesting a larger output image.
+
+== Design decisions
+
+=== Character identity and appearance
+
+An object is a recognizable choice, such as a particular hairstyle or a particular pair of glasses. A representation is the authored artwork for that choice in a supported style, rig and view direction. A view determines how much of the assembled character is visible.
+
+These concerns MUST remain distinct:
+
+* Character definition: selected object IDs, colour values and future explicitly standardized appearance properties.
+* Object definition: semantic identity, metadata, supported representations and drawing pieces.
+* Rendering request: representation, rig, view, output size and optional frame.
+* Game context: job, statistics, name, permissions, equipment ownership and background choice.
+
+Games MAY restrict which items can be selected. Such restrictions MUST NOT renumber IDs or rewrite saved choices. Cosmetic ownership MUST NOT be inferred from the character code.
+
+=== Stable identity
+
+An item ID MUST be unique within its category and MUST never be recycled. Category IDs and colour-field IDs are also permanent. IDs MUST NOT be derived from menu order, filenames, translated labels or tag order.
+
+The same object in a new representation MUST preserve recognizable properties: a hairstyle's silhouette, parting and length; a glasses frame's shape; an accessory's defining structure. A materially different choice receives a new object ID.
+
+The current registry binds each ID to one immutable rendering identity. Future migration MUST retain that exact representation as its default and add alternatives explicitly. It MUST NOT replace an existing image or merge existing IDs simply because they look similar. Existing defaults and saved portrait output must remain reproducible under their recorded runtime contract.
+
+Retirement hides an item from creation menus; it MUST preserve metadata and assets for restoration. An unknown ID MUST produce a structured error. It MUST NOT select the item now occupying the same menu position.
+
+=== One shared library
+
+There MUST be one authoritative object descriptor per object and one stored copy of each unique texture payload. Descriptors MAY reference shared textures or masks by content hash. A runtime may compile lookup tables in memory. Generated indexes MUST NOT become competing sources of object identity.
+
+The current `portraits/index.json` lists descriptor paths and shared rendering rules. Artwork is stored as `art/<sha256>.png`. Clients MUST NOT carry independent embedded artwork copies. Distribution archives may contain a complete snapshot, but releases MUST NOT be accumulated as duplicated directories in the active source tree.
+
+== Character value and interoperability
+
+The current encoding is defined completely in link:PORTRAIT_SPEC.md[the runtime contract], with fixed vectors in `ENCODING_VECTORS.json`. It stores category/item records and exact 24-bit RGB colours in one arbitrary-precision integer, serialized as canonical decimal text.
+
+JavaScript integrations MUST preserve the value as a string or BigInt. JSON and database storage MUST use text. Floating point conversion is forbidden. The code does not contain a catalog release number or game identity.
+
+A numeric value is meaningful only against the agreed registry namespace and encoding contract. Applications MUST use the same canonical category/item namespace; a coincidentally equal number in an unrelated library is not the same character. Rendering identity additionally depends on the chosen representation, rig and renderer version.
+
+New optional fields MAY be added using unused IDs and documented absent-value semantics. Required fields or incompatible semantics require an explicit encoding revision and migration design. Unknown fields MUST fail clearly in readers that do not support them. No new field IDs are allocated by illustrative examples in this document.
+
+== Objects and metadata
+
+Every object MUST declare an immutable category and ID. It SHOULD supply a human-readable name, type, searchable tags, display order and retirement status. Metadata MAY include theme, material, intended scale and supported body templates. Names, tags and sorting are presentation data and MUST NOT affect the encoded character identity.
+
+The planned object contract adds named representations. Each representation MUST declare:
+
+* A stable representation key and compatible rig identifier/version.
+* Supported directions and optional frame/state coverage.
+* One or more pieces, each with a stable piece key, texture reference, attachment and layer placement.
+* Colour-channel bindings and any mask references.
+* Explicit supported view families, bounds and compatibility restrictions.
+
+No executable code, arbitrary URL, shell instruction or path outside the asset root may appear in an object descriptor. Texture and mask references MUST use validated relative content-addressed paths.
+
+An illustrative object can be understood as follows; this is a design example, not a registry file accepted by the current loader:
+
+[source,text]
+----
+hair / permanent object ID
+  representation: compact-pixel-front-v1
+    piece: back  -> head attachment -> behind torso
+    piece: front -> head attachment -> above facial features
+  representation: illustrated-front-v1
+    piece: back  -> head attachment -> behind torso
+    piece: front -> head attachment -> above facial features
+----
+
+== Rig and attachment contract
+
+A rig MUST define canvas coordinates, units, origin, anchor positions, view directions and named draw planes. Normalized coordinates use the top-left origin, positive X to the right and positive Y downwards. Texture dimensions alone MUST NOT determine character proportions.
+
+Each piece MUST define a local anchor point and target rig anchor, plus any declared scale and offset. For an unrotated piece, placement is target-anchor plus offset minus scaled local-anchor. If rotation is supported later, its units, pivot and transform order MUST be specified and tested before assets use it.
+
+The same anchor semantics MUST apply across all items compatible with a rig. A rig change that moves existing geometry requires a new rig version. Bodies with different proportions MUST use declared templates; a renderer MUST NOT guess a fit by stretching a face or garment.
+
+The current portrait rig uses explicit scale/offset registration on a 1254 by 1254 source canvas. It does not implement named attachment anchors yet. The head/neck split uses a registered jaw boundary so the neck renders below the garment and the head above it. This behavior MUST be preserved during migration.
+
+== Layer composition and occlusion
+
+An object can have multiple independently drawn pieces. Back hair can be behind shoulders while bangs appear in front of the forehead. Glasses can have rear temples and a front frame. A single object selection controls all its pieces.
+
+A rig MUST provide a deterministic base draw order. Optional relative constraints such as before/after MUST resolve into an acyclic order. Missing references, cycles and ambiguous layer placement MUST fail validation. Tie breaking MUST use stable category, object and piece keys, never filesystem enumeration or load completion order.
+
+Back/torso/neck/face/front-accessory planes MUST be explicit. Layer order may vary with direction and frame; one global numeric depth cannot describe every facing direction. Masks MAY handle local occlusion, but MUST NOT erase unrelated pieces globally. No texture processing may silently flatten selectable objects together.
+
+The current draw order is neck, garment, head, facial features, scars, facial hair, eyewear, face covering, augmentation and hair. The existing renderer's neck and head planes are an implemented special case, not general multi-piece support.
+
+== Views and portrait extraction
+
+A view MUST declare a stable key/version, source-space framing rectangle, output aspect ratio, allowed pieces or body regions, safe bounds and background/alpha behavior.
+
+[cols="1,3",options="header"]
+|===
+|View family |Design intent
+|Avatar |Face-focused square output with safe margins for circular presentation
+|Portrait |Head and shoulders, including hair and accessories that cross shoulder bounds
+|Full body |Complete supported body and clothing silhouette
+|Sprite |An explicitly supported directional frame with pixel-aligned output rules
+|===
+
+The renderer SHOULD skip pieces wholly outside a view, such as footwear in a portrait. It MUST retain intersecting pieces and required occluders, including long hair and shoulder accessories. It MUST compose in rig space and apply view framing consistently; independently stretching each layer to the output rectangle is forbidden.
+
+Portrait framing MUST account for tall hair, horns, hats and wide accessories. The view declares whether oversized items are clipped, contained with padding, or rejected. The default policy SHOULD use declared safe bounds and containment. Frame changes MUST NOT depend on nondeterministic image-content detection.
+
+A view does not modify the saved character. Cropping the same assembled representation can produce portrait and full-body outputs once the required full-body artwork exists. A portrait-only representation MUST declare full-body views unsupported.
+
+== Visual representations
+
+=== Compact pixel style
+
+Use a fixed logical resolution, controlled palette ramps, clear silhouettes and integer placement. Small features should be simplified deliberately. Output scaling SHOULD use nearest-neighbour interpolation and integer scale factors where possible. A tiny sprite needs artwork designed for that scale; reducing a detailed face does not guarantee legibility.
+
+=== Illustrated portrait style
+
+Use larger authored textures, finer shading and facial detail, with consistent lighting and attachment geometry. Smooth scaling may be appropriate. Representation-specific anatomy detail MAY differ while preserving the object's recognizable identity.
+
+=== Shared selection, different artwork
+
+Pixel and illustrated representations are independently authored interpretations of the same object. Texture enlargement is not automatic detail generation. An engine MUST NOT claim a representation is available unless its required pieces exist.
+
+By default, a request for unavailable representation/rig/direction/view MUST fail with a missing-capability result. A host MAY explicitly select a documented fallback, retaining the original saved choice and receiving a visible diagnostic. Silent substitution of another hairstyle or body is forbidden.
+
+== Colour, masks and textures
+
+Colours are exact unsigned RGB values. Representations MUST declare how each semantic colour channel affects pixels. Masks SHOULD identify material regions independently of lighting. Pixel styles MAY map colours into documented palette ramps; illustrated styles MAY apply continuous shading. Transparent pixels MUST remain transparent.
+
+The current engine uses neutral shaded textures with colour tinting and a blue iris marker for eye colour. Contributors to the current runtime MUST follow that contract. Explicit per-channel masks belong to the planned representation extension; they MUST NOT be supplied to the current loader as though already supported.
+
+Texture payloads MUST be hashed before publication. Native canvas dimensions, alpha format, colour space, filtering and atlas regions, when supported, MUST be declared. Atlas use MUST preserve per-object identity, padding and deterministic UV bounds. Artwork MUST be drawn as modular components; cropping unrelated flattened reference portraits is not a component-authoring pipeline.
+
+== Runtime, hosting and caching
+
+The library MUST be hostable as static files with source, specification, metadata and artwork available together. Cross-origin browser use requires CORS. A game MAY serve a pinned local snapshot for offline use or fetch a pinned published snapshot and cache it.
+
+Load metadata, validate identity and capabilities, resolve pieces, fetch only needed textures, verify hashes, compose, and cache the output. The current creator loads all choices; the current selected-character mode can preload only selected artwork.
+
+An output cache key MUST include the complete character value, registry namespace, representation/rig/view versions, renderer version, resolved texture hashes, output dimensions and relevant background/frame parameters. Metadata labels and sort order need not invalidate rendered images. Loading a new catalog MUST NOT change existing object IDs.
+
+Two conforming renderers SHOULD produce equivalent composition from the same inputs. Exact pixel equality is only promised for a pinned renderer and rasterization contract verified by fixtures; browser/GPU differences and different art representations are not assumed byte-identical.
+
+Characters with no profile picture MAY receive a generated definition once, stored with their persistent person record. Randomization MUST NOT rerun on every display. A seeded creation algorithm, if introduced, MUST have its own version; the resulting selected IDs and colours remain the authoritative save.
+
+== Errors and acceptance
+
+Validation MUST report unknown IDs, duplicate IDs, unsafe paths, missing textures, hash mismatches, invalid anchors, layer cycles, incompatible rigs and unsupported views or representations. No error may quietly mutate the saved character definition.
+
+Required future acceptance fixtures include split front/back hair, glasses occlusion, head/garment alignment, two authored representations of one object, portrait framing of long/tall accessories, unchanged codes after metadata reordering, and explicit failure for missing representations. Full-body and animation claims require corresponding fixtures and artwork.
+
+The implementation roadmap is: preserve current identity and output; add a versioned representation adapter; add multi-piece composition and anchors; add view definitions; supply compatible full-body art; optionally add animation. Each stage MUST update capability declarations and ship meaningful tests before being reported as implemented.
+
+== Delivery and automation
+
+Pull requests and pushes MUST validate the existing art registry, stable identities against the appropriate Git base, JavaScript save/cache behavior, specification references and package metadata. CI MUST produce a ZipRunner source archive and checksum after successful checks.
+
+The source archive MUST include these specifications, current engine source, canonical metadata and artwork, `project.zr`, mandatory workboard metadata, supplemental manifest, verification plan and handoff. No local configuration, credentials, caches, installed dependencies or duplicate release art trees may be included.
+
+ZipRunner 2.3.0 is the checked producer contract for this release, pinned to upstream commit `341005206094862853435ad68801be7ff28c4490`. Automated results are producer evidence; consumer import, target execution and operator acceptance remain separately recorded. This package does not claim those checks have run on the recipient's installation.

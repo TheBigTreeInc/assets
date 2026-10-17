@@ -1,0 +1,95 @@
+= Character Engine Contributor and Asset Delivery Specification
+:revnumber: 1.0.0
+:revdate: 2026-10-17
+:toc:
+:sectnums:
+
+== Scope
+
+This document is the submission contract for artists, programmers and integrators. Read link:CHARACTER_ENGINE_SPEC.adoc[the architecture specification] before extending the system. Read link:PORTRAIT_SPEC.md[the current runtime contract] before supplying assets that must work immediately. A design described in the architecture is not automatically supported by the current engine.
+
+== Choose a supported delivery target
+
+For engine 3.0.1, supply registered front-facing portrait components compatible with `front-portrait-v1`. Supported categories are head, eyes, nose, mouth, hair, clothing, eyewear, face covering, augmentation, facial hair and scars. Current separate colour channels are skin, hair, hair accent, clothing, accessory, iris and facial hair.
+
+For a proposed representation or full-body extension, supply design examples and source artwork in a proposal branch first. Do not add fields that the current loader ignores to the production registry. The proposal MUST identify the schema, capability, renderer and tests required before activation.
+
+== Artist delivery checklist
+
+. Supply original editable layered source artwork and export instructions separately from runtime distribution files. Keep layers named by object and piece purpose. Large authoring files SHOULD use an appropriate separate authoring archive or storage location; runtime ZIPs contain only needed exports.
+. Supply transparent RGBA PNG exports, with no baked background, matte fringe, watermark or unrelated character parts.
+. For the current portrait rig, use a 1254 by 1254 canvas. Preserve canvas margins; do not trim exports to their visible bounds.
+. Draw blank head foundations separately from selectable eyes, noses and mouths. Draw hairstyle, glasses, masks and garments as independent components.
+. Supply neutral shading for tintable regions. Follow the current blue iris marker convention for recolourable eyes and test that whites/highlights are preserved.
+. Supply registration values and jaw-boundary measurements where applicable. Test the head above the collar and neck below the garment. Do not bake the collar into the head.
+. Provide name, intended category, object type, descriptive tags, proposed display order and compatibility notes. The maintainer allocates permanent IDs; artists MUST NOT reuse occupied IDs.
+. Include contact-sheet previews at 64, 128 and 512 pixels, on light, dark and transparent backgrounds, with representative skin/hair/eye colours and compatible heads/garments.
+. List known unsupported combinations and unresolved alignment defects. A visually approximate fit is not evidence that all combinations work.
+. State authorship/source provenance and the permitted usage supplied with the artwork. Preserve that information with the submission.
+
+Files are imported into the canonical content-addressed store after review. Contributors MUST NOT rename an arbitrary PNG to a hash without hashing its actual bytes. Identical texture bytes are stored once.
+
+== Planned multi-piece deliveries
+
+When the engine advertises multi-piece support, an object MAY contain rear and front pieces. A hairstyle can contain back hair, side locks and bangs; glasses can contain rear temples and a front frame. These pieces MUST remain one selectable object with a single permanent object ID.
+
+Each piece MUST specify its local anchor, target rig anchor, coordinate units, draw plane, any relative ordering constraints, colour bindings and coverage. Supply all pieces for each declared direction/frame. Do not rely on accidental file naming or export order for layering.
+
+The artist MUST review silhouette continuity, seams, overlap and clipping across relevant body templates. Hair behind shoulders must remain connected visually to the front hairstyle. Front glasses must align to the eye line, while temples must not overpaint cheeks unintentionally.
+
+== Planned alternate representations
+
+To add an alternate visual style to an existing object, preserve its identifiable design. State the existing category/ID and the new representation key. Provide authored artwork for the intended resolution, rig and supported views.
+
+For compact pixel artwork, prioritize a readable silhouette, deliberate pixel clusters, consistent palette ramps and integer alignment. Avoid automatic smoothing. For detailed illustrated artwork, preserve attachment geometry, lighting direction and recognizable shape while adding detail.
+
+Do not claim a full-body representation when only a head-and-shoulders export exists. Do not claim animation when only a front-facing frame exists. Missing coverage MUST be declared. A genuinely different hairstyle, frame shape or accessory design receives a new object ID.
+
+== Metadata and identity review
+
+Names, types, tags, translations, ordering and retirement may be edited for presentation. Permanent IDs, published texture bytes, rig geometry and existing representation semantics MUST remain stable.
+
+The current registry's `render` block is immutable for an existing item. Future representation support MUST add an explicit new schema/adapter and retain original output. A contributor MUST NOT bypass `check_library.py --against <base>` to overwrite an existing identity.
+
+Current descriptor location: `portraits/items/<category>/<ID padded to at least 8 digits>.json`. Register the path once in `portraits/index.json`. Put runtime textures only in `art/`. Do not create a second catalog, client-specific artwork directory or per-release texture folder.
+
+== Programmer requirements
+
+The public API MUST expose unsupported capabilities clearly. Accepting an unknown view while rendering the default portrait silently is forbidden. Avoid hard-coding the current item count or allocating IDs from array positions.
+
+Rendering must be deterministic for pinned inputs. Validate metadata before allocating large canvases or fetching textures. A saved value MUST NOT contain resource URLs or executable instructions. Keep game context and appearance identity separate.
+
+Adding a future field requires documented default/absence behavior, save roundtrip tests and compatibility review. Rendering extensions require fixtures that fail when attachment, ordering or framing is wrong. Do not merely test that a PNG was returned.
+
+Do not add duplicate persisted mappings for convenience. Build temporary lookup structures from authoritative metadata in memory. Avoid regenerating a person's identity whenever their profile is displayed.
+
+== Verification and review
+
+Run these checks from the repository root:
+
+[source,shell]
+----
+python tools/check_library.py --against <base-commit>
+node --test --test-isolation=none clients/javascript/tests/*.test.cjs
+python tools/check_delivery.py
+----
+
+Use the actual parent/base revision, rather than HEAD after committing, to detect an identity change. For a new item, confirm that earlier encoded characters still select and render the same items. Open the browser test page and workshop when modifying rendering or UI. Obtain visual review of new artwork at the required sizes.
+
+`docs/ENCODING_VECTORS.json` provides cross-language examples. The Godot client is a data codec; it is not a complete native renderer. JavaScript numeric portrait values MUST remain text or BigInt throughout storage and transfer.
+
+== GitHub workflow and source package
+
+The `Validate and package character engine` workflow validates pull requests and pushes, checks permanent identities, runs tests and uploads the ZipRunner ZIP plus SHA-256. It checks out a pinned upstream ZipRunner validator into a separate temporary directory. That directory MUST NOT be included in the engine ZIP.
+
+The workflow has read-only repository permissions and does not deploy a site, publish a release or grant operator acceptance. A green workflow is automated producer evidence. Visual acceptance and installation on the recipient's configured runner remain explicit checks.
+
+The package project key is `portrait-library`. Its source root is the ZIP root, with no outer wrapper folder. Prerequisites are Python 3.10+ and Node 22.8+ on PATH. The recipe's start action opens the workshop on a local loopback server after successful checks. A trusted local ZipRunner configuration must accept the recipe and resolve the declared verification runner identifiers.
+
+Use a separate installation directory for this project key. Keep all asset-store subpaths intact. Do not extract the package over an unrelated application. The initial configured server port is 8940; configure it locally if occupied. Stop commands do not terminate arbitrary processes by name or port.
+
+== Acceptance record
+
+A contribution is ready for review when its code/assets, metadata, provenance, checks and relevant previews are present. Record implemented work and remaining work under stable task IDs. Keep manual verification as pending until actually performed.
+
+Archive deliveries MUST include exact project/version identity, the mandatory workboard file, verification-plan links to real packaged tests, the supplemental manifest and a human-readable handoff. The external delivery MUST name the ZIP, provide its exact SHA-256 and link to the actual artifact. Never report target-runner acceptance solely because the source package passes static validation.

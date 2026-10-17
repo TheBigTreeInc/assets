@@ -1,8 +1,12 @@
 {
   "name": "portrait-library",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": true,
   "scripts": {
-    "test": "node --test --test-isolation=none clients/javascript/tests/*.test.cjs"
+    "test": "node --test --test-isolation=none clients/javascript/tests/*.test.cjs",
+    "check": "python tools/check_library.py && python tools/check_delivery.py"
+  },
+  "engines": {
+    "node": ">=22.8.0"
   }
 }

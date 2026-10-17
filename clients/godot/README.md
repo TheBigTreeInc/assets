@@ -1,6 +1,6 @@
 # Godot numeric portrait codec
 
-`portrait_code.gd` reads and writes the exact same decimal string as the JavaScript client, without converting it to a floating point number or requiring BigInt support. It is a data codec, not a native portrait renderer or downloader. Existing Neon Control game builds have not been migrated by this standalone library release.
+`portrait_code.gd` reads and writes the exact same decimal string as the JavaScript client, without converting it to a floating point number or requiring BigInt support. It is a data codec, not a native portrait renderer or downloader. Existing host application builds have not been migrated by this standalone library release.
 
 Load `portraits/index.json` into `registry`. Read each category's listed item descriptors and put them into `items[category.key][str(item.id)]`. This dictionary is an in-memory lookup of the canonical descriptors, not a second saved mapping file.
 

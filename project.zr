@@ -1,0 +1,36 @@
+{
+  "schema": "ziprunner.zr/v1",
+  "project_key": "portrait-library",
+  "label": "Shared Character Engine",
+  "match": [
+    "portrait-library-*-ziprunner.zip"
+  ],
+  "command_subdir": ".",
+  "stop": [],
+  "stop_ports": [],
+  "build": [
+    "python tools/check_library.py",
+    "python tools/check_delivery.py",
+    "node --test --test-isolation=none clients/javascript/tests/*.test.cjs"
+  ],
+  "start": [
+    "python tools/serve.py --port 8940 --open"
+  ],
+  "build_window": "hidden",
+  "start_window": "managed",
+  "delete_missing": false,
+  "strip_single_root": false,
+  "protected_paths": [
+    ".git/**",
+    ".env",
+    ".env.*",
+    "logs/**",
+    "state/**",
+    "secrets/**",
+    ".runtime/**",
+    "dist/**"
+  ],
+  "require_clean_git_before_overlay": true,
+  "mechanisms_require_build_success": true,
+  "post_build_mechanisms": []
+}

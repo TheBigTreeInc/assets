@@ -1,0 +1,26 @@
+{
+  "schema": "character-engine.capabilities/v1",
+  "engine_version": "3.0.1",
+  "architecture_spec": "docs/CHARACTER_ENGINE_SPEC.adoc",
+  "contributor_spec": "docs/CONTRIBUTOR_SPEC.adoc",
+  "architecture_spec_version": "1.0.0",
+  "runtime_registry_schema": "portraits.registry/v1",
+  "numeric_encoding": 1,
+  "implemented": [
+    "portrait-composition",
+    "numeric-identity",
+    "rgb-colours",
+    "metadata-filtering",
+    "content-addressed-assets",
+    "verified-offline-cache",
+    "guided-creator"
+  ],
+  "specified_not_implemented": [
+    "alternate-object-representations",
+    "multi-piece-objects",
+    "named-attachment-anchors",
+    "standard-view-api",
+    "full-body-composition",
+    "directional-animation"
+  ]
+}

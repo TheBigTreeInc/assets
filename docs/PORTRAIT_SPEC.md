@@ -1,6 +1,6 @@
 # Portrait system specification
 
-Library client 3.0.0; numeric encoding 1; registry schema `portraits.registry/v1`.
+Library client 3.0.1; numeric encoding 1; registry schema `portraits.registry/v1`.
 These describe separate things. Updating the client or adding artwork does not change saved portrait values.
 
 ## Identity
@@ -119,4 +119,4 @@ The callback currently returns a six-digit hex colour or null. Games can draw th
 
 ## Migration scope
 
-3.0.0 replaces the earlier version-pinned JSON save and duplicated release-folder design. It deliberately does not read those old saves. Existing real item numbers were preserved where categories were retained; `face` is now `head`. Archived deliveries and Git history remain available. The standalone demo uses this new mechanism; existing Neon Control game ZIPs have not been rebuilt with this revision.
+3.0.0 introduced the replacement for the earlier version-pinned JSON saves and duplicated release folders. It does not read those older saves. Existing item numbers were preserved where categories were retained; `face` became `head`. 3.0.1 adds the architecture/contributor specifications, CI and ZipRunner packaging without changing the numeric format or rendering behavior. Archived deliveries and Git history remain available. Host application integration is a separate step.

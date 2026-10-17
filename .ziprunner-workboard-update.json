@@ -1,0 +1,52 @@
+{
+  "schema": "ziprunner.workboard-update.v1",
+  "project": "portrait-library",
+  "version": "3.0.1",
+  "summary": "Architecture and contributor specifications appended to the current portrait engine, with GitHub validation and a ZipRunner 2.3 source package.",
+  "implemented": [
+    {
+      "id": "CL-SPEC",
+      "title": "Character architecture and contributor contract",
+      "summary": "Define object identity, representations, multi-piece layers, anchors, views and delivery requirements, with implemented capabilities distinguished from future extensions.",
+      "operator_checks": [
+        "Read both AsciiDoc specifications and confirm the intended layering, representation, framing and artist requirements are clear. Confirm planned capabilities are not reported as implemented."
+      ]
+    },
+    {
+      "id": "CL-CI",
+      "title": "GitHub validation and packaging workflow",
+      "summary": "Run identity and engine checks and produce a validated source ZIP and checksum through a pinned GitHub workflow.",
+      "operator_checks": [
+        "Inspect a workflow run for this commit. Confirm identity checks and tests pass and the ZIP plus checksum are downloadable artifacts."
+      ]
+    },
+    {
+      "id": "CL-ZIP",
+      "title": "ZipRunner 2.3 source distribution",
+      "summary": "Deliver the current engine with source-root recipe, workboard, verification plan, explicit remaining work and a direct ZIP handoff.",
+      "operator_checks": [
+        "Register project key portrait-library in a separate disposable ZipRunner project with Python 3.10+ and Node 22+ on PATH. Stop an earlier managed preview if present, approve the local recipe, import the ZIP, run the checks, open the workshop, change a face and eye colour, save then restore the character. Confirm future representation/full-body features remain marked pending."
+      ]
+    }
+  ],
+  "remaining": [
+    {
+      "id": "CL-REPRESENTATIONS",
+      "title": "Alternate representations and multi-piece composition",
+      "summary": "Implement versioned representation selection, named anchors, layer validation and authored examples while preserving existing IDs and output.",
+      "priority": "high"
+    },
+    {
+      "id": "CL-VIEWS",
+      "title": "Standard views and full-body assets",
+      "summary": "Implement avatar, portrait and full-body framing with required artwork, bounds, compatibility and missing-capability tests.",
+      "priority": "high"
+    },
+    {
+      "id": "CL-ACCEPTANCE",
+      "title": "Recipient ZipRunner acceptance",
+      "summary": "Run the delivered recipe and manual feature checks on the recipient installation; producer tests do not establish operator acceptance.",
+      "priority": "medium"
+    }
+  ]
+}

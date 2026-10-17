@@ -1,0 +1,54 @@
+name: Validate and package character engine
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: character-engine-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Check permanent identities against the change base
+        env:
+          BASE_COMMIT: ${{ github.event.pull_request.base.sha || github.event.before }}
+        shell: bash
+        run: |
+          base="$BASE_COMMIT"
+          if [[ ! "$base" =~ ^[0-9a-f]{40}$ || "$base" =~ ^0+$ ]]; then
+            base="$(git rev-parse HEAD^)"
+          fi
+          python tools/check_library.py --against "$base"
+      - name: Read pinned ZipRunner 2.3 specification tools
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: pac-labs/ziprunner-spec
+          ref: 341005206094862853435ad68801be7ff28c4490
+          path: _ziprunner-spec
+          persist-credentials: false
+      - name: Validate engine and build verified source ZIP
+        run: python tools/package_ziprunner.py --validator _ziprunner-spec/tools/validate.py
+      - name: Upload ZipRunner ZIP and checksum
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: portrait-library-ziprunner-${{ github.sha }}
+          path: |
+            dist/portrait-library-*-ziprunner.zip
+            dist/portrait-library-*-ziprunner.zip.sha256
+          if-no-files-found: error
+          retention-days: 30
