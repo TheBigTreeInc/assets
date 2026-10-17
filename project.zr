@@ -11,7 +11,7 @@
   "build": [
     "python tools/check_library.py",
     "python tools/check_delivery.py",
-    "node --test --test-isolation=none clients/javascript/tests/*.test.cjs"
+    "node --test clients/javascript/tests/*.test.cjs"
   ],
   "start": [
     "python tools/serve.py --port 8940 --open"

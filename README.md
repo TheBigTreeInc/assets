@@ -8,7 +8,7 @@ Start `Start Portrait Workshop.cmd`, or run `python tools/serve.py --open`. The 
 
 Never reassign an existing ID or materially change its art/registration. Add new IDs, retire old choices while preserving their files, and change metadata names/tags/order freely. Save numeric portrait values as decimal **text**, not JavaScript Number. The encoding version is independent of releases and item additions.
 
-Validation: `python tools/check_library.py`; `node --test --test-isolation=none clients/javascript/tests/*.test.cjs`; browser suite at `/clients/javascript/tests/browser.html`. For additions to this repository also run `python tools/check_library.py --against HEAD` to check permanent identities.
+Validation: `python tools/check_library.py`; `node --test clients/javascript/tests/*.test.cjs`; browser suite at `/clients/javascript/tests/browser.html`. For additions to this repository also run `python tools/check_library.py --against HEAD` to check permanent identities.
 
 The old release directories and client art copies are removed from the active repository; Git history keeps earlier releases. Existing host application archives have not been rebuilt by this shared-library update.
 

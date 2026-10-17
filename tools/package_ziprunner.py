@@ -42,7 +42,7 @@ def build(output, validator, node):
     logs = {
         'library': run([sys.executable, 'tools/check_library.py']),
         'delivery': run([sys.executable, 'tools/check_delivery.py']),
-        'javascript': run([node, '--test', '--test-isolation=none', *[str(p.relative_to(ROOT)) for p in sorted((ROOT/'clients/javascript/tests').glob('*.test.cjs'))]])
+        'javascript': run([node, '--test', *[str(p.relative_to(ROOT)) for p in sorted((ROOT/'clients/javascript/tests').glob('*.test.cjs'))]])
     }
     for key, log in logs.items(): files['evidence/'+key+'.txt'] = log
     manifest = json.loads(files['ziprunner-manifest.json'])
