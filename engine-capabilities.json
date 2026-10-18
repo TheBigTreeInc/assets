@@ -1,6 +1,6 @@
 {
   "schema": "character-engine.capabilities/v1",
-  "engine_version": "3.0.2",
+  "engine_version": "3.0.8",
   "architecture_spec": "docs/CHARACTER_ENGINE_SPEC.adoc",
   "contributor_spec": "docs/CONTRIBUTOR_SPEC.adoc",
   "architecture_spec_version": "1.0.0",

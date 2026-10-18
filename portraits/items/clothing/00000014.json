@@ -1,0 +1,30 @@
+{
+  "id": 14,
+  "category": "clothing",
+  "name": "Scholar-mage mantle",
+  "type": "robe",
+  "tags": [
+    "pixel",
+    "fantasy",
+    "scholar"
+  ],
+  "order": 14,
+  "render": {
+    "image": "art/73afa5110f90b357365c2b467183f129ef629d433ca5334a236a5c59e4847f41.png",
+    "profile": "pixel",
+    "scale": [
+      0.9,
+      0.9
+    ],
+    "offset": [
+      0.05,
+      0.24
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation, with existing portrait-library components as style/registration references",
+    "date": "2026-10-18",
+    "prompt": "Create one original 1254x1254 transparent RGBA front-facing modular portrait clothing asset. An original fantasy scholar-mage mantle, layered over an inner tunic, with broad trim, an ornamental clasp and geometric embroidered edges. Isolated garment in the lower ~half of canvas with empty upper region, transparent neck opening, no head, skin, neck, mannequin, background, text or logos. Match the supplied pixel-art style and registration references from portrait-library 3.0.2. Neutral grayscale, refined crisp pixel shading, consistent frontal light and portrait-fit shoulders.",
+    "notes": "Generated as standalone portrait-layer artwork. Normalized to neutral grayscale preserving transparency for clothing tinting. Original generated PNG is not copied into canonical art/; the content-addressed canonical PNG is the sole stored artwork. Front-facing portrait only; no full-body or animation frames. Editable source unavailable."
+  }
+}

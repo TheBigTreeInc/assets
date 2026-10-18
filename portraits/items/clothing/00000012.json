@@ -1,0 +1,30 @@
+{
+  "id": 12,
+  "category": "clothing",
+  "name": "Ranger leather jerkin",
+  "type": "jerkin",
+  "tags": [
+    "pixel",
+    "fantasy",
+    "ranger"
+  ],
+  "order": 12,
+  "render": {
+    "image": "art/c722036c3a3e4755c2878244fabc8c3f13a3b3972fa0c40d54939ea923e2f9f6.png",
+    "profile": "pixel",
+    "scale": [
+      0.9,
+      0.9
+    ],
+    "offset": [
+      0.05,
+      0.23
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation, with existing portrait-library components as style/registration references",
+    "date": "2026-10-18",
+    "prompt": "Create one original 1254x1254 transparent RGBA front-facing modular portrait clothing asset. An original fantasy ranger leather lace-up jerkin with reinforced shoulder panels, quilted underlayer and rivets. Isolated garment in the lower ~half of canvas with empty upper region, transparent neck opening, no head, skin, neck, mannequin, background, text or logos. Match the supplied pixel-art style and registration references from portrait-library 3.0.2. Neutral grayscale, refined crisp pixel shading, consistent frontal light and portrait-fit shoulders.",
+    "notes": "Generated as standalone portrait-layer artwork. Normalized to neutral grayscale preserving transparency for clothing tinting. Original generated PNG is not copied into canonical art/; the content-addressed canonical PNG is the sole stored artwork. Front-facing portrait only; no full-body or animation frames. Editable source unavailable."
+  }
+}

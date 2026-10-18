@@ -41,9 +41,9 @@ jobs:
           ref: 341005206094862853435ad68801be7ff28c4490
           path: _ziprunner-spec
           persist-credentials: false
-      - name: Validate engine and build verified source ZIP
+      - name: Validate full-spec candidate then build registered-project compatibility ZIP
         run: python tools/package_ziprunner.py --validator _ziprunner-spec/tools/validate.py
-      - name: Upload ZipRunner ZIP and checksum
+      - name: Upload recipient compatibility ZIP and checksum
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: portrait-library-ziprunner-${{ github.sha }}

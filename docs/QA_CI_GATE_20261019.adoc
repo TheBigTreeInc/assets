@@ -1,0 +1,64 @@
+= CharacterBuilder CI Gate and Bounded Next-Pass Review — 2026-10-19
+:toc:
+
+== Observed exact-commit CI state
+
+* GitHub repository: https://github.com/TheBigTreeInc/assets
+* Pushed SHA: `56848d0fc1d521a6bedcf134e52bccd039167b5e` (2026-10-18 22:11 UTC).
+* Workflow: https://github.com/TheBigTreeInc/assets/actions/runs/39171121274 ; `push` event, completed with FAILURE.
+* Job `validate-package`: FAILED in `tools/check_delivery.py`, release identity assertion. Job `deploy-pages`: SKIPPED.
+* `tools/check_library.py --against` on that SHA reported 68 items; four new clothing IDs 12–15 exist only in the newer 72-asset delivered source until it is pushed.
+* No exact-commit successful artifact build, checksum, Pages publish or operator acceptance proven for this SHA.
+
+== Recorded CI defect (high priority)
+
+* Bug reference: `CL-CI-IDENTITY-BUG`
+* Priority: high
+* Reproduction: check out `56848d0fc1d521a6bedcf134e52bccd039167b5e`, then run `python tools/check_delivery.py` (or the Actions step `python tools/package_ziprunner.py --validator _ziprunner-spec/tools/validate.py`).
+* Actual: `AssertionError` at `board['project'] == plan['project'] == recipe['project_key'] == manifest['project']['key'] == key`, where `key` is the public npm name `portrait-library` but the registered project is `CharacterBuilder`. GitHub Actions run `39171121274` fails; Pages deployment is skipped.
+* Expected: public library name remains `portrait-library`, ZipRunner project identity remains `CharacterBuilder`; reject only actual project/version disagreement. Pin the checks to the new exact pushed SHA.
+* Repair review: source change and three focused regression tests in the 3.0.8 candidate; new GitHub CI and operator acceptance remain open.
+
+== Root cause and bounded repair scope
+
+The failed CI assertion equates two separate identities: `package.json.name=portrait-library` is the public library/catalog identifier; the configured ZipRunner project key in `project.zr`, workboard, manifest and verification plan is `CharacterBuilder`.
+
+Fix only source release identity checks and their focused regression coverage, align delivered project/version metadata, and repackage the 72-asset source. Do not change stable asset IDs, numeric portrait encoding, asset URLs, runtime data, or local Git registration. The root recipe is excluded only from the affected recipient ZipRunner compatibility ZIP; the already tracked Git recipe stays in the existing source checkout and the full-spec CI candidate includes it.
+
+== Durable Suggested Work Board tickets (operator-owned)
+
+The following are *preserved, not promoted*. This v1 ZIP `remaining[]` schema cannot encode the full trusted Suggested status or acceptance array. Trusted local ZipRunner state remains authoritative; this document preserves acceptance verbatim without attempting a state transition.
+
+=== define-next-pass
+
+* Priority: high
+* Status: suggested
+* Summary: Collect the latest project state and convert it into one reviewable implementation slice.
+
+Acceptance criteria:
+
+. The manager/QA session has reviewed the current project state.
+. The next pass has a bounded scope and screenshot/log/code-verifiable acceptance criteria.
+. Worker execution and promotion remain explicitly gated.
+
+=== engineering-establish-regression-harness
+
+* Priority: high
+* Status: suggested
+* Summary: Create the smallest reliable automated test entry point needed before legacy decomposition work proceeds.
+
+Acceptance criteria:
+
+. A documented focused test command runs locally and returns a meaningful failure code.
+. At least one behavior-level regression test covers an important current workflow.
+. TESTING.md documents focused, full-suite, and package validation commands.
+. The harness does not require secrets or production-only infrastructure for its default run.
+
+These two Suggested tickets remain distinct. The narrow CI identity regression does not complete the full regression harness ticket.
+
+== Verification and promotion gate
+
+. Before worker feature execution, run focused `python -m unittest discover -s tools/tests -p test_release_identity.py -v`, full `python tools/check_library.py`, `python tools/check_delivery.py` and `node --test clients/javascript/tests/*.test.cjs`.
+. After the operator approves and pushes, verify the *new SHA* has a successful `validate-package`, a downloadable ZIP and checksum, and a successful `deploy-pages` (not skipped). Never transpose prior SHA outcomes.
+. Visually confirm all four outfits in the published workshop and select/save/restore character codes; operator approval is distinct from CI.
+. After the CI gate is satisfied, the first recommended manager/QA item is `define-next-pass`. Bounded scope for that pass: review the current library architecture, front-portrait layers, public publishing contract and acceptance obligations. No refactor, feature work, automated dispatch, task promotion, tag, push or release is pre-authorized.

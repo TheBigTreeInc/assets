@@ -1,0 +1,30 @@
+{
+  "id": 15,
+  "category": "clothing",
+  "name": "Futuristic utility jacket",
+  "type": "jacket",
+  "tags": [
+    "pixel",
+    "cyberpunk",
+    "utility"
+  ],
+  "order": 15,
+  "render": {
+    "image": "art/5ee2e66f473f06e960b031711341158c8f4788d2ac2af1a373690b262975e154.png",
+    "profile": "pixel",
+    "scale": [
+      0.9,
+      0.9
+    ],
+    "offset": [
+      0.05,
+      0.24
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation, with existing portrait-library components as style/registration references",
+    "date": "2026-10-18",
+    "prompt": "Create one original 1254x1254 transparent RGBA front-facing modular portrait clothing asset. An original lightweight techwear jacket with a center zipper, stand collar, shoulder reinforcements, and simple pocket panels. Isolated garment in the lower ~half of canvas with empty upper region, transparent neck opening, no head, skin, neck, mannequin, background, text or logos. Match the supplied pixel-art style and registration references from portrait-library 3.0.2. Neutral grayscale, refined crisp pixel shading, consistent frontal light and portrait-fit shoulders.",
+    "notes": "Generated as standalone portrait-layer artwork. Normalized to neutral grayscale preserving transparency for clothing tinting. Original generated PNG is not copied into canonical art/; the content-addressed canonical PNG is the sole stored artwork. Front-facing portrait only; no full-body or animation frames. Editable source unavailable."
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schema": "ziprunner.verification-plan/v1",
-  "project": "portrait-library",
-  "version": "3.0.2",
+  "project": "CharacterBuilder",
+  "version": "3.0.8",
   "tasks": [
     {
       "id": "CL-SPEC",
@@ -37,7 +37,7 @@
       "criteria": [
         {
           "id": "CL-ZIP-AC1",
-          "description": "Deliver the current engine with source-root recipe, workboard, verification plan, explicit remaining work and a direct ZIP handoff.",
+          "description": "Deliver a registered-project compatibility ZIP without root recipe proposal for ZipRunner 1.2.304.125; maintain full recipe in Git and validate full-spec candidate in CI.",
           "mode": "mixed",
           "checks": [
             "CL-DOCS-AUTO",
@@ -57,6 +57,21 @@
           "checks": [
             "CL-ENGINE-AUTO",
             "CL-ACCESSORIES-MANUAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CL-OUTFITS",
+      "criteria": [
+        {
+          "id": "CL-OUTFITS-AC1",
+          "description": "Register four original, isolated, recolourable portrait outfits as clothing IDs 12–15 without changing old IDs or canonical rendering behavior.",
+          "mode": "mixed",
+          "checks": [
+            "CL-ENGINE-AUTO",
+            "CL-PACKAGE-AUTO",
+            "CL-OUTFITS-MANUAL"
           ]
         }
       ]
@@ -86,7 +101,8 @@
         "All 4480 facial combinations roundtrip without ID changes.",
         "Metadata ordering and labels do not change encoded values.",
         "Unknown IDs are rejected.",
-        "New headwear and neckwear selections and colours are independent; old character codes are unchanged."
+        "New headwear and neckwear selections and colours are independent; old character codes are unchanged.",
+        "New clothing IDs 12–15 can be encoded and decoded without affecting existing IDs and images."
       ]
     },
     {
@@ -120,7 +136,7 @@
       "kind": "manual",
       "stage": "acceptance",
       "description": "ZipRunner 2.3 source distribution review",
-      "instructions": "Register project key portrait-library in a separate disposable ZipRunner project with Python 3.10+ and Node 22+ on PATH. Stop an earlier managed preview if present, approve the local recipe, import the ZIP, run the checks, open the workshop, change a face and eye colour, save then restore the character. Confirm future representation/full-body features remain marked pending."
+      "instructions": "Import 3.0.6 into the existing CharacterBuilder project; confirm there is no recipe case-mismatch/proposal, then run build and inspect the workshop."
     },
     {
       "id": "CL-ACCESSORIES-MANUAL",
@@ -128,6 +144,13 @@
       "stage": "acceptance",
       "description": "Independent portrait accessories and feminine hairstyles",
       "instructions": "In Hair select each new hairstyle and headwear; in Clothing select a bow tie without changing the shirt. Change each accessory colour, save/restore the code and check alignment on several heads. Headbands occupy one headwear slot."
+    },
+    {
+      "id": "CL-OUTFITS-MANUAL",
+      "kind": "manual",
+      "stage": "acceptance",
+      "description": "Clothing registration and composition inspection",
+      "instructions": "In the workshop choose clothing IDs 12, 13, 14, and 15 on several heads. Verify neck and head remain visible, garments stay registered, clothing tint works, a save/restore code retains each choice, and no other slot changes. Perform this before approving publication."
     }
   ]
 }

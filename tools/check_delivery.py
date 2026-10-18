@@ -9,14 +9,21 @@ def read(name):
 def check():
     package = read('package.json')
     capabilities = read('engine-capabilities.json')
-    recipe = read('project.zr')
+    recipe = read('project.zr') if (ROOT / 'project.zr').exists() else None
     board = read('.ziprunner-workboard-update.json')
     manifest = read('ziprunner-manifest.json')
     plan = read('ziprunner-verification-plan.json')
-    key, version = package['name'], package['version']
-    assert key == 'portrait-library'
-    assert board['project'] == plan['project'] == recipe['project_key'] == manifest['project']['key'] == key
-    assert board['version'] == plan['version'] == capabilities['engine_version'] == manifest['project']['version'] == version
+    version = package['version']
+    assert package['name'] == 'portrait-library', 'public package/catalog identity changed'
+    key = board['project']
+    assert key == 'CharacterBuilder', 'expected registered ZipRunner key CharacterBuilder, not public catalog name'
+    assert board['project'] == plan['project'] == manifest['project']['key'] == key, 'ZipRunner metadata project mismatch'
+    if recipe is not None:
+        assert recipe['project_key'] == key
+    else:
+        # ZipRunner 1.2.304.125 registered-project compatibility package.
+        assert (ROOT / 'docs/ZIPRUNNER_RECIPE_CASE_WORKAROUND.md').is_file()
+    assert board['version'] == plan['version'] == capabilities['engine_version'] == manifest['project']['version'] == version, 'release version mismatch'
     assert capabilities['implemented'] and capabilities['specified_not_implemented']
     assert not set(capabilities['implemented']) & set(capabilities['specified_not_implemented'])
     implemented = {item['id'] for item in board['implemented']}

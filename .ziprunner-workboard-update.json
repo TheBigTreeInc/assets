@@ -1,8 +1,8 @@
 {
   "schema": "ziprunner.workboard-update.v1",
-  "project": "portrait-library",
-  "version": "3.0.2",
-  "summary": "Portrait library with new hairstyles, independent headwear and neckwear, existing gear additions, normative specifications, Pages and ZipRunner delivery.",
+  "project": "CharacterBuilder",
+  "version": "3.0.8",
+  "summary": "CI repair: correct independent library/package and registered ZipRunner project identities, add behavior-level regression coverage, preserve 72-asset library and four outfits. The exact pushed SHA 56848d0 failed CI; operator review and publishing remain blocked until new exact-commit CI passes.",
   "implemented": [
     {
       "id": "CL-SPEC",
@@ -15,17 +15,17 @@
     {
       "id": "CL-CI",
       "title": "GitHub validation and packaging workflow",
-      "summary": "Run identity and engine checks and produce a validated source ZIP and checksum through a pinned GitHub workflow.",
+      "summary": "The pushed SHA 56848d0 failed release identity checks because package name portrait-library and registered ZipRunner project CharacterBuilder were compared as the same value. This source contains a CI identity assertion repair plus focused regression tests; it remains unverified by new exact-commit CI and requires operator acceptance.",
       "operator_checks": [
-        "Inspect a workflow run for this commit. Confirm identity checks and tests pass and the ZIP plus checksum are downloadable artifacts."
+        "Inspect GitHub Actions workflow for the NEW pushed repair commit (not the failed 56848d0); confirm validate-package passes, the pinned validator produces the ZIP+checksum, and deploy-pages is successful. Do not use older commit test results for acceptance."
       ]
     },
     {
       "id": "CL-ZIP",
       "title": "ZipRunner 2.3 source distribution",
-      "summary": "Deliver the current engine with source-root recipe, workboard, verification plan, explicit remaining work and a direct ZIP handoff.",
+      "summary": "Deliver tested source and workboard in a project-bound compatibility ZIP; defer root recipe proposal until ZipRunner normalizes project names consistently.",
       "operator_checks": [
-        "Register project key portrait-library in a separate disposable ZipRunner project with Python 3.10+ and Node 22+ on PATH. Stop an earlier managed preview if present, approve the local recipe, import the ZIP, run the checks, open the workshop, change a face and eye colour, save then restore the character. Confirm future representation/full-body features remain marked pending."
+        "Import the recipe-free compatibility ZIP into the already registered CharacterBuilder project pointing to portrait-library; verify asset checks, JS tests and opening workshop. Do not create a new project or alter user configuration. Confirm the update did not request a recipe proposal."
       ]
     },
     {
@@ -34,6 +34,14 @@
       "summary": "Add three hairstyles, bow tie and three headbands, with independent optional headwear/neckwear IDs and colours, stable old codes and guided controls.",
       "operator_checks": [
         "In Hair select each new hairstyle and headwear; in Clothing select a bow tie without changing the shirt. Change each accessory colour, save/restore the code and check alignment on several heads. Headbands occupy one headwear slot."
+      ]
+    },
+    {
+      "id": "CL-OUTFITS",
+      "title": "Four tintable modular portrait outfits",
+      "summary": "Add four original grayscale RGBA outfits with permanent clothing IDs 12-15 and canonical artwork paths; preserve all existing assets, stable IDs, layers, numeric codes and direct Pages publishing.",
+      "operator_checks": [
+        "In Clothing, select Ranger leather jerkin, Tailored waistcoat, Scholar-mage mantle and Futuristic utility jacket; confirm face/neck are not painted into garment, tint each garment, save/restore codes, and inspect the fit against multiple heads in the portrait workshop."
       ]
     }
   ],
@@ -53,8 +61,20 @@
     {
       "id": "CL-ACCEPTANCE",
       "title": "Recipient ZipRunner acceptance",
-      "summary": "Run the delivered recipe and manual feature checks on the recipient installation; producer tests do not establish operator acceptance.",
+      "summary": "Configure or attach the existing local source directory to its Git working tree, satisfy ZipRunner clean-Git guard without discarding local changes, and run recipient build/visual verification and publication review.",
       "priority": "medium"
+    },
+    {
+      "id": "define-next-pass",
+      "title": "Define the next bounded implementation pass",
+      "summary": "Local durable Work Board status is SUGGESTED, not approved. Review current project only after exact-commit CI passes; define a bounded screenshot/log/code-verifiable slice with execution/promotion gated. Preserve three original acceptance criteria in docs/QA_CI_GATE_20261019.adoc.",
+      "priority": "high"
+    },
+    {
+      "id": "engineering-establish-regression-harness",
+      "title": "Establish a focused regression test harness",
+      "summary": "Local durable Work Board status is SUGGESTED, not approved. Document focused test command, behavior-level tests, TESTING.md focused/full/package commands, and no-production-secrets requirement. A narrow CI identity regression test does not close this broader ticket. Preserve four original acceptance criteria in docs/QA_CI_GATE_20261019.adoc.",
+      "priority": "high"
     }
   ]
 }

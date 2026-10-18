@@ -1,17 +1,59 @@
 {
   "schema": "ziprunner.project-state/v1",
   "project": "CharacterBuilder",
-  "current_version": "",
-  "updated_at": "2026-10-18T23:50:11.224582",
-  "summary": "Describe the current purpose and implementation state of CharacterBuilder.",
+  "current_version": "3.0.8",
+  "updated_at": "2026-10-19T01:04:35.084417",
+  "summary": "CI repair: correct independent library/package and registered ZipRunner project identities, add behavior-level regression coverage, preserve 72-asset library and four outfits. The exact pushed SHA 56848d0 failed CI; operator review and publishing remain blocked until new exact-commit CI passes.",
   "current_focus": "Have the manager/QA session review this starter state and define the next bounded implementation pass.",
   "manager_review": {
     "status": "needed",
     "updated_at": "2026-10-18T15:12:01.542410",
     "notes": "Starter state created locally; manager/QA review is still required."
   },
-  "passes": [],
+  "passes": [
+    {
+      "id": "zip:03a1a32f091f767660cb5be8",
+      "version": "3.0.8",
+      "date": "2026-10-19T01:04:32",
+      "summary": "CI repair: correct independent library/package and registered ZipRunner project identities, add behavior-level regression coverage, preserve 72-asset library and four outfits. The exact pushed SHA 56848d0 failed CI; operator review and publishing remain blocked until new exact-commit CI passes.",
+      "status": "build_passed_operator_unverified",
+      "artifact_sha256": "03a1a32f091f767660cb5be80d2a280b7fd7f80dc2acc301b7b8fb6c223bec31",
+      "zip": "portrait-library-3.0.8-ziprunner.zip",
+      "build_log": "C:\\Users\\dorbi\\source\\ziprunner\\logs\\CharacterBuilder\\20261019-010422-portrait-library-3.0.8-ziprunner.log",
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065",
+      "implemented": [
+        "CL-SPEC",
+        "CL-CI",
+        "CL-ZIP",
+        "CL-ACCESSORIES",
+        "CL-OUTFITS"
+      ],
+      "remaining": [
+        "CL-REPRESENTATIONS",
+        "CL-VIEWS",
+        "CL-ACCEPTANCE",
+        "define-next-pass",
+        "engineering-establish-regression-harness"
+      ]
+    }
+  ],
   "roadmap": [
+    {
+      "id": "CL-REPRESENTATIONS",
+      "status": "planned",
+      "title": "Alternate representations and multi-piece composition",
+      "summary": "Implement versioned representation selection, named anchors, layer validation and authored examples while preserving existing IDs and output.",
+      "priority": "high",
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065"
+    },
+    {
+      "id": "CL-VIEWS",
+      "status": "planned",
+      "title": "Standard views and full-body assets",
+      "summary": "Implement avatar, portrait and full-body framing with required artwork, bounds, compatibility and missing-capability tests.",
+      "priority": "high",
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065"
+    },
     {
       "id": "define-next-pass",
       "title": "Define the next bounded implementation pass",
@@ -23,14 +65,15 @@
         "The next pass has a bounded scope and screenshot/log/code-verifiable acceptance criteria.",
         "Worker execution and promotion remain explicitly gated."
       ],
-      "starter_placeholder": true
+      "starter_placeholder": true,
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065"
     },
     {
       "id": "engineering-establish-regression-harness",
       "title": "Establish a focused regression test harness",
       "summary": "Create the smallest reliable automated test entry point needed before legacy decomposition work proceeds.",
       "priority": "high",
-      "status": "suggested",
+      "status": "deferred",
       "acceptance_criteria": [
         "A documented focused test command runs locally and returns a meaningful failure code.",
         "At least one behavior-level regression test covers an important current workflow.",
@@ -38,23 +81,148 @@
         "The harness does not require secrets or production-only infrastructure for its default run."
       ],
       "created_at": "2026-10-18T23:50:01",
-      "updated_at": "2026-10-18T23:50:01",
+      "updated_at": "2026-10-19T01:04:34",
       "ziprunner_local_item": true,
       "engineering_generated": true,
       "suggestion_origin": "engineering audit",
       "suggestion_source_title": "Engineering standard and measured debt",
       "suggestion_source_path": "ENGINEERING_STANDARD.adoc",
-      "engineering_kind": "test_harness"
+      "engineering_kind": "test_harness",
+      "status_updated_at": "2026-10-19T01:04:34",
+      "engineering_window_parked": false,
+      "engineering_window_parked_at": "2026-10-19T00:32:32",
+      "engineering_window_reason": "ZipRunner parked this generated pass because the global engineering Suggested window is limited to 3 item(s) and 1 item(s) per project. The durable improvement plan is unchanged.",
+      "notes": [
+        {
+          "at": "2026-10-19T00:32:32",
+          "note": "ZipRunner parked this generated pass because the global engineering Suggested window is limited to 3 item(s) and 1 item(s) per project. The durable improvement plan is unchanged."
+        },
+        {
+          "at": "2026-10-19T01:04:34",
+          "note": "ZipRunner reopened this pass because a slot became available in the global engineering Suggested window."
+        }
+      ],
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065",
+      "ziprunner_status_override": true,
+      "engineering_window_reactivated_at": "2026-10-19T01:04:34"
+    },
+    {
+      "id": "CL-ACCEPTANCE",
+      "status": "planned",
+      "title": "Recipient ZipRunner acceptance",
+      "summary": "Configure or attach the existing local source directory to its Git working tree, satisfy ZipRunner clean-Git guard without discarding local changes, and run recipient build/visual verification and publication review.",
+      "priority": "medium",
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065"
+    },
+    {
+      "id": "CL-ACCESSORIES",
+      "status": "review",
+      "title": "Independent portrait accessories and feminine hairstyles",
+      "implementation_summary": "Add three hairstyles, bow tie and three headbands, with independent optional headwear/neckwear IDs and colours, stable old codes and guided controls.",
+      "operator_checks": [
+        "In Hair select each new hairstyle and headwear; in Clothing select a bow tie without changing the shirt. Change each accessory colour, save/restore the code and check alignment on several heads. Headbands occupy one headwear slot."
+      ],
+      "acceptance_criteria": [
+        "In Hair select each new hairstyle and headwear; in Clothing select a bow tie without changing the shirt. Change each accessory colour, save/restore the code and check alignment on several heads. Headbands occupy one headwear slot."
+      ],
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065",
+      "candidate_version": "3.0.8",
+      "candidate_sha256": "03a1a32f091f767660cb5be80d2a280b7fd7f80dc2acc301b7b8fb6c223bec31",
+      "candidate_build_status": "passed",
+      "candidate_recorded_at": "2026-10-19T01:04:32",
+      "updated_at": "2026-10-19T01:04:32",
+      "status_updated_at": "2026-10-19T01:04:32",
+      "review_reason": "build_passed_operator_unverified"
+    },
+    {
+      "id": "CL-CI",
+      "status": "review",
+      "title": "GitHub validation and packaging workflow",
+      "implementation_summary": "The pushed SHA 56848d0 failed release identity checks because package name portrait-library and registered ZipRunner project CharacterBuilder were compared as the same value. This source contains a CI identity assertion repair plus focused regression tests; it remains unverified by new exact-commit CI and requires operator acceptance.",
+      "operator_checks": [
+        "Inspect GitHub Actions workflow for the NEW pushed repair commit (not the failed 56848d0); confirm validate-package passes, the pinned validator produces the ZIP+checksum, and deploy-pages is successful. Do not use older commit test results for acceptance."
+      ],
+      "acceptance_criteria": [
+        "Inspect GitHub Actions workflow for the NEW pushed repair commit (not the failed 56848d0); confirm validate-package passes, the pinned validator produces the ZIP+checksum, and deploy-pages is successful. Do not use older commit test results for acceptance."
+      ],
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065",
+      "candidate_version": "3.0.8",
+      "candidate_sha256": "03a1a32f091f767660cb5be80d2a280b7fd7f80dc2acc301b7b8fb6c223bec31",
+      "candidate_build_status": "passed",
+      "candidate_recorded_at": "2026-10-19T01:04:32",
+      "updated_at": "2026-10-19T01:04:32",
+      "status_updated_at": "2026-10-19T01:04:32",
+      "review_reason": "build_passed_operator_unverified"
+    },
+    {
+      "id": "CL-OUTFITS",
+      "status": "review",
+      "title": "Four tintable modular portrait outfits",
+      "implementation_summary": "Add four original grayscale RGBA outfits with permanent clothing IDs 12-15 and canonical artwork paths; preserve all existing assets, stable IDs, layers, numeric codes and direct Pages publishing.",
+      "operator_checks": [
+        "In Clothing, select Ranger leather jerkin, Tailored waistcoat, Scholar-mage mantle and Futuristic utility jacket; confirm face/neck are not painted into garment, tint each garment, save/restore codes, and inspect the fit against multiple heads in the portrait workshop."
+      ],
+      "acceptance_criteria": [
+        "In Clothing, select Ranger leather jerkin, Tailored waistcoat, Scholar-mage mantle and Futuristic utility jacket; confirm face/neck are not painted into garment, tint each garment, save/restore codes, and inspect the fit against multiple heads in the portrait workshop."
+      ],
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065",
+      "candidate_version": "3.0.8",
+      "candidate_sha256": "03a1a32f091f767660cb5be80d2a280b7fd7f80dc2acc301b7b8fb6c223bec31",
+      "candidate_build_status": "passed",
+      "candidate_recorded_at": "2026-10-19T01:04:32",
+      "updated_at": "2026-10-19T01:04:32",
+      "status_updated_at": "2026-10-19T01:04:32",
+      "review_reason": "build_passed_operator_unverified"
+    },
+    {
+      "id": "CL-SPEC",
+      "status": "review",
+      "title": "Character architecture and contributor contract",
+      "implementation_summary": "Define object identity, representations, multi-piece layers, anchors, views and delivery requirements, with implemented capabilities distinguished from future extensions.",
+      "operator_checks": [
+        "Read both AsciiDoc specifications and confirm the intended layering, representation, framing and artist requirements are clear. Confirm planned capabilities are not reported as implemented."
+      ],
+      "acceptance_criteria": [
+        "Read both AsciiDoc specifications and confirm the intended layering, representation, framing and artist requirements are clear. Confirm planned capabilities are not reported as implemented."
+      ],
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065",
+      "candidate_version": "3.0.8",
+      "candidate_sha256": "03a1a32f091f767660cb5be80d2a280b7fd7f80dc2acc301b7b8fb6c223bec31",
+      "candidate_build_status": "passed",
+      "candidate_recorded_at": "2026-10-19T01:04:32",
+      "updated_at": "2026-10-19T01:04:32",
+      "status_updated_at": "2026-10-19T01:04:32",
+      "review_reason": "build_passed_operator_unverified"
+    },
+    {
+      "id": "CL-ZIP",
+      "status": "review",
+      "title": "ZipRunner 2.3 source distribution",
+      "implementation_summary": "Deliver tested source and workboard in a project-bound compatibility ZIP; defer root recipe proposal until ZipRunner normalizes project names consistently.",
+      "operator_checks": [
+        "Import the recipe-free compatibility ZIP into the already registered CharacterBuilder project pointing to portrait-library; verify asset checks, JS tests and opening workshop. Do not create a new project or alter user configuration. Confirm the update did not request a recipe proposal."
+      ],
+      "acceptance_criteria": [
+        "Import the recipe-free compatibility ZIP into the already registered CharacterBuilder project pointing to portrait-library; verify asset checks, JS tests and opening workshop. Do not create a new project or alter user configuration. Confirm the update did not request a recipe proposal."
+      ],
+      "canonical_project_id": "5d8910a3-c189-4a0a-875b-8666fec69065",
+      "candidate_version": "3.0.8",
+      "candidate_sha256": "03a1a32f091f767660cb5be80d2a280b7fd7f80dc2acc301b7b8fb6c223bec31",
+      "candidate_build_status": "passed",
+      "candidate_recorded_at": "2026-10-19T01:04:32",
+      "updated_at": "2026-10-19T01:04:32",
+      "status_updated_at": "2026-10-19T01:04:32",
+      "review_reason": "build_passed_operator_unverified"
     }
   ],
   "ziprunner_managed": {
     "bridge": true,
     "generated": true,
     "managed_by": "ZipRunner",
-    "managed_by_version": "1.2.304.127",
+    "managed_by_version": "1.2.304.128",
     "seed_source": "durable_state",
     "reason": "missing_manifest_auto_repair",
-    "updated_at": "2026-10-18T23:50:11.224582",
+    "updated_at": "2026-10-19T01:04:35.084417",
     "durable_state_path": "C:\\Users\\dorbi\\source\\ziprunner\\state\\project-pass-state\\CharacterBuilder.json"
   }
 }

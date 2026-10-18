@@ -29,3 +29,18 @@ test('Retired IDs can render and decode but leave the picker',()=>{const m=struc
 test('Malformed, truncated, reordered and trailing codes fail',()=>{const bytes=Buffer.from(BigInt(api.encode(registry,base)).toString(16),'hex'),asCode=b=>BigInt('0x'+b.toString('hex')).toString();for(const c of ['0','01','-1','1.2','1e100','x',null,123])assert.throws(()=>api.decode(registry,c));assert.throws(()=>api.decode(registry,asCode(bytes.subarray(0,-1))));assert.throws(()=>api.decode(registry,asCode(Buffer.concat([bytes,Buffer.from([0])]))));const bad=Buffer.from(bytes);bad[0]=2;assert.throws(()=>api.decode(registry,asCode(bad)));bad[0]=1;bad[3]=0;assert.throws(()=>api.decode(registry,asCode(bad)));});
 test('None is zero, colours are exact 24-bit integers, IDs are not dropdown positions',()=>{const v=structuredClone(base);for(const c of index.categories)if(c.nullable)v.parts[c.key]=0;for(const c of index.colors)v.colors[c.key]=c.id%2?0:0xffffff;assert.deepEqual(api.decode(registry,api.encode(registry,v)),v);assert.equal(api.rgb('#123456'),0x123456);assert.equal(api.hex(0x000001),'#000001');assert.throws(()=>api.hex(0x1000000));assert.throws(()=>api.rgb('red'));});
 test('Optional default colours have a canonical omitted representation',()=>{const i=structuredClone(index);i.colors.push({id:Math.max(...i.colors.map(c=>c.id))+1,key:'tattoo',label:'Tattoo',required:false,default:'#000000'});const r=api.compile(i,items),code=api.encode(registry,base);assert.equal(api.decode(r,code).colors.tattoo,0);assert.equal(api.encode(r,api.decode(r,code)),code);});
+
+test('Four added clothing IDs are selectable and roundtrip without changing legacy codes',()=>{
+ const clothing=index.categories.find(c=>c.key==='clothing');
+ const before=clothing.items.slice(0,11);
+ assert.deepEqual(before,Array.from({length:11},(_,i)=>`items/clothing/${String(i+1).padStart(8,'0')}.json`));
+ const names=['Ranger leather jerkin','Tailored waistcoat','Scholar-mage mantle','Futuristic utility jacket'];
+ for(let id=12;id<=15;id++){
+  const p=`items/clothing/${String(id).padStart(8,'0')}.json`;
+  assert(clothing.items.includes(p));assert.equal(items[p].id,id);assert.equal(items[p].name,names[id-12]);
+  assert.equal(items[p].render.profile,'pixel');assert.equal(items[p].category,'clothing');
+  const appearance=structuredClone(base);appearance.parts.clothing=id;appearance.colors.clothing=0x4268ac;
+  const code=api.encode(registry,appearance);assert.deepEqual(api.decode(registry,code),appearance);
+  assert.equal(system.choices('clothing').find(c=>c.id===id).label,names[id-12]);
+ }
+});

@@ -1,0 +1,30 @@
+{
+  "id": 13,
+  "category": "clothing",
+  "name": "Tailored waistcoat",
+  "type": "waistcoat",
+  "tags": [
+    "pixel",
+    "formal",
+    "everyday"
+  ],
+  "order": 13,
+  "render": {
+    "image": "art/0ca28556b7df5c1036098c09547b97742dc28eeccf21cbacfbb600141924666b.png",
+    "profile": "pixel",
+    "scale": [
+      0.9,
+      0.9
+    ],
+    "offset": [
+      0.05,
+      0.23
+    ]
+  },
+  "provenance": {
+    "method": "OpenAI built-in image generation, with existing portrait-library components as style/registration references",
+    "date": "2026-10-18",
+    "prompt": "Create one original 1254x1254 transparent RGBA front-facing modular portrait clothing asset. An original formal buttoned waistcoat with a light collared dress shirt, structured lapels and a discreet welt pocket. Isolated garment in the lower ~half of canvas with empty upper region, transparent neck opening, no head, skin, neck, mannequin, background, text or logos. Match the supplied pixel-art style and registration references from portrait-library 3.0.2. Neutral grayscale, refined crisp pixel shading, consistent frontal light and portrait-fit shoulders.",
+    "notes": "Generated as standalone portrait-layer artwork. Normalized to neutral grayscale preserving transparency for clothing tinting. Original generated PNG is not copied into canonical art/; the content-addressed canonical PNG is the sole stored artwork. Front-facing portrait only; no full-body or animation frames. Editable source unavailable."
+  }
+}
