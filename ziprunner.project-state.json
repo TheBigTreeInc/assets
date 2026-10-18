@@ -1,0 +1,60 @@
+{
+  "schema": "ziprunner.project-state/v1",
+  "project": "CharacterBuilder",
+  "current_version": "",
+  "updated_at": "2026-10-18T23:50:11.224582",
+  "summary": "Describe the current purpose and implementation state of CharacterBuilder.",
+  "current_focus": "Have the manager/QA session review this starter state and define the next bounded implementation pass.",
+  "manager_review": {
+    "status": "needed",
+    "updated_at": "2026-10-18T15:12:01.542410",
+    "notes": "Starter state created locally; manager/QA review is still required."
+  },
+  "passes": [],
+  "roadmap": [
+    {
+      "id": "define-next-pass",
+      "title": "Define the next bounded implementation pass",
+      "status": "suggested",
+      "priority": "high",
+      "summary": "Collect the latest project state and convert it into one reviewable implementation slice.",
+      "acceptance_criteria": [
+        "The manager/QA session has reviewed the current project state.",
+        "The next pass has a bounded scope and screenshot/log/code-verifiable acceptance criteria.",
+        "Worker execution and promotion remain explicitly gated."
+      ],
+      "starter_placeholder": true
+    },
+    {
+      "id": "engineering-establish-regression-harness",
+      "title": "Establish a focused regression test harness",
+      "summary": "Create the smallest reliable automated test entry point needed before legacy decomposition work proceeds.",
+      "priority": "high",
+      "status": "suggested",
+      "acceptance_criteria": [
+        "A documented focused test command runs locally and returns a meaningful failure code.",
+        "At least one behavior-level regression test covers an important current workflow.",
+        "TESTING.md documents focused, full-suite, and package validation commands.",
+        "The harness does not require secrets or production-only infrastructure for its default run."
+      ],
+      "created_at": "2026-10-18T23:50:01",
+      "updated_at": "2026-10-18T23:50:01",
+      "ziprunner_local_item": true,
+      "engineering_generated": true,
+      "suggestion_origin": "engineering audit",
+      "suggestion_source_title": "Engineering standard and measured debt",
+      "suggestion_source_path": "ENGINEERING_STANDARD.adoc",
+      "engineering_kind": "test_harness"
+    }
+  ],
+  "ziprunner_managed": {
+    "bridge": true,
+    "generated": true,
+    "managed_by": "ZipRunner",
+    "managed_by_version": "1.2.304.127",
+    "seed_source": "durable_state",
+    "reason": "missing_manifest_auto_repair",
+    "updated_at": "2026-10-18T23:50:11.224582",
+    "durable_state_path": "C:\\Users\\dorbi\\source\\ziprunner\\state\\project-pass-state\\CharacterBuilder.json"
+  }
+}

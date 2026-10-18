@@ -1,7 +1,27 @@
-# Maintaining the shared character engine
+# Agent entry point for portrait-library
 
-Read docs/CHARACTER_ENGINE_SPEC.adoc and docs/CONTRIBUTOR_SPEC.adoc first. They are normative for architecture and contributions. docs/PORTRAIT_SPEC.md is the current implemented runtime contract. Keep engine-capabilities.json accurate; specified future features must not be reported as implemented.
+Read in this order before changing code:
 
-Keep one artwork store and one descriptor per real item. Never duplicate release art folders or client art. Item/category IDs and existing render identities remain permanent. Adding future alternate representations requires an explicit adapter/schema while retaining existing output. Labels, tags, order, type and retirement are presentation metadata.
+1. `INSTRUCT.md` — product intent and non-negotiable behavior.
+2. `DESIGN.adoc` — architecture, data boundaries, and update flow.
+3. `PROJECT_PLAN.adoc` — accepted milestones, current scope, and risks.
+4. `ENGINEERING_STANDARD.adoc` — size, design, dependency, and regression rules.
+5. `CODING.md` — implementation and LLM/agent guardrails.
+6. `TESTING.md` — focused, full-suite, package, and regression validation.
+7. `project.zr` — ZipRunner overlay/build/start/release behavior.
 
-Run tools/check_library.py --against the actual change base, tools/check_delivery.py and the JavaScript tests. Keep both AsciiDoc specs, the working example, GitHub workflow and ZipRunner 2.3 metadata with the source. Package using tools/package_ziprunner.py and the pinned upstream validator. Do not include local configuration, credentials, caches or extracted delivery copies.
+## Working contract
+- Use the current source tree as the source of truth.
+- Keep each change bounded to the accepted task. For a generated engineering pass, honor its review-versus-extraction stage.
+- Preserve behavior and local configuration unless replacement is explicit.
+- Add a regression test for every defect.
+- Do not grow files already above the configured limit without extracting a coherent responsibility.
+- Update design, schemas, and docs when their contract changes.
+- Automated work requires a covered design boundary with exact references and no unresolved decision gaps.
+- A missing decision blocks only the affected card; do not halt unrelated covered work or choose a default silently.
+- Run focused tests first and the full suite before producing an artifact.
+- Manager/QA may technically approve a completed candidate for operator testing, but only the operator may mark it Done after observable checks pass.
+- Failed operator checks return the exact managed task to bounded development; do not require manual board-state movement.
+- Never apply, promote, publish, push, tag, or release without explicit authority.
+
+Machine-readable thresholds live in `ziprunner.quality.json`.
